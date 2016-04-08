@@ -132,27 +132,17 @@ header {
   -webkit-font-smoothing:subpixel-antialiased;
 }
 
-#toc{border-bottom:1px solid #efefed;padding-bottom:.5em}
-#toc>ul{margin-left:.125em}
-#toc ul.sectlevel0>li>a{font-style:italic}
-#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc {
+  width: 95%
+}
+
+#toc>ol{margin-left:.125em}
+#toc ul.tocLevel1 ul.tocLevel2{margin:.5em 0}
 #toc li{line-height:1.3334;margin-top:.3334em}
-#toc a{text-decoration:none}
-#toc a:active{text-decoration:underline}
-#toc.toc2{margin-top:0!important;background-color:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #efefed;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
-#toc.toc2>ul{margin-bottom:0}
-#toc.toc2 ul ul{margin-left:0;padding-left:1em}
-#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
-#toc.toc2{width: 95%}
 
 strong {
   color:#222;
   font-weight:700;
-}
-
-header ul li + li + li {
-  border-right:none;
-  width:89px;
 }
 
 header ul a strong {

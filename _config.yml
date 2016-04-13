@@ -13,13 +13,13 @@ markdown: kramdown
 defaults:
   -
     scope:
-      path: "inventory" # an empty string here means all files in the project
+      path: "models" # an empty string here means all files in the project
       type: "posts"
     values:
-      layout: "inventory"
+      layout: "model"
   -
     scope:
-      path: "pattern" # an empty string here means all files in the project
+      path: "patterns" # an empty string here means all files in the project
       type: "posts"
     values:
       layout: "pattern"

@@ -2,6 +2,7 @@
 layout:                 model
 title:                  "inspire extensions: Example Model"
 date:                   2016-04-09 09:10:59 +0200
+categories:             example inspire model
 tags:                   example inspire model
 modelIdentifier:        exampleIE
 modelName:              "Example Model"

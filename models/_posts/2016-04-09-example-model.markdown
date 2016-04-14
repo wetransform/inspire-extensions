@@ -14,7 +14,7 @@ modelReferenceTypes:    aggregate associate inherit mixin
 modelSchemaLanguage:    UML
 modelSpokenLanguage:    English
 modelSchemaTool:        "Enterprise Architect"
-modelMaturity:       "Not used (in Development)"
+modelMaturity:          "Not used (in Development)"
 modelLatestVersion:     1.0
 modelPreviousVersions:  3
 modelNextVersion:       "At least one more version planned"

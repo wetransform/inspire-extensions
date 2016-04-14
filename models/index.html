@@ -8,9 +8,9 @@ layout: default
     <div>
         <h2>Browse Models by Date</h2>
         <ul>
-            {% for model in site.categories.model %}
+            {% for model in site.posts %}
             <li>
-                <a href="{{ model.url }}">{{ model.title }}</a>
+                <a href="{{ model.exampleIE }}">{{ model.title }}</a>
             </li>
             {% endfor %}
         </ul>

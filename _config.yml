@@ -17,9 +17,9 @@ defaults:
       type: "posts"
     values:
       layout: "model"
-  -
-    scope:
-      path: "patterns" # an empty string here means all files in the project
-      type: "posts"
-    values:
-      layout: "pattern"
+#  -
+#    scope:
+#      path: "patterns" # an empty string here means all files in the project
+#      type: "posts"
+#    values:
+#      layout: "pattern"

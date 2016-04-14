@@ -6,11 +6,30 @@ layout: default
 
 <section>
     <div>
-        <h2>Browse Models by Date</h2>
+        <h2><a class="anchor" name="browseByTag" href="#browseByTag" aria-hidden="true">Browse Models by Tag</a></h2>
         <ul>
-            {% for model in site.posts %}
+            {{ site.tags.size }}
+            {% assign sorted_tags = (site.tags | sort:0) %}
+            {% for tag in sorted_tags %}
+
+            {{ tag | downcase }}
+            <ul>
+                {% for model in site.categories.models %}
+                {% if model.tags contains tag %}
+                <li>
+                    <a href="{{ model.url }}">{{ model.title }} (added {{ model.date | date: "%d.%m.%Y" }})</a>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+            {% endfor %}
+
+        </ul>
+        <h2><a class="anchor" name="browseByDate" href="#browseByDate" aria-hidden="true">Browse Models by Date</a></h2>
+        <ul>
+            {% for model in site.categories.models %}
             <li>
-                <a href="{{ model.exampleIE }}">{{ model.title }}</a>
+                <a href="{{ model.url }}">{{ model.title }} (added {{ model.date | date: "%d.%m.%Y" }})</a>
             </li>
             {% endfor %}
         </ul>

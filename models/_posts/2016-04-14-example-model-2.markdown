@@ -1,10 +1,10 @@
 ---
 layout:                 model
-title:                  "Inspire Extensions: Example Model"
-date:                   2016-04-09 09:10:59 +0200
+title:                  "Inspire Extensions: Example Model 2"
+date:                   2016-04-14 09:10:59 +0200
 category:               models
-tags:                   [example, inspire, model]
-modelIdentifier:        exampleIE
+tags:                   [example2, inspire, model]
+modelIdentifier:        exampleIE2
 modelName:              "Example Model"
 author:                 "Thorsten Reitz"
 modelOrganisation:      "wetransform GmbH"

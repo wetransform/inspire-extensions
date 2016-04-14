@@ -9,6 +9,9 @@ author:
 # Markdown library to use
 markdown: kramdown
 
+exclude:
+  - node_modules
+
 # Defaults
 defaults:
   -

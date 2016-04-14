@@ -2,7 +2,7 @@
 layout:                 model
 title:                  "inspire extensions: Example Model"
 date:                   2016-04-09 09:10:59 +0200
-tags:                   example inspire
+tags:                   example inspire model
 modelIdentifier:        exampleIE
 modelName:              "Example Model"
 modelAuthor:            "Thorsten Reitz"

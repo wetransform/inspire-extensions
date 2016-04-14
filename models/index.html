@@ -1,39 +1,9 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description"
-          content="Inventory of existing INSPIRE Model Extensions, extension pattern catalogue and end-to-end tutorial project">
-    <meta name="keywords" content="INSPIRE, data modelling, extension, data specification, wetransform">
-    <title>Introduction - INSPIRE data specification extensions</title>
+---
+title: Model Inventory - INSPIRE data specification extensions
+slug: models
+layout: default
+---
 
-    <link rel="stylesheet" href="../stylesheets/styles.css">
-    <link rel="stylesheet" href="../stylesheets/github-light.css">
-    <link rel="icon" href="/favicon.png" type="image/png">
-    <meta name="viewport" content="width=device-width">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                        (i[r].q = i[r].q || []).push(arguments)
-                    }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                    m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-        ga('create', 'UA-45579185-2', 'auto');
-        ga('send', 'pageview');
-
-    </script>
-</head>
-<body>
 <div class="wrapper">
     <header>
         <a href="http://inspire-extensions.wetransform.to"><h1>INSPIRE Data Specification Extensions</h1></a>
@@ -61,26 +31,18 @@
         </div>
     </header>
     <section>
-        <div class="trigger">
-            {% for models in site.pages %}
-            {% if my_page.title %}
-            <a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
-            {% endif %}
-            {% endfor %}
+        <div>
+            <ul>
+                {% for model in site.categories.model %}
+                <li>
+                    <a href="{{ model.url }}">{{ model.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
         </div>
     </section>
-    <footer>
-        <div>
-            <img src="../images/welogo-blau.png" alt="" title="wetransform logo" style="width: 25%"/>
-        </div>
-        <p>This project is maintained by <a href="https://www.wetransform.to">wetransform</a>.</p>
-        <p class="view"><a href="https://github.com/wetransform/inspire-extensions">View the Project on GitHub
-            <small>wetransform/inspire-extensions</small>
-        </a></p>
-    </footer>
 
 </div>
-<script src="../javascripts/scale.fix.js"></script>
 
 </body>
 </html>

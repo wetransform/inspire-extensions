@@ -8,13 +8,19 @@ layout: default
     <div>
         <h2><a class="anchor" name="browseByTag" href="#browseByTag" aria-hidden="true">Browse Models by Tag</a></h2>
         <ul>
-            {{ site.tags.size }}
-            {% assign sorted_tags = (site.tags | sort:0) %}
+            {% assign sorted_tags = (site.data.tags | sort:0) %}
             {% for tag in sorted_tags %}
 
-            {{ tag | downcase }}
+            {{ tag.name | downcase }}
             <ul>
                 {% for model in site.categories.models %}
+                The tags are
+                {% for tagModel in model.tags %}
+                <br>{{ tagModel }}
+                {% endfor %}
+
+
+
                 {% if model.tags contains tag %}
                 <li>
                     <a href="{{ model.url }}">{{ model.title }} (added {{ model.date | date: "%d.%m.%Y" }})</a>

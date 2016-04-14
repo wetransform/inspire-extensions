@@ -22,5 +22,5 @@ modelLicense:           "Open (Unrestricted or attribution-only licenses such as
 modelLink:              http://www.wetransform.to
 modelStatsSizeTypes:    14
 modelStatsSizeProps:    35
---------------------------
+---
 This is the place where you can add additional information to the data model, such as the process used, toolchain employed, links to additional resources and everything else that is appropriate.

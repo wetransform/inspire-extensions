@@ -1,12 +1,22 @@
 ---
 layout: default
 ---
+<section>
 <article itemscope itemtype="http://schema.org/BlogPosting">
 
-  <header>
+  <div>
     <h2 itemprop="name headline">{{ page.title }}</h2>
-    <p><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
-  </header>
+    <p>
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {{ page.date | date: "%b %-d, %Y" }}
+      </time>
+      {% if page.author %} •
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">{{ page.author }}</span>
+      </span>
+      {% endif %}
+    </p>
+  </div>
 
   <div>
 
@@ -59,3 +69,4 @@ layout: default
   </div>
 
 </article>
+  </section>

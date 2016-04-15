@@ -15,8 +15,25 @@
 
     {% include footer.html %}
 
-    <script src="../javascripts/scale.fix.js"></script>
 
+    {% if page.slug == "survey" %}
+    <script src="/javascripts/scale.fix.js"></script>
+    <script>
+      $.getJSON("/data/1_1.json", function(json) {
+        new Chartist.Bar('.ct-chart', json, {
+          seriesBarDistance: 10,
+          reverseData: true,
+          horizontalBars: true,
+          axisY: {
+            offset: 70
+          }
+        });
+      });
+
+
+
+    </script>
+    {% endif %}
   </body>
 
 </html>

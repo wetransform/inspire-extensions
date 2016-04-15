@@ -10,11 +10,16 @@
 
     <link rel="stylesheet" href="/stylesheets/styles.css">
     <link rel="stylesheet" href="/stylesheets/github-light.css">
-    <link rel="stylesheet" href="/bower_components/nvd3/build/nv.d3.css">
+    <link rel="stylesheet" href="/bower_components/nvd3/nv.d3.css">
+    <link rel="stylesheet"
+          href="bower_components/chartist/dist/chartist.min.css">
     <link rel="icon" href="/favicon.png" type="image/png">
     <meta name="viewport" content="width=device-width">
     <script src="/bower_components/d3/d3.js" charset="UTF-8"></script>
-    <script src="/bower_components/nvd3/build/nv.d3.js" charset="UTF-8"></script>
+    <script src="/bower_components/nvd3/nv.d3.js" charset="UTF-8"></script>
+    <script src="/bower_components/jquery/dist/jquery.min.js" charset="UTF-8"></script>
+    <script src="bower_components/chartist/dist/chartist.min.js"></script>
+
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -79,7 +84,11 @@
 
         <p>Question 1.1: In what areas do you consider yourself an expert?
             <br><em><small>60 responses, multiple answers allowed</small></em></p>
-        <div class="chart" id="d3_1_1" style="width:100%"></div>
+        <!--<div id="chart">
+            <svg style="height:500px"></svg>
+        </div>-->
+
+        <div class="ct-chart ct-perfect-fourth"></div>
 
     </section>
 
@@ -96,22 +105,18 @@
 </div>
 <script src="javascripts/scale.fix.js"></script>
 <script>
-
-    var container = d3.select("#d3_1_1");
-    var width = container.node().getBoundingClientRect().width;
-    var svg = container.append("svg").attr("width", width);
-
-    nv.addGraph(function() {
-        var chart = nv.models.discreteBarChart()
-                .x(function(d) { return d.value })
-                .y(function(d) { return d.name });
-
-        svg.datum(JSON.parse("/data/1_1.json")).call(chart);
-
-        nv.utils.windowResize(chart.update);
-
-        return chart;
+    $.getJSON("/data/1_1.json", function(json) {
+        new Chartist.Bar('.ct-chart', json, {
+            seriesBarDistance: 10,
+            reverseData: true,
+            horizontalBars: true,
+            axisY: {
+                offset: 70
+            }
+        });
     });
+
+
 
 </script>
 </body>

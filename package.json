@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Website for the INSPIRE Data Specification Extensions study",
   "dependencies": {
-    "bower": "^1.7.9"
+    "bower": "^1.7.9",
+    "chartist-plugin-legend": "^0.2.2"
   }
 }

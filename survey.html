@@ -50,7 +50,7 @@ slug: survey
         The 62 respondents documented 18 existing data models related to the INSPIRE data specifications. 16 of documented an intent to create
         such a model in the near future.</p>
 
-    <h3><a class="anchor" name="expertise" href="#expertise" aria-hidden="true"></a>Expertise and Background</h3>
+    <h2><a class="anchor" name="expertise" href="#expertise" aria-hidden="true">Expertise and Background</a></h2>
 
     <p><strong>Question 1.1:</strong> In what areas do you consider yourself an expert?
         <br><em><small>60 responses, multiple answers allowed</small></em></p>
@@ -60,18 +60,47 @@ slug: survey
     <p><strong>Question 1.2:</strong> How knowledgeable are you about standards for geospatial data and services?
         <br><em><small>65 responses</small></em></p>
 
-    <div class="ct-chart" id="q1-2"></div>
+    <div class="ct-chart ct-octave" id="q1-2"></div>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="ct-chart ct-perfect-fourth" id="chartWithLegend"></div>
+    <p><strong>Question 1.4:</strong> Have you worked with any INSPIRE Data Specification or a GML Application Schema?
+        <br><em><small>54 responses</small></em></p>
+
+    <div class="ct-chart ct-octave" id="q1-4"></div>
+
+    <p><strong>Question 1.5:</strong> Did you create at least one data model that references or extends INSPIRE data
+        specifications, e.g. by including properties that are references to INSPIRE objects?
+        <br><em><small>66 responses</small></em></p>
+
+    <div class="ct-chart ct-major-twelfth" id="q1-5"></div>
+
+    <h2><a class="anchor" name="challenges" href="#challenges" aria-hidden="true">Motivation and Scope</a></h2>
+
+    <p><strong>Question 2.1:</strong> Why did you create this data model?
+        <br><em><small>19 responses</small></em></p>
+
+    <div class="ct-chart ct-octave" id="q2-1"></div>
+
+    <p><strong>Question 2.3:</strong> Compared to the INSPIRE Data Specifications, what have you done to create your
+        data model?
+        <br><em><small>19 responses</small></em></p>
+
+    <div class="ct-chart ct-octave" id="q2-3"></div>
+
+    <p><strong>Question 2.4:</strong> What methods did you use to relate your data model to other models?
+        <br><em><small>19 responses</small></em></p>
+
+    <div class="ct-chart ct-octave" id="q2-4"></div>
+
+    <p><strong>Question 2.6:</strong> How many people were involved in the creation of the data model?
+        <br><em><small>19 responses</small></em></p>
+
+    <div class="ct-chart ct-major-twelfth" id="q2-6"></div>
+
 
 </section>
 
 <script>
+
     $.getJSON("/data/1_1.json", function(json) {
         new Chartist.Bar('#q1-1', json, {
             seriesBarDistance: 0,
@@ -79,34 +108,147 @@ slug: survey
             horizontalBars: true,
             axisY: {
                 offset: 100
-            }
+            },
+            low: 0,
+            high: 50
         });
     });
 
-    /*$.getJSON("/data/1_2.json", function(json) {
-        new Chartist.Bar('#1_2', json, {
-            seriesBarDistance: 10,
+    $.getJSON("/data/1_2.json", function(json) {
+        new Chartist.Bar('#q1-2', json, {
+            seriesBarDistance: 15,
+            reverseData: true,
+            horizontalBars: true,
+            plugins: [
+                Chartist.plugins.legend()
+            ],
+            axisY: {
+                offset: 100
+            },
+            low: 0,
+            high: 50
+        });
+    });
+
+    $.getJSON("/data/1_4.json", function(json) {
+        new Chartist.Bar('#q1-4', json, {
+            seriesBarDistance: 0,
             reverseData: true,
             horizontalBars: true,
             axisY: {
-                offset: 70
-            }
-        });
-    });*/
-
-
-    $.getJSON("/data/chartWithLegend.json", function(json) {
-        new Chartist.Bar('#chartWithLegend', json, {
-            seriesBarDistance: 10,
-            reverseData: true,
-            horizontalBars: true,
-
-            plugins: [
-                Chartist.plugins.legend()
-            ]
+                offset: 100
+            },
+            low: 0,
+            high: 50
         });
     });
 
+    $.getJSON("/data/1_5.json", function(json) {
+        var labelValue = function(value) {
+            return value + ': ' + json.series[json.labels.indexOf(value)] + '';
+        };
+
+        var options = {
+            donut: true,
+            chartPadding: 40,
+            labelOffset: 30,
+            labelDirection: 'explode',
+            labelInterpolationFnc: labelValue
+        };
+        var responsiveOptions = [
+            ['screen and (min-width: 640px)', {
+                chartPadding: 30,
+                labelOffset: 20,
+                labelDirection: 'explode',
+                labelInterpolationFnc: labelValue
+            }],
+            ['screen and (min-width: 1024px)', {
+                chartPadding: 10,
+                labelOffset: 30,
+                labelDirection: 'explode',
+                labelInterpolationFnc: labelValue
+            }]
+        ];
+        var chart = new Chartist.Pie('#q1-5', json, options, responsiveOptions);
+        chart.on('draw', function(context) {
+            if(context.type === 'slice') {
+                context.element.attr({
+                    style: 'stroke: ' + json.colors[context.index] + '; stroke-width: 30px;'
+                });
+            }
+        });
+    });
+
+    $.getJSON("/data/2_1.json", function(json) {
+        new Chartist.Bar('#q2-1', json, {
+            seriesBarDistance: 0,
+            reverseData: true,
+            horizontalBars: true,
+            axisY: {
+                offset: 100
+            },
+            axisX: {
+                onlyInteger: true,
+                divisor: 5
+            },
+            low: 0,
+            high: 20
+        });
+    });
+
+    $.getJSON("/data/2_3.json", function(json) {
+        new Chartist.Bar('#q2-3', json, {
+            seriesBarDistance: 0,
+            reverseData: true,
+            horizontalBars: true,
+            axisY: {
+                offset: 100
+            },
+            axisX: {
+                onlyInteger: true,
+                divisor: 5
+            },
+            low: 0,
+            high: 20
+        });
+    });
+
+    $.getJSON("/data/2_4.json", function(json) {
+        new Chartist.Bar('#q2-4', json, {
+            seriesBarDistance: 0,
+            reverseData: true,
+            horizontalBars: true,
+            axisY: {
+                offset: 100
+            },
+            axisX: {
+                onlyInteger: true,
+                divisor: 5
+            },
+            low: 0,
+            high: 20
+        });
+    });
+
+    $.getJSON("/data/2_6.json", function(json) {
+        var labelValue = function(value) {
+            return value + ': ' + json.series[json.labels.indexOf(value)] + '';
+        };
+
+        var options = {
+            donut: true
+        };
+        var responsiveOptions = [
+            ['screen and (min-width: 640px)', {
+                donutWidth: 30,
+                chartPadding: 40,
+                labelOffset: 30,
+                labelDirection: 'explode',
+                labelInterpolationFnc: labelValue
+            }]
+        ];
+        new Chartist.Pie('#q2-6', json, options, responsiveOptions);
+    });
 
 </script>
 

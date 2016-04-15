@@ -1,8 +1,8 @@
 {
-  "labels": ["First quarter of the year", "Second quarter of the year", "Third quarter of the year", "Fourth quarter of the year"],
+  "labels": ["Expert (Author)", "Professional user", "Occasional user", "No experience"],
   "series": [
-    {"name": "Money A", "data": [60000, 40000, 80000, 70000]},
-    {"name": "Money B", "data": [40000, 30000, 70000, 65000]},
-    {"name": "Money C", "data": [8000, 3000, 10000, 6000]}
+    {"name": "ISO 191XX", "data": [7, 25, 22, 11]},
+    {"name": "OGC", "data": [8, 33, 16, 8]},
+    {"name": "INSPIRE", "data": [15, 36, 6, 6]}
   ]
 }

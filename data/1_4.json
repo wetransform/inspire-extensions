@@ -1,0 +1,10 @@
+{
+  "labels": [
+    "To create a data model aligned with INSPIRE",
+    "To integrate different data sets",
+    "To create a Map or Download Service",
+    "For other purposes"],
+  "series": [
+    [34, 33, 30, 18]
+  ]
+}

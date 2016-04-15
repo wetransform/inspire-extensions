@@ -1,0 +1,8 @@
+{
+  "labels": [
+    "Yes",
+    "Planned",
+    "No"],
+  "series": [19, 17, 30],
+  "colors": ["#76AF4D", "#F4C63D", "#D70206"]
+}

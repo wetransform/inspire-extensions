@@ -1,0 +1,12 @@
+{
+  "labels": [
+    "Created new data types",
+    "Added new Properties",
+    "Profiled a model by taking away elements",
+    "Added or extended codelists",
+    "Added formal constraints",
+    "Others"],
+  "series": [
+    [15, 15, 7, 15, 6, 1]
+  ]
+}

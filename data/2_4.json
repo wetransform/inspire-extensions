@@ -1,0 +1,11 @@
+{
+  "labels": [
+    "Aggregate INSPIRE Types",
+    "Associate INSPIRE Types",
+    "Simple Inheritance from INSPIRE types",
+    "Multiple Inheritance from INSPIRE types",
+    "Others"],
+  "series": [
+    [4, 7, 13, 3, 1]
+  ]
+}

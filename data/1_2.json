@@ -1,9 +1,9 @@
 {
-  "labels": ["Expert (Author)", "Professional user", "Occasional user", "No experience"],
-  "categories": ["ISO191XX", "OGC", "INSPIRE"],
+  "labels": ["ISO 191XX", "OGC", "INSPIRE"],
   "series": [
-    [7, 25, 22, 11],
-    [8, 33, 16, 8],
-    [15, 36, 6, 6]
+    {"name": "Expert (Author)", "data": [7, 8, 15]},
+    {"name": "Professional user", "data": [25, 33, 36]},
+    {"name": "Occasional user", "data": [22, 16, 6]},
+    {"name": "No experience", "data": [11, 8, 6]}
   ]
 }

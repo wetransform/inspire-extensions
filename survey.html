@@ -55,23 +55,23 @@ slug: survey
     <p><strong>Question 1.1:</strong> In what areas do you consider yourself an expert?
         <br><em><small>60 responses, multiple answers allowed</small></em></p>
 
-    <div class="ct-chart ct-perfect-fourth" id="1_1"></div>
+    <div class="ct-chart ct-octave" id="q1-1"></div>
 
     <p><strong>Question 1.2:</strong> How knowledgeable are you about standards for geospatial data and services?
         <br><em><small>65 responses</small></em></p>
 
-    <div class="ct-chart ct-perfect-fourth" id="1_2"></div>
+    <div class="ct-chart" id="q1-2"></div>
 
 </section>
 
 <script>
     $.getJSON("/data/1_1.json", function(json) {
-        new Chartist.Bar('#1_1', json, {
-            seriesBarDistance: 10,
+        new Chartist.Bar('#q1-1', json, {
+            seriesBarDistance: 0,
             reverseData: true,
             horizontalBars: true,
             axisY: {
-                offset: 70
+                offset: 100
             }
         });
     });

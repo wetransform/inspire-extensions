@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description"
+          content="Inventory of existing INSPIRE Model Extensions, extension pattern catalogue and end-to-end tutorial project">
+    <meta name="keywords" content="INSPIRE, data modelling, extension, data specification, wetransform">
+    <title>The Survey Results - INSPIRE data specification extensions</title>
+
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/github-light.css">
+    <link rel="stylesheet" href="/bower_components/nvd3/build/nv.d3.css">
+    <link rel="icon" href="/favicon.png" type="image/png">
+    <meta name="viewport" content="width=device-width">
+    <script src="/bower_components/d3/d3.js" charset="UTF-8"></script>
+    <script src="/bower_components/nvd3/build/nv.d3.js" charset="UTF-8"></script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-45579185-2', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+    <style>
+        .chart rect {
+            fill: #51A1E9;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <a href="http://inspire-extensions.wetransform.to"><h1>INSPIRE Data Specification Extensions</h1></a>
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ol class="tocLevel1">
+                <li><a href="/introduction.html">Introduction</a></li>
+                <li><a href="/survey.html">Results of the Survey</a>
+                    <ol class="tocLevel2">
+                        <li><a href="#expertise">Expertise and Background</a></li>
+                        <li><a href="#challenges">Challenges Reported</a></li>
+                        <li><a href="#bestPractices">Best Practices</a></li>
+                    </ol>
+                </li>
+                <li><a href="/models/index.html">Inventory of Model Extensions</a>
+                </li>
+                <li><a href="#_inspireMda">Introduction to the INSPIRE Model-Driven Methodology</a>
+                </li>
+                <li><a href="#_catalogue">The Pattern Catalogue</a>
+                </li>
+                <li><a href="#_tutorial">An End-to-End Tutorial Project </a>
+                </li>
+                <li><a href="#_summary">Summary and Conclusions</a>
+                </li>
+            </ol>
+        </div>
+    </header>
+    <section>
+
+        <h2>Introduction</h2>
+
+        <p>TODO</p>
+
+        <h3><a class="anchor" name="expertise" href="#expertise" aria-hidden="true"></a>Expertise and Background</h3>
+
+        <p>Question 1.1: In what areas do you consider yourself an expert?
+            <br><em><small>60 responses, multiple answers allowed</small></em></p>
+        <div class="chart" id="d3_1_1" style="width:100%"></div>
+
+    </section>
+
+    <footer>
+        <div>
+            <img src="../images/welogo-blau.png" alt="" title="wetransform logo" style="width: 25%"/>
+        </div>
+        <p>This project is maintained by <a href="https://www.wetransform.to">wetransform</a>.</p>
+        <p class="view"><a href="https://github.com/wetransform/inspire-extensions">View the Project on GitHub
+            <small>wetransform/inspire-extensions</small>
+        </a></p>
+    </footer>
+
+</div>
+<script src="javascripts/scale.fix.js"></script>
+<script>
+
+    var container = d3.select("#d3_1_1");
+    var width = container.node().getBoundingClientRect().width;
+    var svg = container.append("svg").attr("width", width);
+
+    nv.addGraph(function() {
+        var chart = nv.models.discreteBarChart()
+                .x(function(d) { return d.value })
+                .y(function(d) { return d.name });
+
+        svg.datum(JSON.parse("/data/1_1.json")).call(chart);
+
+        nv.utils.windowResize(chart.update);
+
+        return chart;
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Data Analysis",
+    "value": 44
+  },
+  {
+    "name": "Data Visualisation",
+    "value": 31
+  },
+  {
+    "name": "Data Publishing",
+    "value": 20
+  },
+  {
+    "name": "Data Modelling",
+    "value": 39
+  },
+  {
+    "name": "Data Validation",
+    "value": 26
+  },
+  {
+    "name": "Others",
+    "value": 5
+  }
+]

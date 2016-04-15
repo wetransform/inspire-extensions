@@ -62,6 +62,13 @@ slug: survey
 
     <div class="ct-chart ct-perfect-fourth" id="1_2"></div>
 
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="ct-chart ct-perfect-fourth" id="chartWithLegend"></div>
+
 </section>
 
 <script>
@@ -86,6 +93,20 @@ slug: survey
             }
         });
     });*/
+
+
+    $.getJSON("/data/chartWithLegend.json", function(json) {
+        new Chartist.Bar('#chartWithLegend', json, {
+            seriesBarDistance: 10,
+            reverseData: true,
+            horizontalBars: true,
+
+            plugins: [
+                Chartist.plugins.legend()
+            ]
+        });
+    });
+
 
 </script>
 

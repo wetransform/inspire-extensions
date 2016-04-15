@@ -1,170 +1,96 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description"
-          content="Inventory of existing INSPIRE Model Extensions, extension pattern catalogue and end-to-end tutorial project">
-    <meta name="keywords" content="INSPIRE, data modelling, extension, data specification, wetransform">
-    <title>Introduction - INSPIRE data specification extensions</title>
+---
+layout: default
+---
+<section>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
-    <link rel="icon" href="/favicon.png" type="image/png">
-    <meta name="viewport" content="width=device-width">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                        (i[r].q = i[r].q || []).push(arguments)
-                    }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                    m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    <h2>Objectives and Context</h2>
 
-        ga('create', 'UA-45579185-2', 'auto');
-        ga('send', 'pageview');
+    <p>INSPIRE, the European Directive establishing an Infrastructure for Spatial Information in the European
+        Community, provides a large number of data models. While these cover many core use cases, they often need to
+        be extended to serve specific organisational needs.</p>
+    <p><a href="https://www.geonovum.nl">Geonovum</a> has commissioned <a href="https://www.wetransform.to">wetransform</a>
+        to research and document patterns that are emerging for such model extensions. Together with the INSPIRE
+        MIGs and other expert groups, we aim to answer the following questions:
 
-    </script>
-</head>
-<body>
-<div class="wrapper">
-    <header>
-        <a href="http://inspire-extensions.wetransform.to"><h1>INSPIRE Data Specification Extensions</h1></a>
-        <div id="toc">
-            <h2>Table of Contents</h2>
-            <ol class="tocLevel1">
-                <li>Introduction
-                    <ol class="tocLevel2">
-                        <li><a href="#methodology">Methodology</a></li>
-                        <li><a href="#contributions">Contributions</a></li>
-                    </ol>
-                </li>
-                <li><a href="survey.html">Results of the Survey</a></li>
-                <li><a href="/models/index.html">Inventory of Model Extensions</a>
-                </li>
-                <li><a href="#_inspireMda">Introduction to the INSPIRE Model-Driven Methodology</a>
-                </li>
-                <li><a href="#_catalogue">The Pattern Catalogue</a>
-                </li>
-                <li><a href="#_tutorial">An End-to-End Tutorial Project </a>
-                </li>
-                <li><a href="#_summary">Summary and Conclusions</a>
-                </li>
-            </ol>
-        </div>
-    </header>
-    <section>
+    <ul>
+        <li>How to extend the INSPIRE data models in an uniform and standardised way?</li>
+        <li>Are we able - based on the currently best practices in Europe – to develop a standardised approach with
+            patterns to extend the INSPIRE data models?
+        </li>
+    </ul>
+    <p>As a first step towards answering these questions, we have prepared a survey. The questionnaire linked blow
+        is about experiences with data modelling and the possibilities to develop INSPIRE extensions. And of course
+        to collect all best practises in order to study and develop uniform extensions patterns that already
+        exist.</p>
 
-        <h2>Objectives and Context</h2>
+    <h3><a class="anchor" name="methodology" href="#methodology" aria-hidden="true"></a>Methodology</h3>
 
-        <p>INSPIRE, the European Directive establishing an Infrastructure for Spatial Information in the European
-            Community, provides a large number of data models. While these cover many core use cases, they often need to
-            be extended to serve specific organisational needs.</p>
-        <p><a href="https://www.geonovum.nl">Geonovum</a> has commissioned <a href="https://www.wetransform.to">wetransform</a>
-            to research and document patterns that are emerging for such model extensions. Together with the INSPIRE
-            MIGs and other expert groups, we aim to answer the following questions:
+    <p>We apply agile and lean principles to standards development:</p>
 
-        <ul>
-            <li>How to extend the INSPIRE data models in an uniform and standardised way?</li>
-            <li>Are we able - based on the currently best practices in Europe – to develop a standardised approach with
-                patterns to extend the INSPIRE data models?
-            </li>
-        </ul>
-        <p>As a first step towards answering these questions, we have prepared a survey. The questionnaire linked blow
-            is about experiences with data modelling and the possibilities to develop INSPIRE extensions. And of course
-            to collect all best practises in order to study and develop uniform extensions patterns that already
-            exist.</p>
+    <ol>
+        <li>Iterate quickly</li>
+        <li>Integrate and deploy early</li>
+        <li>Drive measurable improvement with real data</li>
+    </ol>
 
-        <h3><a class="anchor" name="methodology" href="#methodology" aria-hidden="true"></a>Methodology</h3>
+    <p>For specifications such as INSPIRE this means we analyse existing usage of the standard, measure the
+        performance of implementations and then modify the specification. We test these modifications by
+        transforming data and by publishing services using the new design, e.g. a model that extends an INSPIRE data
+        specification.</p>
 
-        <p>We apply agile and lean principles to standards development:</p>
+    <p>This approach is based on the harmonisation methodology developed in the HUMBOLDT project and then refined in
+        more than 20 other projects afterwards. We use different tools for modeling, transformation and publishing,
+        such as Enterprise Architect, GeoServer, deegree and Shapechange. In particular, the model driven, data
+        augmented design process uses hale»studio (HUMBOLDT Alignment Editor) 2.9.4+ and hale»connect 1.0.</p>
 
-        <ol>
-            <li>Iterate quickly</li>
-            <li>Integrate and deploy early</li>
-            <li>Drive measurable improvement with real data</li>
-        </ol>
+    <p>Our project management methodology is based on agile foundations. For a project focused on services such as
+        data harmonization consulting like this one, we use a Kanban approach. Open tasks are documented in our
+        issue management software, and all project participants are provided access to the current tasks and status
+        information. </p>
 
-        <p>For specifications such as INSPIRE this means we analyse existing usage of the standard, measure the
-            performance of implementations and then modify the specification. We test these modifications by
-            transforming data and by publishing services using the new design, e.g. a model that extends an INSPIRE data
-            specification.</p>
+    <p>We assure the quality of deliverables through continuous communication with the stakeholders, through
+        internal reviews of documents and through continuous testing of software and transformation projects. We
+        manage generic project risks actively through documentation, involvement of additional staff and clear
+        communication of expectations with project stakeholders. Specific risks for a harmonization project such as
+        problematic source data quality are identified in the first phase of the project, and appropriate mitigation
+        strategies are identified with project stakeholders.</p>
 
-        <p>This approach is based on the harmonisation methodology developed in the HUMBOLDT project and then refined in
-            more than 20 other projects afterwards. We use different tools for modeling, transformation and publishing,
-            such as Enterprise Architect, GeoServer, deegree and Shapechange. In particular, the model driven, data
-            augmented design process uses hale»studio (HUMBOLDT Alignment Editor) 2.9.4+ and hale»connect 1.0.</p>
+    <p>The overall project quality will furthermore be ensured by an advisory committee. The advisory committee (AC)
+        consists of representatives of representatives of DG ENV, EEA and JRC, as well as of Geonovum and
+        wetransform. The responsibility of the AC is to monitor the progress of the project periodically (for every
+        milestone) and to provide feedback on deliverables. They will also help to provide access to the INSPIRE
+        community through channels such as the MIG-T, MIG-P, LMO and SDICs. The AC is expected to meet virtually
+        once per month.</p>
 
-        <p>Our project management methodology is based on agile foundations. For a project focused on services such as
-            data harmonization consulting like this one, we use a Kanban approach. Open tasks are documented in our
-            issue management software, and all project participants are provided access to the current tasks and status
-            information. </p>
+    <h3><a class="anchor" name="contributions" href="#contributions" aria-hidden="true"></a>Contributions</h3>
 
-        <p>We assure the quality of deliverables through continuous communication with the stakeholders, through
-            internal reviews of documents and through continuous testing of software and transformation projects. We
-            manage generic project risks actively through documentation, involvement of additional staff and clear
-            communication of expectations with project stakeholders. Specific risks for a harmonization project such as
-            problematic source data quality are identified in the first phase of the project, and appropriate mitigation
-            strategies are identified with project stakeholders.</p>
+    <p>This website is hosted as a Github page on a public Github repository. This means it is easy for anyone to
+        suggest changes and additions. It is even possible to edit the page completely online, without special tools
+        or the need to download the entire page. The principal process for making a contribution is as follows:</p>
 
-        <p>The overall project quality will furthermore be ensured by an advisory committee. The advisory committee (AC)
-            consists of representatives of representatives of DG ENV, EEA and JRC, as well as of Geonovum and
-            wetransform. The responsibility of the AC is to monitor the progress of the project periodically (for every
-            milestone) and to provide feedback on deliverables. They will also help to provide access to the INSPIRE
-            community through channels such as the MIG-T, MIG-P, LMO and SDICs. The AC is expected to meet virtually
-            once per month.</p>
+    <ol>
+        <li>Log in to <a href="https://www.github.com" target="_blank">Github</a>.</li>
+        <li>Visit the <a href="https://github.com/wetransform/inspire-extensions">repository</a> where the content
+            of
+            this study is hosted and switch to the <a
+                    href="https://github.com/wetransform/inspire-extensions/tree/gh-pages" target="_blank">gh-pages
+                branch</a>.
+        </li>
+        <li><a href="https://help.github.com/articles/fork-a-repo/" target="_blank">Create a Fork</a> of the
+            inspire-extensions repository.
+        </li>
+        <li>In your forked repository, perform edits, either online by using the online Markdown and HTML editors,
+            or
+            offline by cloning the repository to your computer
+        </li>
+        <li>When you have completed your edit or addition, save/commit your changes, and create a
+            <a href="https://help.github.com/articles/using-pull-requests/" target="_blank">Pull Request</a> to let
+            us
+            know you want your changes to be included.
+        </li>
+        <li>Get notified when we review and merge your request in, and see your contribution become visible here!
+        </li>
+    </ol>
 
-        <h3><a class="anchor" name="contributions" href="#contributions" aria-hidden="true"></a>Contributions</h3>
+</section>
 
-        <p>This website is hosted as a Github page on a public Github repository. This means it is easy for anyone to
-            suggest changes and additions. It is even possible to edit the page completely online, without special tools
-            or the need to download the entire page. The principal process for making a contribution is as follows:</p>
-
-        <ol>
-            <li>Log in to <a href="https://www.github.com" target="_blank">Github</a>.</li>
-            <li>Visit the <a href="https://github.com/wetransform/inspire-extensions">repository</a> where the content
-                of
-                this study is hosted and switch to the <a
-                        href="https://github.com/wetransform/inspire-extensions/tree/gh-pages" target="_blank">gh-pages
-                    branch</a>.
-            </li>
-            <li><a href="https://help.github.com/articles/fork-a-repo/" target="_blank">Create a Fork</a> of the
-                inspire-extensions repository.
-            </li>
-            <li>In your forked repository, perform edits, either online by using the online Markdown and HTML editors,
-                or
-                offline by cloning the repository to your computer
-            </li>
-            <li>When you have completed your edit or addition, save/commit your changes, and create a
-                <a href="https://help.github.com/articles/using-pull-requests/" target="_blank">Pull Request</a> to let
-                us
-                know you want your changes to be included.
-            </li>
-            <li>Get notified when we review and merge your request in, and see your contribution become visible here!
-            </li>
-        </ol>
-
-    </section>
-
-    <footer>
-        <div>
-            <img src="../images/welogo-blau.png" alt="" title="wetransform logo" style="width: 25%"/>
-        </div>
-        <p>This project is maintained by <a href="https://www.wetransform.to">wetransform</a>.</p>
-        <p class="view"><a href="https://github.com/wetransform/inspire-extensions">View the Project on GitHub
-            <small>wetransform/inspire-extensions</small>
-        </a></p>
-    </footer>
-
-</div>
-<script src="javascripts/scale.fix.js"></script>
-
-</body>
-</html>

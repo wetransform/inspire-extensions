@@ -5,3 +5,5 @@ node_modules/
 .idea/
 *.iml
 /bower_components
+*.lock
+Gemfile.lock

@@ -10,7 +10,6 @@
 
     <link rel="stylesheet" href="/stylesheets/styles.css">
     <link rel="stylesheet" href="/stylesheets/github-light.css">
-    <link rel="stylesheet" href="/bower_components/nvd3/nv.d3.css">
     <link rel="stylesheet"
           href="bower_components/chartist/dist/chartist.min.css">
     <link rel="icon" href="/favicon.png" type="image/png">
@@ -56,6 +55,7 @@
                 <li><a href="/introduction.html">Introduction</a></li>
                 <li><a href="/survey.html">Results of the Survey</a>
                     <ol class="tocLevel2">
+                        <li><a href="#methodology">Methodology</a></li>
                         <li><a href="#expertise">Expertise and Background</a></li>
                         <li><a href="#challenges">Challenges Reported</a></li>
                         <li><a href="#bestPractices">Best Practices</a></li>
@@ -76,19 +76,62 @@
     </header>
     <section>
 
-        <h2>Introduction</h2>
+        <h2><a class="anchor" name="introduction" href="#introduction" aria-hidden="true">Introduction</a></h2>
 
-        <p>TODO</p>
+        <p>The first step in this project was to conduct a study, which had two goals:</p>
+        <ol>
+            <li>Create an inventory of existing models that relate to INSPIRE data specifications</li>
+            <li>Understand what information this project would need to provide to its audience by asking about people’s
+                expertise, lessons learnt and challenges encountered</li>
+        </ol>
+        <p>The survey also had the side-effect of raising awareness, both of the possibility to extend INSPIRE models
+            and of motivating experts to contribute to the effort.</p>
+
+        <h2><a class="anchor" name="methodology" href="#methodology" aria-hidden="true">Methodology</a></h2>
+
+        <p>To reach these two objectives, we decided to go with a classical survey that would take 5 to 15 minutes to
+            complete. The final survey contained 21 questions in four sections:</p>
+        <ol>
+            <li>Expertise</li>
+            <li>Existing Models</li>
+            <li>Planned Models</li>
+            <li>Involvement and Contact Info</li>
+        </ol>
+
+        <p>Several of the questions were conditional and needed to be answered only if a specific answer was given
+            previously. We implemented the questionnaire using Google Forms. The link to the questionnaire was
+            distributed via different channels to ensure a good coverage of the INSPIRE community. These channels
+            included:</p>
+
+        <ul>
+            <li>Wetransform mailing list and news section</li>
+            <li>LinkedIn INSPIRE Interest Group</li>
+            <li>LinkedIn personal and company updates</li>
+            <li>Sharing through Twitter</li>
+            <li>Direct communication with known experts and INSPIRE Maintenance and Implementation Group members</li>
+        </ul>
+
+        <h2>Overview of Responses</h2>
+
+        <p>Between March 20th and April 11th 2016, 62 people responded to the survey. The overall response rate is
+            estimated at 3%. Some channels, such as the direct mails to the INSPIRE Maintenance and Implementation
+            Groups, naturally had a higher response rate (between 10 and 20%). The rate of incomplete responses was
+            relatively low, at 5%.<p>
+        <p>The questionnaire is still online and open. We will update the numbers and figures on this page once per month if new entries are made, until the end of the project.
+            The 62 respondents documented 18 existing data models related to the INSPIRE data specifications. 16 of documented an intent to create
+            such a model in the near future.</p>
 
         <h3><a class="anchor" name="expertise" href="#expertise" aria-hidden="true"></a>Expertise and Background</h3>
 
-        <p>Question 1.1: In what areas do you consider yourself an expert?
+        <p><strong>Question 1.1:</strong> In what areas do you consider yourself an expert?
             <br><em><small>60 responses, multiple answers allowed</small></em></p>
-        <!--<div id="chart">
-            <svg style="height:500px"></svg>
-        </div>-->
 
-        <div class="ct-chart ct-perfect-fourth"></div>
+        <div class="ct-chart ct-perfect-fourth" id="1_1"></div>
+
+        <p><strong>Question 1.2:</strong> How knowledgeable are you about standards for geospatial data and services?
+            <br><em><small>65 responses</small></em></p>
+
+        <div class="ct-chart ct-perfect-fourth" id="1_2"></div>
 
     </section>
 
@@ -106,7 +149,18 @@
 <script src="javascripts/scale.fix.js"></script>
 <script>
     $.getJSON("/data/1_1.json", function(json) {
-        new Chartist.Bar('.ct-chart', json, {
+        new Chartist.Bar('#1_1', json, {
+            seriesBarDistance: 10,
+            reverseData: true,
+            horizontalBars: true,
+            axisY: {
+                offset: 70
+            }
+        });
+    });
+
+    $.getJSON("/data/1_2.json", function(json) {
+        new Chartist.Bar('#1_2', json, {
             seriesBarDistance: 10,
             reverseData: true,
             horizontalBars: true,

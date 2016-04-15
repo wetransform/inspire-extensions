@@ -1,0 +1,9 @@
+{
+  "labels": ["Expert (Author)", "Professional user", "Occasional user", "No experience"],
+  "categories": ["ISO191XX", "OGC", "INSPIRE"],
+  "series": [
+    [7, 25, 22, 11],
+    [8, 33, 16, 8],
+    [15, 36, 6, 6]
+  ]
+}

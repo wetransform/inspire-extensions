@@ -8,7 +8,7 @@ layout: default
     <h2 itemprop="name headline">{{ page.modelName }}</h2>
     <p>
       <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-        {{ page.date | date: "%b %-d, %Y" }}
+        {{ page.date | date: "%d.%m.%Y" }}
       </time>
       {% if page.author %} •
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -30,22 +30,24 @@ layout: default
           <div class="panel-heading">Overview</div>
           <div class="panel-body flex-grow" style="padding: 0px;">
             <table class="table table-striped" width="100%">
-              <tr>
-                <td><strong>Schema language:</strong></td>
-                <td>{{ page.modelSchemaLanguage }}</td>
-              </tr>
-              <tr>
-                <td><strong>Spoken Language:</strong></td>
-                <td>{{ page.modelSpokenLanguage }}</td>
-              </tr>
-              <tr>
-                <td><strong>Schema Tool:</strong></td>
-                <td>{{ page.modelSchemaTool }}</td>
-              </tr>
-              <tr>
-                <td><strong>License:</strong></td>
-                <td>{{ page.modelLicense }}</td>
-              </tr>
+              <tbody>
+                <tr>
+                  <td width="30%"><strong>Schema language:</strong></td>
+                  <td>{{ page.modelSchemaLanguage }}</td>
+                </tr>
+                <tr>
+                  <td width="30%"><strong>Spoken Language:</strong></td>
+                  <td>{{ page.modelSpokenLanguage }}</td>
+                </tr>
+                <tr>
+                  <td width="30%"><strong>Schema Tool:</strong></td>
+                  <td>{{ page.modelSchemaTool }}</td>
+                </tr>
+                <tr>
+                  <td width="30%"><strong>License:</strong></td>
+                  <td>{{ page.modelLicense }}</td>
+                </tr>
+              </tbody>
             </table>
           </div>
         </div>
@@ -55,54 +57,85 @@ layout: default
           <div class="panel-heading">Maturity</div>
           <div class="panel-body flex-grow" style="padding: 0px;">
             <table class="table table-striped" width="100%">
-              <tr>
-                <td><strong>Status:</strong></td>
-                <td>{{ page.modelMaturity }}</td>
-              </tr>
-              <tr>
-                <td><strong>Latest Version:</strong></td>
-                <td>{{ page.modelLatestVersion }}</td>
-              </tr>
-              <tr>
-                <td><strong>Next Version:</strong></td>
-                <td>{{ page.modelNextVersion }}</td>
-              </tr>
-              <tr>
-                <td><strong>Released Versions:</strong></td>
-                <td>{{ page.modelPreviousVersions }}</td>
-              </tr>
+              <tbody>
+                <tr>
+                  <td width="30%"><strong>Status:</strong></td>
+                  <td>{{ page.modelMaturity }}</td>
+                </tr>
+                <tr>
+                  <td width="30%"><strong>Latest Version:</strong></td>
+                  <td>{{ page.modelLatestVersion }}</td>
+                </tr>
+                <tr>
+                  <td width="30%"><strong>Next Version:</strong></td>
+                  <td>{{ page.modelNextVersion }}</td>
+                </tr>
+                <tr>
+                  <td width="30%"><strong>Released Versions:</strong></td>
+                  <td>{{ page.modelPreviousVersions }}</td>
+                </tr>
+              </tbody>
             </table>
           </div>
         </div>
       </div>
     </div>
-  </div>
-
-
-
-  <div class="col-lg-6 col-sm-12">
-    <ul class="list-group">
-      <li class="list-group-item-heading">INSPIRE Integration</li>
-      <li class="list-group-item">Referenced Models:
-        {% for reference in page.modelsReferenced %}
-        <a class="tag-style mt-sm" href="/models/tag/{{ reference }}">{{ reference }}</a>
-        {% endfor %}
-      </li>
-      <li class="list-group-item">Model Reference Types:
-        {% for referenceType in page.modelReferenceTypes %}
-        <a class="tag-style mt-sm" href="/models/tag/{{ referenceType }}">{{ referenceType }}</a>
-        {% endfor %}</li>
-    </ul>
-  </div>
-
-
-
-  <div class="col-lg-6 col-sm-12">
-    <ul class="list-group">
-      <li class="list-group-item-heading">Statistics</li>
-      <li class="list-group-item">Number of Types: {{ page.modelPreviousVersions }}</li>
-      <li class="list-group-item">Number of Properties: {{ page.modelPreviousVersions }}</li>
-    </ul>
+    <div class="row row-flex row-flex-wrap">
+      <div class="col-lg-6 col-sm-12">
+        <div class="panel panel-default flex-col">
+          <div class="panel-heading">INSPIRE Integration</div>
+          <div class="panel-body flex-grow" style="padding: 0px;">
+            <table class="table table-striped" width="100%">
+              <tbody>
+                <tr>
+                  <td width="30%"><strong>Referenced Models:</strong></td>
+                  <td>
+                    <ul style="margin-bottom: 0px; padding-left: 10px">
+                      {% for reference in page.modelsReferenced %}
+                      <li><a class="tag-style mt-sm" href="/models/tag/{{ reference }}">{{ reference }}</a></li>
+                      {% endfor %}
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="30%"><strong>Reference Types:</strong></td>
+                  <td>
+                    <ul style="margin-bottom: 0px;  padding-left: 10px">
+                      {% for referenceType in page.modelReferenceTypes %}
+                      <li><a class="tag-style mt-sm" href="/models/tag/{{ referenceType }}">{{ referenceType }}</a></li>
+                      {% endfor %}
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-sm-12">
+        <div class="panel panel-default flex-col">
+          <div class="panel-heading">Statistics</div>
+          <div class="panel-body flex-grow" style="padding: 0px;">
+            <table class="table table-striped" width="100%">
+              <tbody>
+                <tr>
+                  <td width="30%"><strong>Number of Types:</strong></td>
+                  <td>
+                    {{ page.modelStatsSizeTypes }}
+                  </td>
+                </tr>
+                <tr>
+                  <td width="30%"><strong>Number of Properties:</strong></td>
+                  <td>
+                    {{ page.modelStatsSizeProps }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="post-content" itemprop="articleBody">

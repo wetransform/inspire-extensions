@@ -14,7 +14,7 @@ layout: default
                 {% for tagModel in model.tags %}
                 {% if tagModel == tag.slug %}
                 <li>
-                    <a href="{{ model.url }}">{{ model.modelName }} (added {{ model.date | date: "%d.%m.%Y" }})</a>
+                    <a href="{{ model.url }}">{{ model.modelName }}</a>
                 </li>
                 {% endif %}
                 {% endfor %}

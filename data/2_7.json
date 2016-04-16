@@ -1,0 +1,10 @@
+{
+  "labels": [
+    "Unified Modelling Language (UML)",
+    "Ontologies (OWL, RDF, SKOS)",
+    "XML Schema (XSD)",
+    "Relational Database Schemas (SQL)",
+    "Document-Oriented (YAML, JSON Schema)",
+    "Others"],
+  "series": [8, 0, 7, 1, 0, 3]
+}

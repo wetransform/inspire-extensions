@@ -73,7 +73,7 @@ slug: survey
 
     <div class="ct-chart ct-major-twelfth" id="q1-5"></div>
 
-    <h2><a class="anchor" name="challenges" href="#challenges" aria-hidden="true">Motivation and Scope</a></h2>
+    <h2><a class="anchor" name="motivation" href="#motivation" aria-hidden="true">Motivation and Scope</a></h2>
 
     <p><strong>Question 2.1:</strong> Why did you create this data model?
         <br><em><small>19 responses</small></em></p>
@@ -95,6 +95,11 @@ slug: survey
         <br><em><small>19 responses</small></em></p>
 
     <div class="ct-chart ct-major-twelfth" id="q2-6"></div>
+
+    <p><strong>Question 2.7:</strong> Which schema language did you use to create the new data model?
+        <br><em><small>19 responses</small></em></p>
+
+    <div class="ct-chart ct-major-twelfth" id="q2-7"></div>
 
 
 </section>
@@ -248,6 +253,26 @@ slug: survey
             }]
         ];
         new Chartist.Pie('#q2-6', json, options, responsiveOptions);
+    });
+
+    $.getJSON("/data/2_7.json", function(json) {
+        var labelValue = function(value) {
+            return value + ': ' + json.series[json.labels.indexOf(value)] + '';
+        };
+
+        var options = {
+            donut: true
+        };
+        var responsiveOptions = [
+            ['screen and (min-width: 640px)', {
+                donutWidth: 30,
+                chartPadding: 40,
+                labelOffset: 30,
+                labelDirection: 'explode',
+                labelInterpolationFnc: labelValue
+            }]
+        ];
+        new Chartist.Pie('#q2-7', json, options, responsiveOptions);
     });
 
 </script>

@@ -57,10 +57,21 @@
     border-color: #f4c63d;
 }
 .ct-legend .ct-series-3:before {
-    background-color: #d17905;
-    border-color: #d17905;
+    background-color: #a6d135;
+    border-color: #a6d135;
 }
 .ct-legend .ct-series-4:before {
-    background-color: #453d3f;
-    border-color: #453d3f;
+    background-color: #73ab1b;
+    border-color: #73ab1b;
 }
+
+
+.ct-series-d .ct-point, .ct-series-d .ct-line, .ct-series-d .ct-bar, .ct-series-d .ct-slice-donut {
+    stroke: #a6d135; }
+.ct-series-d .ct-slice-pie, .ct-series-d .ct-area {
+    fill: #a6d135; }
+
+.ct-series-e .ct-point, .ct-series-e .ct-line, .ct-series-e .ct-bar, .ct-series-e .ct-slice-donut {
+    stroke: #73ab1b; }
+.ct-series-e .ct-slice-pie, .ct-series-e .ct-area {
+    fill: #73ab1b; }

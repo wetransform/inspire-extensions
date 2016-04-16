@@ -6,5 +6,5 @@
     "Relational Database Schemas (SQL)",
     "Document-Oriented (YAML, JSON Schema)",
     "Others"],
-  "series": [8, 0, 7, 1, 0, 3]
+  "series": [[8, 0, 7, 1, 0, 3]]
 }

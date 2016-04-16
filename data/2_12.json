@@ -1,0 +1,8 @@
+{
+  "labels": [
+    "Yes, long-term resources available",
+    "Yes, short-term resources available",
+    "No"],
+  "series": [7, 9, 3],
+  "colors": ["#76AF4D", "#F4C63D", "#D70206"]
+}

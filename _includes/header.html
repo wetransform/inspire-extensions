@@ -1,5 +1,11 @@
 <header>
   <a href="http://inspire-extensions.wetransform.to"><h1>INSPIRE Data Specification Extensions</h1></a>
+  {% if page.slug == "index" %}
+  <p>Get the most out of INSPIRE by extending data specifications!</p>
+  <div>
+    <img src="../images/complex-models.png" alt="" title="Some INSPIRE data specifications" style="width: 95%"/>
+  </div>
+  {% else %}
   <div id="toc">
     <ol class="tocLevel1">
       <li>{% if page.slug == "introduction" %}<strong>{% endif %}<a href="/introduction.html">Introduction{% if page.slug == "introduction" %}</strong>{% endif %}</a>
@@ -41,4 +47,5 @@
       </li>
     </ol>
   </div>
+  {% endif %}
 </header>

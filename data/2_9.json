@@ -1,0 +1,9 @@
+{
+  "labels": [
+    "No, it is development",
+    "No, it is deprecated",
+    "Yes, in academic research",
+    "Yes, in pilots or testbeds",
+    "Yes, in production environments"],
+  "series": [[3, 1, 0, 5, 10]]
+}

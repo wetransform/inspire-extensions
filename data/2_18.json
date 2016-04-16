@@ -1,0 +1,14 @@
+{
+  "labels": [
+    "Model Transformation",
+    "Data Transformation",
+    "Systems Integration",
+    "Data Publishing",
+    "Data Usage"],
+  "series": [
+    {"name": "Blocking", "data": [1, 0, 1, 1, 1]},
+    {"name": "Serious", "data": [2, 5, 6, 3, 4]},
+    {"name": "Minor", "data": [9, 8, 5, 6, 5]},
+    {"name": "No issue", "data": [6, 5, 5, 8, 5]}
+  ]
+}

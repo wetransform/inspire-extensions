@@ -2,10 +2,10 @@
 layout: default
 ---
 <section>
-<article itemscope itemtype="http://schema.org/BlogPosting">
+  <article itemscope itemtype="http://schema.org/BlogPosting">
 
   <div>
-    <h2 itemprop="name headline">{{ page.title }}</h2>
+    <h2 itemprop="name headline">{{ page.modelName }}</h2>
     <p>
       <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
         {{ page.date | date: "%b %-d, %Y" }}
@@ -15,58 +15,99 @@ layout: default
         <span itemprop="name">{{ page.author }}</span>
       </span>
       {% endif %}
+      {% if page.modelOrganisation %} •
+      <span itemprop="author" itemscope itemtype="http://schema.org/Organisation">
+        <span itemprop="name">{{ page.modelOrganisation }}</span>
+      </span>
+      {% endif %}
     </p>
   </div>
 
   <div>
-
-    <div class="col-lg-4 col-md-6 col-sm-12">
-      <ul class="list-group">
-        <li class="list-group-item-heading">Overview</li>
-        <li class="list-group-item">Schema language: {{ page.modelSchemaLanguage }}</li>
-        <li class="list-group-item">Spoken Language: {{ page.modelSpokenLanguage }}</li>
-        <li class="list-group-item">Schema Tool: {{ page.modelSchemaTool }}</li>
-        <li class="list-group-item">License: {{ page.modelLicense }}</li>
-      </ul>
+    <div class="row row-flex row-flex-wrap">
+      <div class="col-lg-6 col-sm-12">
+        <div class="panel panel-default flex-col">
+          <div class="panel-heading">Overview</div>
+          <div class="panel-body flex-grow" style="padding: 0px;">
+            <table class="table table-striped" width="100%">
+              <tr>
+                <td><strong>Schema language:</strong></td>
+                <td>{{ page.modelSchemaLanguage }}</td>
+              </tr>
+              <tr>
+                <td><strong>Spoken Language:</strong></td>
+                <td>{{ page.modelSpokenLanguage }}</td>
+              </tr>
+              <tr>
+                <td><strong>Schema Tool:</strong></td>
+                <td>{{ page.modelSchemaTool }}</td>
+              </tr>
+              <tr>
+                <td><strong>License:</strong></td>
+                <td>{{ page.modelLicense }}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-sm-12">
+        <div class="panel panel-default flex-col">
+          <div class="panel-heading">Maturity</div>
+          <div class="panel-body flex-grow" style="padding: 0px;">
+            <table class="table table-striped" width="100%">
+              <tr>
+                <td><strong>Status:</strong></td>
+                <td>{{ page.modelMaturity }}</td>
+              </tr>
+              <tr>
+                <td><strong>Latest Version:</strong></td>
+                <td>{{ page.modelLatestVersion }}</td>
+              </tr>
+              <tr>
+                <td><strong>Next Version:</strong></td>
+                <td>{{ page.modelNextVersion }}</td>
+              </tr>
+              <tr>
+                <td><strong>Released Versions:</strong></td>
+                <td>{{ page.modelPreviousVersions }}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <div class="col-lg-4 col-md-6 col-sm-12">
-      <ul class="list-group">
-        <li class="list-group-item-heading">INSPIRE Integration</li>
-        <li class="list-group-item">Referenced Models:
-          {% for reference in page.modelsReferenced %}
-          <a class="tag-style mt-sm" href="/models/tag/{{ reference }}">{{ reference }}</a>
-          {% endfor %}
-        </li>
-        <li class="list-group-item">Model Reference Types:
-          {% for referenceType in page.modelReferenceTypes %}
-          <a class="tag-style mt-sm" href="/models/tag/{{ referenceType }}">{{ referenceType }}</a>
-          {% endfor %}</li>
-      </ul>
-    </div>
 
-    <div class="col-lg-4 col-md-6 col-sm-12">
-      <ul class="list-group">
-        <li class="list-group-item-heading">Maturity</li>
-        <li class="list-group-item">Status:  {{ page.modelMaturity }}</li>
-        <li class="list-group-item">Latest Version:  {{ page.modelLatestVersion }}</li>
-        <li class="list-group-item">Next Version:  {{ page.modelNextVersion }}</li>
-        <li class="list-group-item">Released Versions:  {{ page.modelPreviousVersions }}</li>
-      </ul>
-    </div>
 
-    <div class="col-lg-4 col-md-6 col-sm-12">
-      <ul class="list-group">
-        <li class="list-group-item-heading">Statistics</li>
-        <li class="list-group-item">Number of Types: {{ page.modelPreviousVersions }}</li>
-        <li class="list-group-item">Number of Properties: {{ page.modelPreviousVersions }}</li>
-      </ul>
-    </div>
+  <div class="col-lg-6 col-sm-12">
+    <ul class="list-group">
+      <li class="list-group-item-heading">INSPIRE Integration</li>
+      <li class="list-group-item">Referenced Models:
+        {% for reference in page.modelsReferenced %}
+        <a class="tag-style mt-sm" href="/models/tag/{{ reference }}">{{ reference }}</a>
+        {% endfor %}
+      </li>
+      <li class="list-group-item">Model Reference Types:
+        {% for referenceType in page.modelReferenceTypes %}
+        <a class="tag-style mt-sm" href="/models/tag/{{ referenceType }}">{{ referenceType }}</a>
+        {% endfor %}</li>
+    </ul>
+  </div>
+
+
+
+  <div class="col-lg-6 col-sm-12">
+    <ul class="list-group">
+      <li class="list-group-item-heading">Statistics</li>
+      <li class="list-group-item">Number of Types: {{ page.modelPreviousVersions }}</li>
+      <li class="list-group-item">Number of Properties: {{ page.modelPreviousVersions }}</li>
+    </ul>
   </div>
 
   <div class="post-content" itemprop="articleBody">
     {{ content }}
   </div>
 
-</article>
-  </section>
+  </article>
+</section>

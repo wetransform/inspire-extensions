@@ -5,7 +5,7 @@ date:                   2016-04-14 09:10:59 +0200
 category:               models
 tags:                   [example2, inspire, model]
 modelIdentifier:        exampleIE2
-modelName:              "Example Model"
+modelName:              "Example Model 2"
 author:                 "Thorsten Reitz"
 modelOrganisation:      "wetransform GmbH"
 modelSummary:           "This is an example model created as a template for the real INSPIRE-related Models."

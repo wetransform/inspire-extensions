@@ -6,36 +6,26 @@ layout: default
 
 <section>
     <div>
-        <h2><a class="anchor" name="browseByTag" href="#browseByTag" aria-hidden="true">Browse Models by Tag</a></h2>
+        <h2><a class="anchor" name="browseByTag" href="#browseByTag" aria-hidden="true"></a>Browse Models by Tag</h2>
+        {% for tag in site.data.tags %}
+        <h4>{{ tag.name }}</h4>
         <ul>
-            {% assign sorted_tags = (site.data.tags | sort:0) %}
-            {% for tag in sorted_tags %}
-
-            {{ tag.name | downcase }}
-            <ul>
-                {% for model in site.categories.models %}
-                The tags are
+            {% for model in site.categories.models %}
                 {% for tagModel in model.tags %}
-                <br>{{ tagModel }}
-                {% endfor %}
-
-
-
-                {% if model.tags contains tag %}
+                {% if tagModel == tag.slug %}
                 <li>
-                    <a href="{{ model.url }}">{{ model.title }} (added {{ model.date | date: "%d.%m.%Y" }})</a>
+                    <a href="{{ model.url }}">{{ model.modelName }} (added {{ model.date | date: "%d.%m.%Y" }})</a>
                 </li>
                 {% endif %}
                 {% endfor %}
-            </ul>
             {% endfor %}
-
         </ul>
-        <h2><a class="anchor" name="browseByDate" href="#browseByDate" aria-hidden="true">Browse Models by Date</a></h2>
+        {% endfor %}
+        <h2><a class="anchor" name="browseByDate" href="#browseByDate" aria-hidden="true"></a>Browse Models by Date</h2>
         <ul>
             {% for model in site.categories.models %}
             <li>
-                <a href="{{ model.url }}">{{ model.title }} (added {{ model.date | date: "%d.%m.%Y" }})</a>
+                <a href="{{ model.url }}">{{ model.modelName }} (added {{ model.date | date: "%d.%m.%Y" }})</a>
             </li>
             {% endfor %}
         </ul>

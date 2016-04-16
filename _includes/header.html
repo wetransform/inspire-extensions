@@ -29,11 +29,11 @@
         </ol>
         {% endif %}
       </li>
-      <li>{% if page.slug == "models" %}<strong>{% endif %}<a href="/models/index.html">Inventory of Model Extensions{% if page.slug == "models" %}</strong>{% endif %}</a>
-        {% if page.slug == "models" %}
+      <li>{% if page.slug == "models" or page.category == "models" %}<strong>{% endif %}<a href="/models/index.html">Inventory of Model Extensions{% if page.slug == "models" or page.category == "models" %}</strong>{% endif %}</a>
+        {% if page.slug == "models" or page.category == "models" %}
         <ol class="tocLevel2">
-          <li><a href="#browseByTag">Browse by Tag</a></li>
-          <li><a href="#browseByDate">Browse by Date</a></li>
+          <li><a href="/models/index.html#browseByTag">Browse by Tag</a></li>
+          <li><a href="/models/index.html#browseByDate">Browse by Date</a></li>
         </ol>
         {% endif %}
       </li>

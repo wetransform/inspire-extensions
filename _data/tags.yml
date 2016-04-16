@@ -1,2 +1,18 @@
-- slug: github-pages
-  name: GitHub Pages
+- slug: example
+  name: Example
+- slug: example2
+  name: "Example 2"
+- slug: inspire
+  name: INSPIRE
+- slug: aggregate
+  name: Aggregation
+- slug: associate
+  name: Association
+- slug: inherit
+  name: Inheritance
+- slug: mixin
+  name: Mixin
+- slug: inspireHYP40
+  name: "Associated with INSPIRE Hydro-physical Waters 4.0"
+- slug: inspireAU40
+  name: "Associated with INSPIRE Hydro-physical Waters 4.0"

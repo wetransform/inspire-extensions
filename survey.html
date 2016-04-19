@@ -28,8 +28,9 @@ slug: survey
     </ol>
 
     <p>Several of the questions were conditional and needed to be answered only if a specific answer was given
-        previously. We implemented the questionnaire using Google Forms. The link to the questionnaire was
-        distributed via different channels to ensure a good coverage of the INSPIRE community. These channels
+        previously. We implemented the questionnaire using Google Forms.
+        <a href="https://docs.google.com/forms/d/1VcGjUjbiK-Z9sLl-2Mw3g8D6UDbxxYx7hUEsWbYcwBo/viewform#responses" target="_blank">The link to the questionnaire</a>
+        was distributed via different channels to ensure a good coverage of the INSPIRE community. These channels
         included:</p>
 
     <ul>
@@ -347,6 +348,7 @@ slug: survey
             low: 0,
             high: 20
         });
+        rankSeries(json.series, json.labels.length);
     });
 
     $.getJSON("/data/2_18.json", function(json) {
@@ -367,7 +369,21 @@ slug: survey
             low: 0,
             high: 20
         });
+        rankSeries(json.series, json.labels.length);
     });
+
+    function rankSeries(series, labelsLength) {
+        var ranking = new Array(labelsLength);
+        for (var i = 0; i < ranking.length; i++) {
+            ranking[i] = 0;
+        }
+        for (var y = 0; y < series.length; y++) {
+            for (var x = 0; x < series[y].data.length; x++) {
+                ranking[x] += series[y].data[x] * (series.length - y - 1);
+            }
+        }
+        console.log(ranking);
+    }
 
 </script>
 

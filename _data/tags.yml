@@ -1,7 +1,3 @@
-- slug: example
-  name: Example
-- slug: example2
-  name: "Example 2"
 - slug: inspire
   name: INSPIRE
 - slug: aggregate
@@ -12,7 +8,29 @@
   name: Inheritance
 - slug: mixin
   name: Mixin
+- slug: inspireAD40
+  name: "Associated with INSPIRE Adresses 4.0"
+- slug: inspireAU40
+  name: "Associated with INSPIRE Administrative Units 4.0"
+- slug: inspireBL40
+  name: "Associated with INSPIRE Buildings 4.0"
+- slug: inspireCP40
+  name: "Associated with INSPIRE Cadastral Parcels 4.0"
+- slug: inspireEL40
+  name: "Associated with INSPIRE Elevation 4.0"
+- slug: inspireGE40
+  name: "Associated with INSPIRE Geology 4.0"
+- slug: inspireGN40
+  name: "Associated with INSPIRE Geographical Names 4.0"
 - slug: inspireHYP40
   name: "Associated with INSPIRE Hydro-physical Waters 4.0"
-- slug: inspireAU40
-  name: "Associated with INSPIRE Hydro-physical Waters 4.0"
+- slug: inspireLC40
+  name: "Associated with INSPIRE Land Cover 4.0"
+- slug: inspirePS40
+  name: "Associated with INSPIRE Protected Sites 4.0"
+- slug: inspireTN40
+  name: "Associated with INSPIRE Transport Networks 4.0"
+- slug: inspireSR40
+  name: "Associated with INSPIRE Sea Regions 4.0"
+- slug: inspireSU40
+  name: "Associated with INSPIRE Statistical Units 4.0"

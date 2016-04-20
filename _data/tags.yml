@@ -18,6 +18,8 @@
   name: "Associated with INSPIRE Cadastral Parcels 4.0"
 - slug: inspireEL40
   name: "Associated with INSPIRE Elevation 4.0"
+- slug: inspireEN30
+  name: "Associated with INSPIRE Electricity Networks 3.0"
 - slug: inspireGE40
   name: "Associated with INSPIRE Geology 4.0"
 - slug: inspireGN40

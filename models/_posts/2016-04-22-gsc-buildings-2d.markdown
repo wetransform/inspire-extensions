@@ -15,7 +15,7 @@ modelSchemaLanguage:    XSD
 modelSpokenLanguage:    English
 modelSchemaTool:        ""
 modelMaturity:          "Used in pilots or testbeds"
-modelLatestVersion:     "2.2"
+modelLatestVersion:     "2.1"
 modelPreviousVersions:  "2-4"
 modelNextVersion:       "At least one more version planned"
 modelLicense:           "Open (Unrestricted or attribution-only licenses such as CC-BY, BSD or Apache)"

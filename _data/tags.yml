@@ -24,10 +24,14 @@
   name: "Associated with INSPIRE Geology 4.0"
 - slug: inspireGN40
   name: "Associated with INSPIRE Geographical Names 4.0"
+- slug: inspireHB40
+  name: "Associated with INSPIRE Habitats and Biotopes 4.0"
 - slug: inspireHYP40
   name: "Associated with INSPIRE Hydro-physical Waters 4.0"
 - slug: inspireLC40
   name: "Associated with INSPIRE Land Cover 4.0"
+- slug: inspireMR40
+  name: "Associated with INSPIREMineral Resources 4.0"
 - slug: inspirePS40
   name: "Associated with INSPIRE Protected Sites 4.0"
 - slug: inspireTN40

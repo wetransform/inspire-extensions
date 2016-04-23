@@ -1,7 +1,7 @@
 ---
 layout:                 model
 title:                  "Inspire Extensions: IMKL2015 (Information model cable and pipelines)"
-date:                   2016-04-23 16:00:00 +0200
+date:                   2016-04-23 14:00:00 +0200
 category:               models
 tags:                   [inspire, inspireUG40, inherit, mixin]
 modelIdentifier:        imkl2015

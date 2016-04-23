@@ -31,7 +31,7 @@
 - slug: inspireLC40
   name: "Associated with INSPIRE Land Cover 4.0"
 - slug: inspireMR40
-  name: "Associated with INSPIREMineral Resources 4.0"
+  name: "Associated with INSPIRE Mineral Resources 4.0"
 - slug: inspirePS40
   name: "Associated with INSPIRE Protected Sites 4.0"
 - slug: inspireTN40
@@ -40,3 +40,5 @@
   name: "Associated with INSPIRE Sea Regions 4.0"
 - slug: inspireSU40
   name: "Associated with INSPIRE Statistical Units 4.0"
+- slug: inspireUG40
+  name: "Associated with INSPIRE Utility and Governmental Services 4.0"

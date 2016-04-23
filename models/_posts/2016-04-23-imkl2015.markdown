@@ -1,0 +1,29 @@
+---
+layout:                 model
+title:                  "Inspire Extensions: IMKL2015 (Information model cable and pipelines)"
+date:                   2016-04-23 16:00:00 +0200
+category:               models
+tags:                   [inspire, inspireUG40, inherit, mixin]
+modelIdentifier:        imkl2015
+modelName:              "IMKL2015 (Information model cable and pipelines)"
+author:                 "Herman Assink"
+modelOrganisation:      "IDgis Netherlands"
+modelSummary:           "This model extends Utility and Governmental Services for provision of download service on INSPIRE (2016) and Dutch (2017) Network Utility information"
+modelsReferenced:       [inspireUG40]
+modelReferenceTypes:    [inherit, mixin]
+modelSchemaLanguage:    "UML and SKOS"
+modelSpokenLanguage:    Dutch
+modelSchemaTool:        ""
+modelMaturity:          "Used in production environments"
+modelLatestVersion:     ""
+modelPreviousVersions:  ""
+modelNextVersion:       "At least one more version planned"
+modelLicense:           "Open (Unrestricted or attribution-only licenses such as CC-BY, BSD or Apache)"
+modelLink:              https://register.geostandaarden.nl/imkl2015/index.html
+modelStatsSizeTypes:    "-.-"
+modelStatsSizeProps:    "-.-"
+---
+
+IDgis designed this model to fulfill national and European legal obligations. The model will serve as a data specification for national data download service on INSPIRE (2016) and Dutch (2017) Network Utility information.
+ 
+To combine national and INSPIRE models, we created types that inherit from both by mix-in. We used RDF SKOS for codelists; validation against these codelists to be developed.

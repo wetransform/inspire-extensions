@@ -5,7 +5,7 @@ layout: default
   <article itemscope itemtype="http://schema.org/BlogPosting">
 
   <div>
-    <h2 itemprop="name headline">{{ page.modelName }}</h2>
+    <h2 itemprop="name headline">{{ page.modelName }}{% if page.modelLink %} <a href="{{ page.modelLink }}" target="_blank"><span class="pull-right glyphicon glyphicon-new-window"> </span></a>{% endif %}</h2>
     <p>
       <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
         {{ page.date | date: "%d.%m.%Y" }}

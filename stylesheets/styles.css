@@ -78,7 +78,8 @@ a:hover small {
 }
 
 .wrapper {
-    width: 860px;
+    width: 86vw;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -132,6 +133,9 @@ header {
     float: left;
     position: fixed;
     -webkit-font-smoothing: subpixel-antialiased;
+    overflow-y: auto;
+    top: 50px;
+    bottom: 196px;
 }
 
 #toc {
@@ -207,7 +211,7 @@ header ul a strong {
 }
 
 section {
-    width: 720px;
+    margin-left: 270px;
     float: right;
     padding-bottom: 50px;
 }
@@ -225,8 +229,8 @@ hr {
 
 footer {
     width: 270px;
-    float: left;
     position: fixed;
+    float: left;
     bottom: 50px;
     -webkit-font-smoothing: subpixel-antialiased;
 }

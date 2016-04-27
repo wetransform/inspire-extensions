@@ -211,6 +211,7 @@ header ul a strong {
 }
 
 section {
+    width: 58vw;
     margin-left: 270px;
     float: right;
     padding-bottom: 50px;
@@ -299,6 +300,13 @@ footer {
 
     header li, header ul li + li + li {
         width: 33%;
+    }
+}
+
+
+@media print, screen and (min-width: 1700px) {
+    section{
+        width: 45vw;
     }
 }
 

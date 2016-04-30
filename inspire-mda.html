@@ -1,0 +1,62 @@
+---
+layout: default
+slug:   inspire-mda
+title:  INSPIRE data specification extensions - The INSPIRE Model-Driven Approach
+---
+<section>
+
+    <h2>The INSPIRE Model-Driven Approach</h2>
+
+    <p>INSPIRE is a directive about interoperability and accessibility of geospatial data. <em>Interoperability</em>
+        means that different systems are compatible and are able to exchange information, so that other systems will
+        understand it. There are many different ways about how to achieve interoperability of computer systems, one
+        of which is the <a href="https://en.wikipedia.org/wiki/Model-driven_architecture" target="_blank">Model-Driven Architecture approach</a> (MDA).</p>
+
+    <table class="alert-warning important-info">
+        <tr>
+            <td style="width:3em"><div class="important-info-icon"><span class="glyphicon glyphicon-exclamation-sign" style="font-size:2em"></span></div></td>
+            <td>Reading this section will help you understand the extension methodology and much of the related terminology
+                better if you haven't been exposed to it before.</td>
+        </tr>
+    </table>
+
+    <p>MDA defines a set of guidelines for structuring specifications expressed as models. Using the MDA methodology,
+        system functionality is specified as a platform-independent model (PIM). By creating a common PIM, the INSPIRE
+        community has achieved <em>conceptual interoperability</em> - we have created a common data specification. The PIM has
+        been created using an appropriate Domain Specific Language. In INSPIRE and ISO, this language is the
+        <a href="https://en.wikipedia.org/wiki/Unified_Modeling_Language" target="_blank">Unified Modelling Language</a>
+        (UML). UML is a language that can be used to describe all kinds of aspects of systems, be it organisations or
+        software:</p>
+
+    <ul>
+        <li>Static aspects such as data structure (Class and Component Diagrams)</li>
+        <li>Dynamic aspects such as run-time behaviour or business processes (BPMN, Activity Diagram, Sequence Diagram)</li>
+        <li>Relationships between people and software (Use Case Diagrams)</li>
+    </ul>
+
+    <p>To achieve <em>operational interoperability</em>, the PIM is translated to one or more platform-specific models (PSMs),
+        using an implementation language such as like Java, Python, or XML Schema. The translations between the PIM
+        and PSMs are normally performed using automated tools, like model transformation tools. This is a core aspect:
+        Ideally, we &laquo;only&raquo; have to agree on a conceptual model (PIM), and can generate interoperable PSMs -
+        even for different platforms - automatically.</p>
+
+    <div>
+        <img src="/images/model-trafo-levels.png" alt="Model Transformation on different levels" title="Model Transformation on different levels" style="width: 60%">
+    </div>
+
+    <h2>Model Transformation</h2>
+
+    <p>Of particular importance to model-driven architecture is the notion of model transformation.</p>
+
+    <h2>Further Reading</h2>
+
+    <p>If you'd like to know more about the INSPIRE MDA approach, please refer to the following sources:</p>
+
+    <ul>
+        <li>TODO</li>
+        <li>TODO</li>
+        <li>TODO</li>
+    </ul>
+
+</section>
+

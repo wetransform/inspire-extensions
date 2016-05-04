@@ -46,13 +46,24 @@
         </ol>
         {% endif %}
       </li>
-      <li><a href="/extension.html"></a>The Extension Methodology
+      <li>{% if page.slug == "extension-methodology" %}<strong>{% endif %}<a href="/extension-methodology.html">The Extension Methodology</a>{% if page.slug == "extension-methodology" %}</strong>{% endif %}
+        {% if page.slug == "extension-methodology" %}
+        <ol class="tocLevel2">
+          <li><a href="/extension-methodology.html#process">Process Phases</a></li>
+          <li><a href="/extension-methodology.html#organisation">Organise</a></li>
+          <li><a href="/extension-methodology.html#analysis">Analyse</a></li>
+          <li><a href="/extension-methodology.html#comparison">Compare</a></li>
+          <li><a href="/extension-methodology.html#extension">Extend</a></li>
+          <li><a href="/extension-methodology.html#validation">Validate</a></li>
+          <li><a href="/extension-methodology.html#operation">Operate</a></li>
+        </ol>
+        {% endif %}
       </li>
-      <li><a href="#_catalogue"></a>The Pattern Catalogue
+      <li><a href="/patterns/index.html"></a>The Pattern Catalogue
       </li>
-      <li><a href="#_tutorial"></a>An End-to-End Tutorial Project
+      <li><a href=""></a>An End-to-End Tutorial Project
       </li>
-      <li><a href="#_summary"></a>Summary and Conclusions
+      <li><a href=""></a>Summary and Conclusions
       </li>
     </ol>
   </div>

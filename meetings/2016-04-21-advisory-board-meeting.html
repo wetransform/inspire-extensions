@@ -45,6 +45,119 @@ title:  INSPIRE data specification extensions - Advisory Board Meeting 21.04.201
 
   <h2><a id="minutes" class="anchor" href="#minutes" aria-hidden="true"></a>Notes from the meeting</h2>
 
-  <p>Coming soon...</p>
+  <p>Jandirk Bulens (Geonovum) started with his introduction to the project, explaining the Why, What, How, Who and When. He
+    explained that the project is an initiative of <a href="http://www.geonovum.nl">Geonovum</a> and is carried out as
+    an ad hoc project in the INSPIRE MIG-T (Technical Maintenance and Implementation Group) working program.
+    This project is to be pragmatic and to produce results in a short period. It is an initial study
+    and will result in recommendations for follow up. Robert Smith (JRC) added that the JRC plans a follow-up project
+    to Are3na in an ISA<sup>2</sup> action, a new four year program starting up this year, where they could include follow-up work.
+    This will be important in the context of potential “refitting” work for INSPIRE guidance and specifications.</p>
+
+  <img src="/images/meeting-projectstructure.png" alt="Organisational Structure of the project" title="Organisational Structure of the project" style="width: 80%;">
+
+  <p>He also explained that a part of the project is a presentation at the <a href="http://inspire.ec.europa.eu/events/conferences/inspire_2016/page/home" target="_blank">INSPIRE 2016 conference</a>. Robin and others
+    appreciated this and advised to not only hold a workshop but also a presentation. Later in the day, they suggested
+    a full track for the project results, best practices results and other related topics. The deadline for
+    submission is 15th of May, so we have to be in time with a proposal.</p>
+
+  <p>Thorsten Reitz then introduced the approach selected for the project, initially identified extensions, patterns
+    and survey results. He explained that all results of the study are shared on this site. Everyone is explicitly
+    invited to contribute directly to the stud. Thorsten showed how to <a href="http://inspire-extensions.wetransform.to/introduction.html#contributions" target="_blank">contribute</a>.</p>
+
+  <img src="/images/meeting-extmethodology.png" alt="Extension Methodology Outline" title="Extension Methodology Outline" style="width: 80%;">
+
+  <p>Next, Thorsten presented the survey results. At the first cutoff date of 20th of April, we had 66 responses and
+    reported 19 models, of which 11 are publicly documented and 8 with an open license. Three key takeaways from the
+    <a href="/survey.html" target="_blank">survey</a>:</p>
+
+  <ol>
+    <li>In the design phase, respondents mostly struggle with the extension methodology. Even experts state that they need guidance on this process.</li>
+    <li>In the implementation phase, the number 1 issue is systems integration, followed by data transformation.</li>
+    <li>The survey participants mostly create INSPIRE extensions because they want to improve external processes such as reporting to other organisations, not just because it’s a legal obligation.</li>
+  </ol>
+
+  <p>After the respondent has given approval, wetransform published the models on the study website. The survey
+    continues until the end of the project until the 1th of July. The results on the website are updated regularly.
+    Not included yet are the 29 extensions included in the annexes of the data specs. These will be added after entry
+    in the survey, so that required information is available.
+  </p>
+
+  <h2>Expert presentations</h2>
+
+  <p>After the coffee break the experts introduced themselves and presented their first thought and experience on the subject:</p>
+
+  <ul>
+    <li>Paul Janssen (Geonovum, NL) introduced the <a href="/models/2016/04/23/imkl2015.html" target="_blank">Domain
+      model of Cables and Pipelines</a>, which uses Mixin (multiple inheritance) combine existing models with INSPIRE.</li>
+    <li>Morten Borrebaeck (Kartverket, Norway/ELF) explained how they as a National Mapping and Cadastral Agency have
+      used standardisation. Morten also presented the modelling guidance which was set up in the ELF project.</li>
+    <li>Debbie Wilson (Ordnance Survey, UK) presented Ordnance Survey experiences up to date with extending on INSPIRE
+      and came up with some general rules. The first implementation took 2 years, now reduced to approx. 9 months.</li>
+    <li>Kathi Schleidt (UBA Austria) referred to what is missing in the process, the data model harmonization, the more
+      people the more chaos, and standards not necessarily mean easy interoperability. Kathi also presented her
+      experiences creating the model for the e-Reporting on Air Quality. The AQ-model imports multiple themes and has
+      more requirements come from the Air Quality directive. Her conclusion was that INSPIRE provides the building
+      blocks for reporting, but also that feature types had to be extended. Nevertheless the synergy of INSPIRE at one
+      side and the AQ reporting requirements on the other side do influence each other resulting in a better coverage.</li>
+    <li>Stefania Morrone presented their workflow and two model extensions (<a href="/models/2016/04/22/gsc-buildings-2d.html" target="_blank">Buildings 2D-Energy</a>, <a href="/models/2016/04/20/gsc-underground-sewer-network.html" target="_blank">Extended Utility Networks</a>) built in the <a href="http://www.geosmartcity.eu/" target="_blank">GeoSmartCity project</a>.</li>
+  </ul>
+
+  <h2>Drafting patterns</h2>
+
+  <p>The next question we addressed was about what a pattern needs to be to be helpful, and how a designer would select
+    one using the guidance. These are the criteria we have come up with:</p>
+
+  <ul>
+    <li>Complexity (just properties, or also objects or more?)</li>
+    <li>Type of extension</li>
+    <li>Relation to models already in use</li>
+    <li>Enable a consistent model through schema transformation</li>
+    <li>Balance conceptual model clarity and implementation platform concerns</li>
+  </ul>
+
+  <h2>Drafting the extension process</h2>
+
+  <p>After lunch we started a methodology Session in which we used the Design Studio methodology to define the process
+    of creating an INSPIRE-related data model. All experts and project members were involved and each was asked
+    individually to describe the steps to be taken in the process to create an INSPIRE Extension. In the following
+    round each of the participants presented their steps, not repeating steps already mentioned before. Stefania
+    contributed the framework that GeoSmartCity had developed, which we used as a base for further work. This framework
+    process looks as follows:</p>
+
+  <ul>
+    <li>Collect requirements:
+      <ul>
+        <li>Create a template file in order to collect the users’ data modelling requirements in a structured way.</li>
+        <li>Request each pilot to provide the list of information (attributes, code list ..) needed to run its use cases.</li>
+      </ul>
+    </li>
+    <li>Analyse and Compare:
+      <ul>
+        <li>Align different pilots’ data modelling requirements (whereas feasible, group requirements into common classes)</li>
+        <li>o	Compare data requirements so collected to the relevant INSPIRE Data Specifications</li>
+      </ul>
+    </li>
+    <li>Extend data models:
+      <ul>
+        <li>Provide an extension of the INSPIRE data models to take into account requirements not covered by the INSPIRE DS</li>
+        <li>Provide detailed instructions for maintenance of the schemas and the revision loop</li>
+      </ul>
+    </li>
+    <li>Validate results:
+      <ul>
+        <li>Successfully validate the produced schemas against encoding requirements using desktop (Oxygen) and online (OGC CITE test Suite) tools</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2>Wrapping up</h2>
+
+  <p>The participants concluded that the meeting was fruitful. We realized it is important to keep focus. Making the
+    scope broader will increase complexity and the risk to loose a clear result within the time set for the study.
+    Nevertheless what is recognized as important to address should be included in the recommendations as a follow up
+    for this study. The next expert meeting should be a two-day meeting in order the have enough time to finish
+    essential discussions. The date for the next meeting is set for Wednesday 29th and Thursday 30th of June. We will
+    meet at the  JRC in Ispra.
+  </p>
 
 </section>

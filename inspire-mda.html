@@ -52,18 +52,65 @@ title:  INSPIRE data specification extensions - The INSPIRE Model-Driven Approac
         <li>Easy generation of encodings and other artifacts such as feature catalogues and mapping tables</li>
     </ul>
 
-    <h2><a name="modelTransformation" id="modelTransformation" href="#modelTransformation"></a>Model Transformation</h2>
+    <h2><a name="inspireProcess" id="inspireProcess" href="#inspireProcess"></a>The INSPIRE Process</h2>
 
-    <p>Of particular importance to model-driven architecture is the notion of model transformation.</p>
+    <p>
+        The creation of an INSPIRE data specification for each of the 33 themes followed these phases:
+    </p>
 
-    <h2>Further Reading</h2>
+    <ol>
+        <li>Organise a thematic working group</li>
+        <li>Collect Use Cases</li>
+        <li>Identify user requirements and Spatial Object types</li>
+        <li>Determine required level of interoperability</li>
+        <li>Perform as-is analysis and gap analysis</li>
+        <li>Design a draft model</li>
+        <li>Test the model and consult stakeholders</li>
+        <li>Iterate over the model and feedback cycle</li>
+        <li>After release, maintain the model</li>
+    </ol>
+
+    <h2><a name="furtherReading" id="furtherReading" href="#furtherReading"></a>Further Reading</h2>
 
     <p>If you'd like to know more about the INSPIRE MDA approach, please refer to the following sources:</p>
 
     <ul>
-        <li>TODO</li>
-        <li>TODO</li>
-        <li>TODO</li>
+        <li><a href="http://inspire.ec.europa.eu/documents/Data_Specifications/D2.5_v3.4rc3.pdf" target="_blank">INSPIRE Generic Conceptual Model</a>:
+            This document provides a common technological and methodological framework for the creation of INSPIRE data specifications.
+            It is the baseline document for all model extension work as well.</li>
+        <li><a href="http://inspire.ec.europa.eu/documents/Data_Specifications/D2.7_v3.3rc3.pdf" target="_blank">Guidelines for the encoding of Spatial Data</a>:
+            This document describes how to create interoperable data using a common encoding derived from the conceptual model.</li>
+        <li><a href="http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=59164" target="_blank">EN ISO 19101:2005, Geographic information — Reference model</a>: This ISO standard
+            and other in the 191xx series provide the foundation for the INSPIRE Generic Conceptual Model.</li>
+    </ul>
+
+    <h2><a name="glossary" id="glossary" href="#glossary"></a>Glossary</h2>
+
+    <p>This is an abbreviated and commented excerpt of the Terms given in the INSPIRE Generic Conceptual Model.</p>
+
+    <ul>
+        <li><strong>attribute</strong>: A single, simple or complex, named data element that is part of a class. Also
+            called a <em>property</em>.</li>
+        <li><strong>class</strong>: A description of a set of objects that share the same attributes, constraints, and
+            semantics.</li>
+        <li><strong>code list</strong>: An enumeration of fixed values. Such values are often codes instead of readable
+            values, e.g. "1201" instead of "primary school", so a look-up table is needed for interpretation. Code Lists
+            can often be extended with additional or more specific values.</li>
+        <li><strong>conceptual schema</strong>: A formal description of a conceptual model, created using a conceptual
+            schema language.</li>
+        <li><strong>conceptual schema language</strong>: A formal language for the purpose of representing conceptual
+            schemas. In INSPIRE and ISO 191xx, UML (Unified Modelling Language) is used.</li>
+        <li><strong>constraint</strong>: TODO</li>
+        <li><strong>data set</strong>: An identifiable collection of data, e.g. a set of files that each contain a
+            feature collection.</li>
+        <li><strong>data specification</strong>: A detailed description of a data set or data set series together with
+            additional information that will enable it to be created, supplied to and used by another party. In INSPIRE,
+            the term refers to a harmonised data specification for a theme adopted as an Implementing Rule.</li>
+        <li><strong>feature</strong>: A (geographic) feature is an abstraction of a real world phenomenon. It's
+            structure is defined in a class, the feature type. Also called <em>Spatial Object</em>.</li>
+        <li><strong>feature type</strong>: A specific type of class that contains a location data structure, such as a
+        bounding box or a polygon.</li>
+        <li><strong>reference</strong>: A link or an association between different features.</li>
     </ul>
 
 </section>

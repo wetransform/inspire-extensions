@@ -1,0 +1,33 @@
+---
+layout:                 model
+title:                  "Inspire Extensions: Geographic Reference Information - Hydrography"
+date:                   2016-05-10 18:56:00 +0200
+category:               models
+tags:                   [inspire, inspireHY40, inherit]
+modelIdentifier:        grihy
+modelName:              "Geographic Reference Information - Hydrography"
+author:                 "Celia Sevilla Sánchez"
+modelOrganisation:      "Instituto Geográfico Nacional (CNIG)"
+modelSummary:           "This model extends INSPIRE Hydrography to match Spanish standards."
+modelsReferenced:       [inspireHY40]
+modelReferenceTypes:    [inherit]
+modelSchemaLanguage:    "UML"
+modelSpokenLanguage:    "Spanish"
+modelSchemaTool:        "Enterprise Architect"
+modelMaturity:          "Used in production environments"
+modelLatestVersion:     "1.0"
+modelPreviousVersions:  "2-4"
+modelNextVersion:       "Long-term resources available"
+modelLicense:           "Open (Unrestricted or attribution-only licenses such as CC-BY, BSD or Apache)"
+modelLink:              ""
+modelStatsSizeTypes:    "-.-"
+modelStatsSizeProps:    "-.-"
+---
+
+This model was created for several reasons:
+ 
+* To improve internal processes
+* To improve external processes (such as reporting) with other organisations 
+* To fulfill a legal obligation
+
+It is implemented in a new production system, of which the first version will be released at the end of 2016.

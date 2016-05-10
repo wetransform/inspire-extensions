@@ -10,6 +10,8 @@
   name: Mixin
 - slug: inspireAD40
   name: "Associated with INSPIRE Adresses 4.0"
+- slug: inspireAM40
+  name: "Associated with INSPIRE Area Management 4.0"
 - slug: inspireAU40
   name: "Associated with INSPIRE Administrative Units 4.0"
 - slug: inspireBL40
@@ -20,6 +22,8 @@
   name: "Associated with INSPIRE Elevation 4.0"
 - slug: inspireEN30
   name: "Associated with INSPIRE Electricity Networks 3.0"
+- slug: inspireEMF40
+  name: "Associated with INSPIRE Environmental Monitoring Facilities 4.0"
 - slug: inspireGE40
   name: "Associated with INSPIRE Geology 4.0"
 - slug: inspireGN40
@@ -32,8 +36,14 @@
   name: "Associated with INSPIRE Land Cover 4.0"
 - slug: inspireMR40
   name: "Associated with INSPIRE Mineral Resources 4.0"
+- slug: inspireNRZ40
+  name: "Associated with INSPIRE Natural Risk Zones 4.0"
+- slug: inspirePIF40
+  name: "Associated with INSPIRE Production and Industrial Facilities 4.0"
 - slug: inspirePS40
   name: "Associated with INSPIRE Protected Sites 4.0"
+- slug: inspireRZ40
+  name: "Associated with INSPIRE Restriction Zones and Reporting Units 4.0"
 - slug: inspireTN40
   name: "Associated with INSPIRE Transport Networks 4.0"
 - slug: inspireSR40

@@ -3,7 +3,7 @@ layout:                 model
 title:                  "Inspire Extensions: Example Model 2"
 date:                   2016-04-14 09:10:59 +0200
 category:               models
-tags:                   [example2, inspire, model]
+tags:                   [example2, model]
 modelIdentifier:        exampleIE2
 modelName:              "Example Model 2"
 author:                 "Thorsten Reitz"

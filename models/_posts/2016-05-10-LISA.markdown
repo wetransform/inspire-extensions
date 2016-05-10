@@ -1,0 +1,41 @@
+---
+layout:                 model
+title:                  "Inspire Extensions: LISA (Land Information System Austria)"
+date:                   2016-05-10 13:00:00 +0200
+category:               models
+tags:                   [inspire, inspirePS40, inspireLC40, inherit]
+modelIdentifier:        lisa
+modelName:              "LISA (Land Cover)"
+author:                 "Gebhard Banko"
+modelOrganisation:      "Umweltbundesamt Österreich"
+modelSummary:           "This model was created to improve the semantic harmonisation for land cover data sets and to include temporal phenomena in existing land cover datasets"
+modelsReferenced:       [inspirePS40, inspireLC40]
+modelReferenceTypes:    [inherit]
+modelSchemaLanguage:    "UML, Esri Geodatabase, XML Schema"
+modelSpokenLanguage:    English
+modelSchemaTool:        "Enterprise Architect"
+modelMaturity:          "Used in pilots or testbeds"
+modelLatestVersion:     "2.0"
+modelPreviousVersions:  "2-4"
+modelNextVersion:       "At least one more version planned"
+modelLicense:           "Open (Unrestricted or attribution-only licenses such as CC-BY, BSD or Apache)"
+modelLink:              http://www.landinformationsystem.at/en-us/lisa/overview.aspx
+modelStatsSizeTypes:    "-.-"
+modelStatsSizeProps:    "-.-"
+---
+
+The LISA data model was developed based on the assumption of monotemporal observations within a 3-year period. With the integration of SENTINEL-2 data, this concept had to be adapted and amended to cope with multi-temporal observations within a year.
+
+The EAGLE data model was designed a few years after LISA, and was developed back-to-back with the INSPIRE data specifications for land cover. The amendment of the LISA data model was realized based on the following preconditions:
+
+* Keep continuity to previous data model as fas as possible 
+* Changes in nomenclature only in extraordinary cases
+* Adapt to the EAGLE model and terminology (land cover unit, land cover component)
+* Adapt to INSPIRE data specifications
+* Integrate multi-temporal components of EAGLE (“time machine”)
+* Provide the possibility to store individual observations (e.g. NDVI on a certain date) on object level
+
+Additional information is available from the following sites:
+
+* [COPERNICUS Land Information](http://land.copernicus.eu)
+* [Land Information System Austria Website](http://www.landinformationsystem.at/en-us/lisa/overview.aspx)

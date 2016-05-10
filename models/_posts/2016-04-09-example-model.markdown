@@ -3,7 +3,7 @@ layout:                 model
 title:                  "Inspire Extensions: Example Model"
 date:                   2016-04-09 09:10:59 +0200
 category:               models
-tags:                   [example, inspire, inspireHYP40, inspireAU40, aggregate, associate, inherit, mixin]
+tags:                   [example, inspireHYP40, inspireAU40, aggregate, associate, inherit, mixin]
 modelIdentifier:        exampleIE
 modelName:              "Example Model"
 author:                 "Thorsten Reitz"

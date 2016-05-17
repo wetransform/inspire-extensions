@@ -1,13 +1,13 @@
 ---
 layout:                 model
-title:                  "Inspire Extensions: SOSI Road Networks and Linear Referencing"
+title:                  "Inspire Extensions: SOSI Vegnett (Road Network) and Linear Referencing"
 date:                   2016-05-10 13:56:00 +0200
 category:               models
 tags:                   [inspire, inspireTN40, inherit, associate]
 modelIdentifier:        sosiroad
-modelName:              "SOSI Road Networks and Linear Referencing"
+modelName:              "SOSI Vegnett (Road Network) and Linear Referencing"
 author:                 "Knut Jetlund"
-modelOrganisation:      "Norwegian Public Roads Administration (Vegwesen)"
+modelOrganisation:      "Norwegian Public Roads Administration (Statens vegvesen)"
 modelSummary:           "This model extends INSPIRE Transport networks with Norwegian SOSI information to improve reporting."
 modelsReferenced:       [inspireTN40]
 modelReferenceTypes:    [inherit, associate]

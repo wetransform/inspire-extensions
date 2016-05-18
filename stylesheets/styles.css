@@ -209,7 +209,7 @@ header {
 blockquote {
     font-size: 14px;
     padding: 1em;
-    margin: 0.5em;
+    margin: 0.5em 0.5em 1.0em;
     border-left: 5px solid #e5e5e5;
     background-color: #f5f5f5;
     font-style: italic;

@@ -61,6 +61,7 @@ title:  INSPIRE data specification extensions - The Extension Methodology
 
     <ol>
         <li><strong>Domain Experts</strong>: These people, like you, are experts in the domain to be modelled and know it well from years of hands-on work. They are familiar with the specific shared terminology, but every one provides a different perspective, e.g. from research and from data collection.</li>
+        <li><strong>Standards and Modelling Expert</strong>: This person knows ISO, OGC and ideally INSPIRE standards well and has very good knowledge of at least one schema language.</li>
         <li><strong>Integration Expert</strong>: This person will help you to integrate actual data into the new model, by using data transformation tools such as XSLT, <a href="http://www.safe.com/fme" target="_blank">FME</a> or <a href="https://www.wetransform.to/products/halestudio/" target="_blank">hale studio (Open Source)</a>.</li>
         <li><strong>Technical Expert</strong>: This person knows all about specific tools used in the process, such as model transformation tools, modelling tools, databases and service publishing frameworks. Typically, they support many projects and support your activity part-time.</li>
         <li><strong>Supporting Stakeholder</strong>: This person has organisational and political influence and supports the project by providing required resources.</li>
@@ -103,11 +104,19 @@ title:  INSPIRE data specification extensions - The Extension Methodology
 
     <ol>
         <li>Scope Analysis</li>
-        <li>Stakeholder Identification and Personas</li>
+        <li>Stakeholder Identification and Persona building</li>
         <li>Scenarios</li>
         <li>User Stories</li>
         <li>Technical Requirements</li>
     </ol>
+
+    <p>Personas, scenarios and user stories are all related to each other, and help getting a clearly motivated, consistent picture of the requirements, without getting lost in details too early in the process:</p>
+
+    <div style="margin: 20px">
+        <img src="/images/user-analysis.png.png" title="The relation between Personas, Scenarios and User Stories" style="width: 60%; min-width: 400px; margin-left: 20%; margin-right: 20%">
+    </div>
+
+    <p>The following sections will explain how to work with these to define a fit for purpose data model.</p>
 
     <h3>Scope Analysis</h3>
 
@@ -152,10 +161,10 @@ title:  INSPIRE data specification extensions - The Extension Methodology
 
     <h3><a name="scenarios" id="scenarios" href="#scenarios"></a>Scenarios</h3>
 
-    <p>A scenario is a narrative that tells how one specific persona will work with the data. The scenario also explains why that persona executes the workflow. It explains one specific workflow, without variants, from end to end, and uses the persona's vocabulary. Consider this example of a scenario:</p>
+    <p>A scenario is a narrative that tells how one specific persona will work with the data. The scenario also explains why that persona executes the workflow. It explains one specific workflow, without variants, from end to end, and uses the persona's vocabulary. The scenrio should contain at least some of the object types and properties you have identified in the scope analysis. Consider this example scenario:</p>
 
     <blockquote>
-        Angela needs to publish an updated version of the school districts data set she is responsible for, because colleague Mark needs the new data. She logs in to the system, goes to the data sets list, identifies the one she wants to update, and clicks on it. She goes to the files tab and deletes all files, then uploads the new files. She waits for a moment until the system tells her all files are valid, then the proceeds with metadata entry. After that is done, she triggers the service update. She notifies her colleague Mark.
+        Angela needs to publish an updated version of the Ownership Registrations data set she is responsible for, because her colleague Mark needs the new data which contains additional information on submitters to implement a new and improved internal administrative process. She logs in to the system, goes to the data sets list, identifies the one she wants to update, and clicks on it. She goes to the files tab and deletes all files, then uploads the new files. She waits for a moment until the system tells her all files are valid, then the proceeds with metadata entry. After that is done, she triggers the service update. She notifies her colleague Mark.
     </blockquote>
 
     <h3>User Stories</h3>

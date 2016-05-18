@@ -213,6 +213,13 @@ header {
     padding-right: 0.5em;
 }
 
+blockquote {
+    font-size: 14px;
+    padding: 1em;
+    margin: 0.5em;
+    border-left: 5px solid #999999;
+    background-color: #eeeeee;
+}
 
 strong {
     color: #222;

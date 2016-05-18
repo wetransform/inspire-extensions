@@ -226,6 +226,7 @@ header ul a strong {
 }
 
 section {
+    max-width: 60em;
     width: 58vw;
     margin-left: 270px;
     float: right;

@@ -31,7 +31,7 @@ title:  INSPIRE data specification extensions - The Extension Methodology
         <li><strong>Operate:</strong> Deploy and operate the model extension in view and download services</li>
     </ol>
 
-    <p>You will iterate over all of these phases multiple times. Typically, some iterations will take weeks, while others will take only minutes or hours:</p>
+    <p>You will iterate over all of these phases multiple times. Typically, iterations that include a release will take weeks, while others will take only minutes or hours:</p>
 
     <div style="margin: 20px">
         <img src="/images/process-overview.png" title="Overview of the extension methodology" style="width: 60%; min-width: 400px; margin-left: 20%; margin-right: 20%">
@@ -45,7 +45,7 @@ title:  INSPIRE data specification extensions - The Extension Methodology
 
     <h3>Who are you?</h3>
 
-    <p>You will be the champion of the data model-to-be. You will be the facilitator for the team that will design and
+    <p>You will be the facilitator for the team that will design and
         implement the model. As you are hopefully not working alone, you do not need to be an expert at all required
         skills, but you should have the following skills:</p>
     <ol>
@@ -61,17 +61,40 @@ title:  INSPIRE data specification extensions - The Extension Methodology
 
     <ol>
         <li><strong>Domain Experts</strong>: These people, like you, are experts in the domain to be modelled and know it well from years of hands-on work. They are familiar with the specific shared terminology, but every one provides a different perspective, e.g. from research and from data collection.</li>
-        <li><strong>Integration Expert</strong>: This person will help yout to integrate actual data into the new model, by using data transformation tools such as XSLT, <a href="http://www.safe.com/fme" target="_blank">FME</a> or <a href="https://www.wetransform.to/products/halestudio/" target="_blank">hale studio</a>.</li>
+        <li><strong>Integration Expert</strong>: This person will help you to integrate actual data into the new model, by using data transformation tools such as XSLT, <a href="http://www.safe.com/fme" target="_blank">FME</a> or <a href="https://www.wetransform.to/products/halestudio/" target="_blank">hale studio (Open Source)</a>.</li>
         <li><strong>Technical Expert</strong>: This person knows all about specific tools used in the process, such as model transformation tools, modelling tools, databases and service publishing frameworks. Typically, they support many projects and support your activity part-time.</li>
+        <li><strong>Supporting Stakeholder</strong>: This person has organisational and political influence and supports the project by providing required resources.</li>
     </ol>
 
     <h3>Work Agreements</h3>
 
-    <p>TODO</p>
+    <p>Whenever you collaborate with a team, you need to clearly define the rules under which you will cooperate up-front. IN agile software development, we call these rules work agreements. You should consider the following areas for work agreements:</p>
+
+    <ul>
+        <li><strong>Roles:</strong> Does everybody in the team have the same responsibilities? Is one person responsible for monitoring the process and improving it, like a <a href="https://en.wikipedia.org/wiki/Scrum_%28software_development%29#Scrum_master" target="_blank">SCRUM master?</a></li>
+        <li><strong>Iterations:</strong> How long will your development iterations be? How many iterations will you go through in the team? How many limited or public releases will you make to gather feedback from outside the team?</li>
+        <li><strong>Documentation:</strong> How will you document the model itself, the process you're following and the decisions made during the project? Will others be able to use this documentation to emulate what you did?</li>
+        <li><strong>Capacity Building:</strong> How will you actively increase the capacity of your team? Will you identify skill deficits and address them through trainings or through pulling in advisors (internal or external)?</li>
+        <li><strong>Natural Language usage:</strong> Will you develop the model in English or in your local language? Will you provide translations?</li>
+        <li><strong>Meetings:</strong> How often will you be able to meet in person or online? How do you get the most our of such meetings?</li>
+        <li><strong>Communication:</strong> How often will you be able to meet in person or online? How do you get the most our of such meetings? How do you communicate asynchronously?</li>
+        <li><strong>Change Management:</strong> How will you deal with external changes, such as new INSPIRE data specification versions, new version of regional standards, or a change in your technical requirements?</li>
+    </ul>
 
     <h3>Tools</h3>
 
-    <p>TODO</p>
+    <p>It's also helpful to agree on a set of tools that everybody uses, to reduce interoperability challenges inside the team. Take into account previous experience, available licenses and suitability for the project at hand. Typically, you will need the following types of tools:</p>
+
+    <ul>
+        <li><strong>Project Management</strong>: A place where you track tasks, progress, documents and other artifacts related to the project. It should be easy to access and to use. Typical products used for this purpose include <a href="https://en.atlassian.com/software/jira" target="_blank">Jira</a>, <a href="http://www.redmine.org/" target="_blank">Redmine (Open Source)</a> or <a href="https://github.com/" target="_blank">Github</a> and <a href="https://about.gitlab.com/" target="_blank">Gitlab</a>.</li>
+        <li><strong>Communication</strong>: A central place for all communication can be incredibe helpful for documentaiton and understanding how a project developed. This archive should be searchable and easily accessible. Typical choices include a mailing list, or tools like <a href="https://hipchat.com/" target="_blank">HipChat</a> or <a href="https://slack.com/" target="_blank">Slack</a></li>
+        <li><strong>Source Code Management</strong>: You will benefit greatly from using a proper source and version control repository for your model from the start on. Such tools enable effective cooperation even in larger or distributed teams and allow you to review progress, and they have become much easier to use thanks to sites like Github. The three most common tools are <a href="https://www.mercurial-scm.org/" target="_blank">Mercurial</a>, <a href="https://git-scm.com/" target="_blank">Git</a> and <a href="https://subversion.apache.org/" target="_blank">Subversion (SVN)</a>. Which one you use will depend on the modelling software you use.</li>
+        <li><strong>Data Modelling</strong>: The tool you use to design the actual model extension. Typically, this is a UML Editor such as <a href="http://www.sparxsystems.com.au/" target="_blank">Enterprise Architect</a> or <a href="http://argouml.tigris.org/" target="_blank">ArgoUML (Open Source)</a>, though some projects directly start with an XML Schema. You can edit the XML schema in any programmer's text editor, but there is also specialized software available such as <a href="http://www.altova.com/xmlspy.html" target="_blank">XMLSpy</a>.</li>
+        <li><strong>Schema Transformation</strong>: When you design your model in a conceptual language like UML, you need to transform it to an implementation language before you can actually use it. While many of the data modelling tools listed before have such capabilities, you will likely need a schema transformation tool as well. As of now, there is one choice: <a href="http://shapechange.net/" target="_blank">ShapeChange (Open Source)</a>.</li>
+        <li><strong>Data Transformation</strong>: Your model under design needs to be tested, and that can only be done meaningfully by filling it with data. This process, also known as transformation testing, is done with data transformation software, sometimes also called ETL (Extract Transform Load). The most commonly used products for this purpose are <a href="https://en.wikipedia.org/wiki/XSLT" target="_blank">XSLT</a>, <a href="http://www.safe.com/fme" target="_blank">FME</a> and <a href="https://www.wetransform.to/products/halestudio/" target="_blank">hale studio (Open Source)</a>.</li>
+        <li><strong>Service Publishing</strong>: At the end, a successful INSPIRE implementation requires you to set up view and download services, and you will need to test your model extension by deploying such services. There are several options available for publishing INSPIRE compliant services, such as <a href="http://www.deegree.org/" target="_blank">deegree (Open Source)</a>, <a href="http://docs.geoserver.org/stable/en/user/data/app-schema/" target="_blank">GeoServer with app-schema (Open Source)</a> and <a href="http://www.interactive-instruments.de/xtraserver/" target="_blank">ArcGIS Server with XtraServer</a>.</li>
+        <li><strong>A GIS client</strong>: You will use this software to analyse both the source data and transformed data. Since INSPIRE uses <em>complex feature GML</em> as a base, it is challenging to use in desktop GIS. Some GIS software does have limited complex features GML support, such as <a href="https://www.qgis.org" target="_blank">QGIS (Open Source)</a>.</li>
+    </ul>
 
     <h2><a name="analysis" id="analysis" href="#analysis"></a>Requirements Analysis</h2>
 

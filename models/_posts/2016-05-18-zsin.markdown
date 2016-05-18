@@ -1,0 +1,27 @@
+---
+layout:                 model
+title:                  "Inspire Extensions: ZSIN - the Integrated System of Information about Real Estates"
+date:                   2016-05-18 08:16:00 +0200
+category:               models
+tags:                   [inspire, inspireAD40, inspireAU40, inspireCP40, inherit, aggregate]
+modelIdentifier:        zsin
+modelName:              "ZSIN - the Integrated System of Information about Real Estates"
+author:                 "Zenon Parzyński"
+modelOrganisation:      "General Office of Geodesy and Cartography in Poland"
+modelSummary:           "This model extends INSPIRE Addresses, Administrative Units and Cadastral Parcels to implement a new Real Estate information system in Poland."
+modelsReferenced:       [inspireAD40, inspireAU40, inspireCP40]
+modelReferenceTypes:    [inherit, aggregate]
+modelSchemaLanguage:    "UML"
+modelSpokenLanguage:    "Polish"
+modelSchemaTool:        "Enterprise Architect"
+modelMaturity:          "Used in production environments"
+modelLatestVersion:     "1.0"
+modelPreviousVersions:  "2-4"
+modelNextVersion:       "Long-term resources available"
+modelLicense:           "Open (Unrestricted or attribution-only licenses such as CC-BY, BSD or Apache)"
+modelLink:              ""
+modelStatsSizeTypes:    "-.-"
+modelStatsSizeProps:    "-.-"
+---
+
+This model was created primarily to fulfill legal obligations, on national and European level. The model is used as a foundation for one of the official registers in Poland. 

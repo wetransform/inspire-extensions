@@ -1,0 +1,68 @@
+---
+title: Extension Patterns - INSPIRE data specification extensions
+slug: patterns
+layout: default
+---
+
+<section>
+    <div>
+        <h2>The purpose of Patterns</h2>
+
+        <p>TODO</p>
+
+        <h2>Types of Patterns for INSPIRE Extensions</h2>
+
+        <p>TODO</p>
+
+        <h2><a class="anchor" name="modelPatterns" href="#modelPatterns" aria-hidden="true"></a>Patterns for Model Extension</h2>
+
+        <p>TODO</p>
+
+        <ul>
+            {% for pattern in site.categories.patterns %}
+                {% for tagModel in pattern.tags %}
+                {% if tagModel == "modelPattern" %}
+                <li>
+                    <a href="{{ pattern.url }}">{{ pattern.patternName }}</a>
+                </li>
+                {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </ul>
+        {% endfor %}
+
+        <h2><a class="anchor" name="classPatterns" href="#classPatterns" aria-hidden="true"></a>Patterns for Class Extension</h2>
+
+        <p>TODO</p>
+
+        <ul>
+            {% for pattern in site.categories.patterns %}
+            {% for tagModel in pattern.tags %}
+            {% if tagModel == "classPattern" %}
+            <li>
+                <a href="{{ pattern.url }}">{{ pattern.patternName }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+        </ul>
+        {% endfor %}
+
+        <h2><a class="anchor" name="propertyPatterns" href="#propertyPatterns" aria-hidden="true"></a>Patterns for Property Extension</h2>
+
+        <p>TODO</p>
+
+        <ul>
+            {% for pattern in site.categories.patterns %}
+            {% for tagModel in pattern.tags %}
+            {% if tagModel == "propertyPattern" %}
+            <li>
+                <a href="{{ pattern.url }}">{{ pattern.patternName }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+        </ul>
+        {% endfor %}
+    </div>
+</section>

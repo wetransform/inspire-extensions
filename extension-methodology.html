@@ -232,12 +232,12 @@ title:  INSPIRE data specification extensions - The Extension Methodology
 
     <p>Looking at the data model in detail, there doesn't seem to be a way to cover the parcel join use case with the given data structure. We do however have a <code>CadastralParcel</code> class that might serve as a baseline and connection point to the INSPIRE model. Compare each of your User Stories to the INSPIRE data specification, and build a comparison table similar to this one:</p>
 
-    <table>
-        <th>
-            <td>Use Case</td>
-            <td>Covered</td>
-            <td>Not covered</td>
-        </th>
+    <table class="table table-responsive table-striped">
+        <tr>
+            <th>Use Case</th>
+            <th>Covered</th>
+            <th>Not covered</th>
+        </tr>
         <tr>
             <td>IE-12 Join Parcels</td>
             <td>The local class Parcel can be matched to the INSPIRE class CadastralParcel. We can use beginLifespan and endLifespan properties to indicate when a JoinedParcel is formed, and when the individual Parcels stopped existing as individual objects.</td>

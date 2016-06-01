@@ -176,20 +176,42 @@ title:  INSPIRE data specification extensions - The Extension Methodology
 
     <h3>User Stories</h3>
 
-    <p>TODO what are User Stories; Add diagram that relates personas, user stories, scenarios</p>
+    <p>A <a href="https://en.wikipedia.org/wiki/User_story" target="_blank">User Story</a> describes the "who", "what" and "why" of a requirement to a software system in a simple, concise way. It may consist of one or more sentences in the language of the end user. User stories originate from agile software development methodologies as the basis for defining the functions a business system must provide. A simple example for a user story is:</p>
+
+    <blockquote>As a data manager, I <em>must</em> be able to upload a GML file to create a predefined dataset download service.</blockquote>
+
+    <p>This single sentence identifies the actor (stakeholder), what they need to do (upload a file) and gives the reason why the functionality is required. The sentence also contains a key word that indicates the business value of the requirement. In the example, it's <em>must</em>, the strongest of the three keywords commonly used, the other two being <em>should</em> and <em>could</em>. User stories can also serve you well when creating a data model, such as in this example:</p>
+
+    <blockquote>As a data manager, I must be able to combine multiple land parcels into one land parcel, without loosing records of the individual parcels.</blockquote>
+
+    <p>This requirement provides a basis for several elements of your data model. A solution to implement this requirement might be to add a class <code>JoinedParcel</code> to manage parcel joins, and to give it a reference to a <code>Set</code> of <code>Parcels</code>, to satisfy this requirement.</p>
+
+    <p>A User Story is often more than just a single sentence. Often, the user story needs to be clarified with additional information, such as...:</p>
+
+    <ul>
+        <li><strong>Unique Identifier:</strong> A short ID and/or description we can use to reference to the use case, such as &laquo;IE-12 Join Parcels&raquo;.</li>
+        <li><strong>Definition of Done (DoD):</strong> A single sentence leaves a lot open to interpretation. The DoD is used to define exactly when the user story is fulfilled. In the GML upload example above, the DoD might read that GML 2.1.x and GML 3.x need to be supported, that files up to 100MB need to be uploaded, and that the system needs to validate files on upload. You can even specify a set of files with which the upload has to work.</li>
+        <li><strong>Design:</strong> In some cases, the user story will need a design, e.g. for a user interface or for a data model. Often this design is a draft or a wireframe, not a pixel-perfect final design.</li>
+        <li><strong>Preconditions:</strong> Describes the state the system needs to be in before the action. Typical preconditions include authentication or execution of a successful process.</li>
+        <li><strong>Postconditions:</strong> Describes the expected output of the action, such as a newly created file being provided to the user for download.</li>
+    </ul>
 
     <h2><a name="comparison" id="comparison" href="#comparison"></a>Comparison with INSPIRE and other Data Specifications</h2>
 
-    <p>TODO Intro comparative analysis</p>
+    <p>Your User Stories, by intent, don't describe the actual data model in detail. If you first create a data model based on the user stories and then compare your model to the INSPIRE data specification, you will have a much harder time to reconcile the two. Instead, we compare the INSPIRE data specification to the User Stories and see which parts of it are already covered.
 
     <h3>Find your INSPIRE Scope</h3>
 
     <p>You have three options to understand which INSPIRE Data Specifications are relevant for your model extension. Initially, interested people had to either read through hundreds of pages of PDFs, or to analyse the Enterprise Architect UML files. Thanks to the hard work of the IES team at the JRC, we now have a third option available. The <a href="http://inspire-regadmin.jrc.ec.europa.eu/dataspecification/" target="_blank">INSPIRE Interactive Data Specifications</a>. This online application provides two tools:</p>
 
     <ol>
-        <li><strong>Read and Compare Technical Guidelines:</strong> An Index that present the Data Specifications in smaller chunks, and enables side-by-side comparison of different themes. This is useful when you want to determine which data specification is relevant.</li>
+        <li><strong>Read and Compare Technical Guidelines:</strong> An index that present the Data Specifications in smaller chunks, and enables side-by-side comparison of different themes. This is useful when you want to determine which data specification is relevant.</li>
         <li><strong>Find Your Scope:</strong> An interactive workflow to identify relevant Spatial Object types in the INSPIRE Data Specifications. You can use this to find out which INSPIRE Data Specifications are relevant for a dataset you’d like to contribute to the infrastructure. The &laquo;Find your Scope&raquo; tool at the end provides you with either documentation (*.doc, *.pdf), a mapping table (*.xls), or as a hale studio mapping project. This project makes it easier for you to get started with producing INSPIRE interoperable data.</li>
     </ol>
+
+    <div style="margin: 20px">
+        <img src="/images/find-your-scope.png" title="INSPIRE Find Your Scope tool" style="width: 80%; min-width: 400px; margin-left: 10%; margin-right: 10%">
+    </div>
 
     <p>These tools will help you identify which themes, schemas and spatial object types are relevant for your model extension. Export the list of relevant object types as a document and a mapping table for later work.</p>
 
@@ -202,7 +224,32 @@ title:  INSPIRE data specification extensions - The Extension Methodology
 
     <h3>Validate requirements coverage</h3>
 
-    <p>TODO How to compare INSPIRE DS and national DS with requirements identified</p>
+    <p>Let's pick up the example from above again and compare that to the <a href="http://inspire.ec.europa.eu/documents/Data_Specifications/INSPIRE_DataSpecification_CP_v3.0.pdf" target="_blank">INSPIRE Cadastral Parcels data specification</a>. In that specification, you'll find this diagram:</p>
+
+    <div style="margin: 20px">
+        <img src="/images/inspire-cadastral-parcels.png" title="INSPIRE cadastral parcels UML diagram" style="width: 80%; min-width: 400px; margin-left: 10%; margin-right: 10%">
+    </div>
+
+    <p>Looking at the data model in detail, there doesn't seem to be a way to cover the parcel join use case with the given data structure. We do however have a <code>CadastralParcel</code> class that might serve as a baseline and connection point to the INSPIRE model. Compare each of your User Stories to the INSPIRE data specification, and build a comparison table similar to this one:</p>
+
+    <table>
+        <th>
+            <td>Use Case</td>
+            <td>Covered</td>
+            <td>Not covered</td>
+        </th>
+        <tr>
+            <td>IE-12 Join Parcels</td>
+            <td>The local class Parcel can be matched to the INSPIRE class CadastralParcel. We can use beginLifespan and endLifespan properties to indicate when a JoinedParcel is formed, and when the individual Parcels stopped existing as individual objects.</td>
+            <td>The INSPIRE class CadastralParcel has no reference to a set of CadastralParcels that it was made of.</td>
+        </tr>
+        <tr>
+            <td>IE-14 Split Parcels</td>
+            <td>The local class Parcel can be matched to the INSPIRE class CadastralParcel. We can use beginLifespan and endLifespan properties to indicate when a new Parcel is formed, and when the individual Parcels stopped existing as individual objects.</td>
+            <td>The INSPIRE class CadastralParcel has no reference to a CadastralParcel of which it was split off.</td>
+        </tr>
+    </table>
+
 
     <h2><a name="extension" id="extension" href="#extension"></a>Designing the Model Extension</h2>
 

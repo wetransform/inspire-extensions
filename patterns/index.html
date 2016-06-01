@@ -29,7 +29,6 @@ layout: default
                 {% endfor %}
             {% endfor %}
         </ul>
-        {% endfor %}
 
         <h2><a class="anchor" name="classPatterns" href="#classPatterns" aria-hidden="true"></a>Patterns for Class Extension</h2>
 
@@ -37,16 +36,15 @@ layout: default
 
         <ul>
             {% for pattern in site.categories.patterns %}
-            {% for tagModel in pattern.tags %}
-            {% if tagModel == "classPattern" %}
-            <li>
-                <a href="{{ pattern.url }}">{{ pattern.patternName }}</a>
-            </li>
-            {% endif %}
-            {% endfor %}
+                {% for tagModel in pattern.tags %}
+                {% if tagModel == "classPattern" %}
+                <li>
+                    <a href="{{ pattern.url }}">{{ pattern.patternName }}</a>
+                </li>
+                {% endif %}
+                {% endfor %}
             {% endfor %}
         </ul>
-        {% endfor %}
 
         <h2><a class="anchor" name="propertyPatterns" href="#propertyPatterns" aria-hidden="true"></a>Patterns for Property Extension</h2>
 
@@ -54,15 +52,15 @@ layout: default
 
         <ul>
             {% for pattern in site.categories.patterns %}
-            {% for tagModel in pattern.tags %}
-            {% if tagModel == "propertyPattern" %}
-            <li>
-                <a href="{{ pattern.url }}">{{ pattern.patternName }}</a>
-            </li>
-            {% endif %}
-            {% endfor %}
+                {% for tagModel in pattern.tags %}
+                {% if tagModel == "propertyPattern" %}
+                <li>
+                    <a href="{{ pattern.url }}">{{ pattern.patternName }}</a>
+                </li>
+                {% endif %}
+                {% endfor %}
             {% endfor %}
         </ul>
-        {% endfor %}
+
     </div>
 </section>

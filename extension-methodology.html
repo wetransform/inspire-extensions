@@ -227,14 +227,14 @@ title:  INSPIRE data specification extensions - The Extension Methodology
     <p>Let's pick up the example from above again and compare that to the <a href="http://inspire.ec.europa.eu/documents/Data_Specifications/INSPIRE_DataSpecification_CP_v3.0.pdf" target="_blank">INSPIRE Cadastral Parcels data specification</a>. In that specification, you'll find this diagram:</p>
 
     <div style="margin: 20px">
-        <img src="/images/inspire-cadastral-parcels.png" title="INSPIRE cadastral parcels UML diagram" style="width: 80%; min-width: 400px; margin-left: 10%; margin-right: 10%">
+        <img src="/images/inspire-cadastral-parcels.png" title="INSPIRE cadastral parcels UML diagram" style="max-width: 752px; width: 90%; min-width: 400px; margin-left: 5%; margin-right: 5%">
     </div>
 
     <p>Looking at the data model in detail, there doesn't seem to be a way to cover the parcel join use case with the given data structure. We do however have a <code>CadastralParcel</code> class that might serve as a baseline and connection point to the INSPIRE model. Compare each of your User Stories to the INSPIRE data specification, and build a comparison table similar to this one:</p>
 
     <table class="table table-responsive table-striped">
         <tr>
-            <th>Use Case</th>
+            <th>User Story</th>
             <th>Covered</th>
             <th>Not covered</th>
         </tr>
@@ -250,10 +250,44 @@ title:  INSPIRE data specification extensions - The Extension Methodology
         </tr>
     </table>
 
+    <p>The table uses tentative class names for the missing classes based on the results of the lexical analysis done earlier. Your class names should follow a common naming convention. In INSPIRE, we use <a href="https://en.wikipedia.org/wiki/CamelCase" target="_blank">CamelCased></a>, singular, composite English class names.</p>
+
+    <h3>Compare with existing models</h3>
+
+    <p>In many cases, you already have one or multiple existing local data models - after all, you have been managing parcels or other geospatial objects in the past. When you have such a local data model, perform the same exercise as before. This time, compare the requirements to the local data model, resulting in a second coverage table.</p>
 
     <h2><a name="extension" id="extension" href="#extension"></a>Designing the Model Extension</h2>
 
-    <p>TODO</p>
+    <p>Finally, it's time to design the actual data model. For the initial design, we want all domain experts in the group to give equal input. For this reason, you should ask  all domain experts to create a draft design in parallel. You will likely go through several iterations of this draft model very quickly, so use easily accessible tools such as Pen and Paper or whiteboards. UML or XSD editors are best used after the model becomes more stable.</p>
+
+    <p>The design phase has the following steps:</p>
+
+    <ol>
+        <li>Choose a <a href="/patterns/index.html#modelPatterns" target="_blank">Model Extension pattern</a> to define how you generally want to reference INSPIRE data specifications in your model</li>
+        <li>Create your new Model</li>
+        <li>Choose a <a href="/patterns/index.html#classPatterns" target="_blank">Class Extension pattern</a> to define how this new class should be linked to any INSPIRE class</li>
+        <li>Create required new classes</li>
+        <li>Choose a <a href="/patterns/index.html#propertyPatterns" target="_blank">Property Extension pattern</a> to define how properties in the new class should be linked to any INSPIRE classes or properties</li>
+        <li>Add required properties to new classes</li>
+    </ol>
+
+    <p>When each of the domain experts has finished their model draft, the next step is to compare and merge model designs. Proceed as follows, with each domain expert going through the following routine:</p>
+
+    <ol>
+        <li>The domain expert presents their model draft briefly (one to three minutes)</li>
+        <li>Each of the other domain experts provides brief feedback (one minute) on things that should be kept (<em>likes</em>) and things that need to be improved (<em>dislikes</em>)</li>
+    </ol>
+
+    <p>After all the domain experts have presented their model, the collected <em>likes</em> and <em>dislikes</em> should form the basis for a second draft model. If there are no major points of contention, the project lead uses the feedback and draft models to build the initial model.</p>
+
+    <table class="alert-warning important-info">
+        <tr>
+            <td style="width:3em"><div class="important-info-icon"><span class="glyphicon glyphicon-exclamation-sign" style="font-size:2em"></span></div></td>
+            <td>When you design a large model with more than 8 to 10 new classes, you can improve model organisation by creating <em>packages</em>. Group classes that are closely related together in such packages. To work on such large models, create the draft design and initial model for each of these packages one at a time.</td>
+        </tr>
+    </table>
+
+    <p>In later iterations, you may reconsider one of the choices made regarding the pattern type. Example: You find that in implementation, a <a href="patterns/index.html#classPatterns" target="_blank">Class Extension</a> pattern you chose creates unexpected problems, so you go back and shift to a different pattern.</p>
 
     <h2><a name="validation" id="validation" href="#validation"></a>Validation and Integration</h2>
 

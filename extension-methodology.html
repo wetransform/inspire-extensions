@@ -96,7 +96,7 @@ title:  INSPIRE data specification extensions - The Extension Methodology
 
     <ul>
         <li><strong>Project Management</strong>: A place where you track tasks, progress, documents and other artifacts related to the project. It should be easy to access and to use. Typical products used for this purpose include <a href="https://en.atlassian.com/software/jira" target="_blank">Jira</a>, <a href="http://www.redmine.org/" target="_blank">Redmine (Open Source)</a> or <a href="https://github.com/" target="_blank">Github</a> and <a href="https://about.gitlab.com/" target="_blank">Gitlab</a>.</li>
-        <li><strong>Communication</strong>: A central place for all communication can be incredibe helpful for documentaiton and understanding how a project developed. This archive should be searchable and easily accessible. Typical choices include a mailing list, or tools like <a href="https://hipchat.com/" target="_blank">HipChat</a> or <a href="https://slack.com/" target="_blank">Slack</a>.</li>
+        <li><strong>Communication</strong>: A central place for all communication can be incredibly helpful for documentation and understanding how a project developed. This archive should be searchable and easily accessible. Typical choices include a mailing list, or tools like <a href="https://hipchat.com/" target="_blank">HipChat</a> or <a href="https://slack.com/" target="_blank">Slack</a>.</li>
         <li><strong>Source Code Management</strong>: You will benefit greatly from using a proper source and version control repository for your model from the start on. Such tools enable effective cooperation even in larger or distributed teams and allow you to review progress, and they have become much easier to use thanks to sites like Github. The three most common tools are <a href="https://www.mercurial-scm.org/" target="_blank">Mercurial</a>, <a href="https://git-scm.com/" target="_blank">Git</a> and <a href="https://subversion.apache.org/" target="_blank">Subversion (SVN)</a>. Which one you use will depend on the modelling software you use.</li>
         <li><strong>Data Modelling</strong>: The tool you use to design the actual model extension. Typically, this is a UML Editor such as <a href="http://www.sparxsystems.com.au/" target="_blank">Enterprise Architect</a> or <a href="http://argouml.tigris.org/" target="_blank">ArgoUML (Open Source)</a>. In case you need only an XML Schema, you can create the XML schema in any programmer's text editor. There is also specialized software available such as <a href="http://www.altova.com/xmlspy.html" target="_blank">XMLSpy</a>.</li>
         <li><strong>Schema Transformation</strong>: When you design your model in a conceptual language like UML, you need to transform it to an implementation language before you can actually use it. While many of the data modelling tools listed before have such capabilities, you will likely need a schema transformation tool as well. For geospatial schemas, there is one specific solution: <a href="http://shapechange.net/" target="_blank">ShapeChange (Open Source)</a>.</li>
@@ -120,7 +120,7 @@ title:  INSPIRE data specification extensions - The Extension Methodology
     <p>Personas, scenarios and user stories are all related to each other, and help getting a clearly motivated, consistent picture of the requirements, without getting lost in details too early in the process:</p>
 
     <div style="margin: 20px">
-        <img src="/images/user-analysis.png" title="The relation between Personas, Scenarios and User Stories" style="width: 60%; min-width: 400px; margin-left: 20%; margin-right: 20%">
+        <img src="/images/user-analysis.png" title="The relation between Personas, Scenarios and User Stories" style="width: 50%; min-width: 400px; margin-left: 25%; margin-right: 25%">
     </div>
 
     <p>The following sections will explain how to work with these to define a fit for purpose data model.</p>
@@ -227,7 +227,7 @@ title:  INSPIRE data specification extensions - The Extension Methodology
     <p>Let's pick up the example from above again and compare that to the <a href="http://inspire.ec.europa.eu/documents/Data_Specifications/INSPIRE_DataSpecification_CP_v3.0.pdf" target="_blank">INSPIRE Cadastral Parcels data specification</a>. In that specification, you'll find this diagram:</p>
 
     <div style="margin: 20px">
-        <img src="/images/inspire-cadastral-parcels.png" title="INSPIRE cadastral parcels UML diagram" style="max-width: 752px; width: 90%; min-width: 400px; margin-left: 5%; margin-right: 5%">
+        <img src="/images/inspire-cadastral-parcels.png" title="INSPIRE cadastral parcels UML diagram" style="width: 90%; max-width: 752px; min-width: 400px; margin-left: 5%; margin-right: 5%">
     </div>
 
     <p>Looking at the data model in detail, there doesn't seem to be a way to cover the parcel join use case with the given data structure. We do however have a <code>CadastralParcel</code> class that might serve as a baseline and connection point to the INSPIRE model. Compare each of your User Stories to the INSPIRE data specification, and build a comparison table similar to this one:</p>
@@ -271,6 +271,10 @@ title:  INSPIRE data specification extensions - The Extension Methodology
         <li>Add required properties to new classes</li>
     </ol>
 
+    <div style="margin: 20px">
+        <img src="/images/process-design-studio.png" title="Iterations in the creation of the initial data model design" style="width: 100%; min-width: 400px;">
+    </div>
+
     <p>When each of the domain experts has finished their model draft, the next step is to compare and merge model designs. Proceed as follows, with each domain expert going through the following routine:</p>
 
     <ol>
@@ -280,6 +284,13 @@ title:  INSPIRE data specification extensions - The Extension Methodology
 
     <p>After all the domain experts have presented their model, the collected <em>likes</em> and <em>dislikes</em> should form the basis for a second draft model. If there are no major points of contention, the project lead uses the feedback and draft models to build the initial model.</p>
 
+    <figure class="figure" style="margin-bottom: 20px">
+        <img src="/images/discussing-designs.jpg" class="figure-img img-fluid img-rounded" title="A group creating data model designs">
+        <figcaption class="figure-caption small">A working group doing data model design work. Source: <a href="https://gdi-suedhessen.de/" target="_blank">GDI Südhessen</a>, used with permission.</figcaption>
+    </figure>
+
+    <p>In later iterations, you may reconsider one of the choices made regarding the pattern type. Example: You find that in implementation, a <a href="patterns/index.html#classPatterns" target="_blank">Class Extension</a> pattern you chose creates unexpected problems, so you go back and shift to a different pattern.</p>
+
     <table class="alert-warning important-info">
         <tr>
             <td style="width:3em"><div class="important-info-icon"><span class="glyphicon glyphicon-exclamation-sign" style="font-size:2em"></span></div></td>
@@ -287,16 +298,121 @@ title:  INSPIRE data specification extensions - The Extension Methodology
         </tr>
     </table>
 
-    <p>In later iterations, you may reconsider one of the choices made regarding the pattern type. Example: You find that in implementation, a <a href="patterns/index.html#classPatterns" target="_blank">Class Extension</a> pattern you chose creates unexpected problems, so you go back and shift to a different pattern.</p>
+    <h3>Creating the implementation level model</h3>
+
+    <p>After your team has agreed on the conceptual design, you need to create an platform-specific model, most likely with help from the modelling expert and the integration expert. You will need one or more of the following implementation-platform-specific models:</p>
+
+    <ul>
+        <li><strong>GML application schema:</strong>
+            <ul>
+                <li><em>What is it?</em> The default implementation format for interoperable INSPIRE data is the Geography Markup Language (GML). GML is in turn built on the eXtensible Markup Language (XML). What sets XML apart from many other formats is its rich schema language, called XML Schema Defintion (XSD), which allows to define structures, constraints, types and many other kinds of schema definitions.</li>
+                <li><em>Why do you need it?</em> A GML schema enables you to create compliant download services and interoperable data sets.</li>
+            </ul>
+        </li>
+        <li><strong>Relational Database schema:</strong>
+            <ul>
+                <li><em>What is it?</em> Most structured data is stored and maintained in <a href="https://en.wikipedia.org/wiki/Relational_database" target="_blank">relational databases</a>. Relational databases organise data into one or more tables (or "relations") of columns and rows, with a unique key identifying each row. The Relational Database schema describes the name of each of these tables, as well as the name of each column, its data type, and constraints that the system should enforce.</li>
+                <li><em>Why do you need it?</em> A database schema enables you to create a data management backend without mismatches to the download service's model.</li>
+            </ul>
+        </li>
+        <li><strong>Document Store schema:</strong>
+            <ul>
+                <li><em>What is it?</em> An alternative to relational database systems that operates with a more flexible approach to data structures. The model is usually far less expressive than a GML Application Schema or a Relational Database schema, but enable you to define collection names, document attributes, indices and some constraints.</li>
+                <li><em>Why do you need it?</em> A document store enables you to effectively store objects with different structures and to retrieve them with very high performance.</li>
+            </ul>
+        </li>
+        <li><strong>Generated Domain Class Model:</strong>
+            <ul>
+                <li><em>What is it?</em> For most programming languages, there are ways to express the structure of the domain model. In Java and most object-oriented languages, you use classes. Generated classes provide a starting point for an implementation with custom business logic.</li>
+                <li><em>Why do you need it?</em> Build you own processes and analytics on a domain model that matches the conceptual model.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <p>Tools such as <a href="http://www.sparxsystems.com.au/" target="_blank">Enterprise Architect</a> and <a href="http://shapechange.net/" target="_blank">ShapeChange</a> allow you to create many different types of platform-specific models. The End-to-End Tutorial projects provides more detail on one possible way to create a platform-specific model - in particular, a GML Application Schema.</p>
+
+    <table class="alert-warning important-info">
+        <tr>
+            <td style="width:3em"><div class="important-info-icon"><span class="glyphicon glyphicon-exclamation-sign" style="font-size:2em"></span></div></td>
+            <td>Even though you can achieve a high degree of automation when deriving the platform-specific model from the conceptual model, manual editing after generation is quite common.</td>
+        </tr>
+    </table>
 
     <h2><a name="validation" id="validation" href="#validation"></a>Validation and Integration</h2>
 
-    <p>TODO</p>
+    <p>Now that you've created the platform-specific models, it's time to put them to the test. The goal of this phase is to see whether you can implement the model as designed or whether some unforeseen problems pop up. The two main areas we'll be looking at are data integration and data publishing.</p>
+
+    <h3>Data Integration</h3>
+
+    <p>Data integration allows us to see how the platform-specific model actually works when we fill it with real-world data. For this activity, which is also often called transformation testing, we need to choose a set of existing, representative data sets, and then match and integrate them with our new INSPIRE extension model.</p>
+
+    <p>After you've identified the source data sets you'd like to integrate, the first step is to create a mapping between the source data model and the new INSPIRE extension model. Similar to the initial data model design, make use of the domain experts in your group and ask each of them to create a mapping, which you can then merge. To create such a mapping, you have a choice between two approaches.</p>
+
+    <h4>The Matching Table Approach</h4>
+
+    <p>A Matching table is a spreadsheet document that relates elements of the target model to elements of the source model by arranging them next to each other. All you need for this is Microsoft Excel and a template document. You can get custom templates from the <a href="http://inspire-regadmin.jrc.ec.europa.eu/dataspecification/" target="_blank">INSPIRE Find Your Scope tool</a>.</p>
+
+    <figure class="figure" style="margin-bottom: 20px">
+        <img src="/images/matching-table.png" class="figure-img img-fluid img-rounded" title="A matching table">
+        <figcaption class="figure-caption small">A matching table, with the INSPIRE data types on the left side and the local source model on the right side.</figcaption>
+    </figure>
+
+    <p>Such matching tables are an <em>informal definition</em> of a transformation. As you put in free text and can define any relation, matching tables allow you to specify any kind of relationship between source and target model elements. As a result, matching tables are good for capturing intent, but usually require interpretation for the actual data integration. Furthermore, when matching complex models, these tables get really big and complicated, as you will rely on manual lookups a lot.</p>
+
+    <p>After creation of the mapping table, the next step is to implement the transformation, which is the integration expert's main responsibility. The expert will typically use tools such as XSLT, <a href="http://www.safe.com/fme" target="_blank">FME</a> or <a href="https://www.wetransform.to/products/halestudio/" target="_blank">hale studio</a> for this purpose.</p>
+
+    <h4>The Declarative Mapping Approach</h4>
+
+    <p>A declarative mapping consists of a number of relations, where each relation links one or more source data model elements to one or more target data elements via a defined function. In the easiest possible way, you can just use pens and paper to create such a declarative mapping. </p>
+
+    <figure class="figure" style="margin-bottom: 20px">
+        <img src="/images/declarative-schema-mapping.png" class="figure-img img-fluid img-rounded" title="Declarative Schema Mapping">
+        <figcaption class="figure-caption small">A set of declarative mapping relations</figcaption>
+    </figure>
+
+    <p>There are also a number of specific tools available for the creation of declarative mappings, such as <a href="http://www.altova.com/de/mapforce/xml-mapping.html" target="_blank">Altova MapForce</a> (which works with XML only) and <a href="https://www.wetransform.to/products/halestudio/" target="_blank">hale studio (Open Source, works with XML, databases and many file formats)</a>. Declarative mappings created with such tools are <em>executable and formal</em>, which means you can use them to directly create data compliant to the target data model.</p>
+
+    <figure class="figure" style="margin-bottom: 20px">
+        <img src="/images/hale-screenshot.png" class="figure-img img-fluid img-rounded" title="hale studio declarative mapping">
+        <figcaption class="figure-caption small">A declarative mapping created in hale studio</figcaption>
+    </figure>
+
+    <p>Except for the pen and paper approach, all of these tools have a certain learning curve and some limitations regarding what and how data can be transformed, so they might limit you in the discussion. On the other hand, you will be aware of such implementation limits sooner and can work on mitigation strategies.</p>
+
+    <h4>Analysis of the transformed data set</h4>
+
+    <p>After you've created the transformed data sets, you should analyse and measure them. Your goal should be to determine key properties and to set goals on how to improve these indicators in the next versions. Some example indicators include:</p>
+
+    <ol>
+        <li><strong>Data Size:</strong> How large is the resultant file or database? How many elements does it contain? What is the ratio between content data volume and structure data volume?</li>
+        <li><strong>Model Complexity:</strong> How large is the model itself Does it have very deep inheritance or aggregation structures? Does it have large loops?</li>
+        <li><strong>Conceptual <a href="http://link.springer.com/chapter/10.1007/978-3-642-15300-6_15" target="_blank">Mismatches</a>:</strong> How well did classifications, ranges, geometry types and numeric values match? </li>
+        <li><strong>Model Coverage:</strong> How much of the source data were you able to bring into the target model? Did parts of the target model remain empty, or get used only very rarely?</li>
+    </ol>
+
+    <h3>Data Publishing</h3>
+
+    <p>In the end, we need to provide INSPIRE compliant network services, so we have to make sure we can publish the data we've integrated using our new data model. There are several products available for publishing INSPIRE-compliant view and download services, each with slightly different capabilities regarding INSPIRE support. In the end-to-end tutorial, we'll explore one option for data publishing in detail.</p>
+
+    <p>What most of these products have in common is that there are three ways of how to get your data from the previous step published:</p>
+
+    <ol>
+        <li><strong>Insert via service interface:</strong> Some products, such as <a href="http://www.deegree.org/" target="_blank">deegree</a>, offer an INSPIRE compliant transactional WFS interface (WFS-T). With a WFS-T interface, you can send compliant GML to the service, which will handle storage and management of the data.</li>
+        <li><strong>Insert into backend database:</strong> All products support providing data from a database backend to a WFS (Download Service) interface. To make this work, you will need to import data into the database. Some databases have specific tools, e.g. for importing shapefiles, but usually you will use an ETL tool such as FME or hale studio to directly write to the database.</li>
+        <li><strong>Serve from files:</strong> An easy way to create INSPIRE download services is to directly serve files, as created previously. This approach is called a Predefined Dataset Download Service</li>
+    </ol>
+
+    <p>Another key component to setting up a compliant INSPIRE service is to add metadata to the datasets and services. We will not touch on that topic in depth here.</p>
+
+    <p>When everything is set up, you're ready to test the service, and through it, your INSPIRE model extension. Testing is usually done manually, through accessible services in client software or systems, but can also be automated. There are various tools available for testing, such as the German <a href="https://testsuite.gdi-de.org/gdi/" target="_blank">GDI-DE testsuite</a>, the <a href="http://cloud.epsilon-italia.it/eenvplus_new/" target="_blank"> Validation Service</a> provided by the OGC and by Epsilon Italia, or the monitoring dashboard provided by <a href="http://www.spatineo.com/">Spatineo</a>.</p>
 
     <h2><a name="operation" id="operation" href="#operation"></a>Transition to operational usage</h2>
 
-    <p>TODO</p>
+    <p>Alright, you're satisfied with your services and data model after internal testing and analysis in your working group. One step remains - to see how other stakeholders react to the design, and to see how the design behaves under the load of continued production or beta usage for a while. Quite often, you'll find that a model that performed well for a small amount of data might not work well anymore for large amounts of data.</p>
 
+    <p>During this phase, make sure to collect feedback from the users of your data sets or network services. Ask them how the new data model helped or hindered them in their business processes, collect these inputs as new requirements and use them to do another release iteration. We recommend to do at least two release iterations (e.g. Alpha and Beta) before calling the model ready for production.</p>
+
+    <p><em>You've reached the end of this process, congratulations! Let the community participate and <a href="/introduction.html#contributions" target="_blank">submit your model extension</a> to the inventory!</em></p>
 
 </section>
 

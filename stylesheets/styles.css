@@ -22,7 +22,7 @@
 body {
     background-color: #fff;
     padding: 50px;
-    font: 14px/1.5 "PTSans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font: 15px/1.5 "PTSans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #727272;
     font-weight: 400;
 }
@@ -56,6 +56,10 @@ h3 {
 
 h4, h5, h6 {
     font-size: 16px;
+}
+
+figcaption {
+    font-style: italic;
 }
 
 a {
@@ -207,7 +211,7 @@ header {
 }
 
 blockquote {
-    font-size: 14px;
+    font-size: 15px;
     padding: 1em;
     margin: 0.5em 0.5em 1.0em;
     border-left: 5px solid #e5e5e5;
@@ -221,7 +225,7 @@ strong {
 }
 
 header ul a strong {
-    font-size: 14px;
+    font-size: 15px;
     display: block;
     color: #222;
 }

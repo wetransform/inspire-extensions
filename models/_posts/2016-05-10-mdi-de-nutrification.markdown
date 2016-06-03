@@ -11,6 +11,7 @@ modelOrganisation:      "Marine Daten-Infrastruktur Deutschland (MDI-DE)"
 modelSummary:           "Common model for nutrification measurement data for the partners of the Marine SDI in Germany"
 modelsReferenced:       [inspireEMF40]
 modelReferenceTypes:    [mixin]
+modelUsesPatterns:      [mixin]
 modelSchemaLanguage:    "UML"
 modelSpokenLanguage:    "German"
 modelSchemaTool:        "ArgoUML"

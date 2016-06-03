@@ -11,6 +11,7 @@ modelOrganisation:      "Norwegian Public Roads Administration (Statens vegvesen
 modelSummary:           "This model extends INSPIRE Transport networks with Norwegian SOSI information to improve reporting."
 modelsReferenced:       [inspireTN40]
 modelReferenceTypes:    [inherit, associate]
+modelUsesPatterns:      [association, inheritance]
 modelSchemaLanguage:    "UML"
 modelSpokenLanguage:    "Norwegian"
 modelSchemaTool:        "Enterprise Architect"

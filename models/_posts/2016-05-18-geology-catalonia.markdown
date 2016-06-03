@@ -11,6 +11,7 @@ modelOrganisation:      "Institut Cartogràfic i Geològic de Catalunya"
 modelSummary:           "This model extends INSPIRE Addresses, Administrative Units and Cadastral Parcels to implement a new Real Estate information system in Poland."
 modelsReferenced:       [inspireGE40]
 modelReferenceTypes:    [inherit, associate]
+modelUsesPatterns:      [association, inheritance]
 modelSchemaLanguage:    "UML"
 modelSpokenLanguage:    "Catalan, English"
 modelSchemaTool:        "Enterprise Architect"

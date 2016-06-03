@@ -11,6 +11,7 @@ modelOrganisation:      "Kartverket (Norwegian Mapping Authority)"
 modelSummary:           "Planned Land Use extensions UML model"
 modelsReferenced:       [inspireLU40]
 modelReferenceTypes:    [aggregate, associate, inherit]
+modelUsesPatterns:      [aggregation, association, inheritance]
 modelSchemaLanguage:    "UML, OCL"
 modelSpokenLanguage:    "Norwegian, some elements with english aliases."
 modelSchemaTool:        "Enterprise Architect"

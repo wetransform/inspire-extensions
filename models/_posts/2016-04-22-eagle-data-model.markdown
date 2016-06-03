@@ -11,6 +11,7 @@ modelOrganisation:      "INSTITUTO GEOGRÁFICO NACIONAL - Spain"
 modelSummary:           "This model extends INSPIRE specifications to satisfy EEA requirements for land cover data."
 modelsReferenced:       [inspireLC40, inspireBL40, inspireHB40, inspireLU40, inspireMR40, inspireSR40]
 modelReferenceTypes:    [inherit]
+modelUsesPatterns:      [inheritance]
 modelSchemaLanguage:    "UML, PostGIS SQL, Esri GDB Workspace"
 modelSpokenLanguage:    English
 modelSchemaTool:        "Enterprise Architect"

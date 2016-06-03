@@ -11,6 +11,7 @@ modelOrganisation:      "IDgis Netherlands"
 modelSummary:           "This model extends Utility and Governmental Services for provision of download service on INSPIRE (2016) and Dutch (2017) Network Utility information"
 modelsReferenced:       [inspireUG40]
 modelReferenceTypes:    [inherit, mixin]
+modelUsesPatterns:      [mixin, inheritance]
 modelSchemaLanguage:    "UML and SKOS"
 modelSpokenLanguage:    Dutch
 modelSchemaTool:        ""

@@ -11,6 +11,7 @@ modelOrganisation:      "Bundesamt für Kartographie und Geodäsie"
 modelSummary:           "The ELF data model builds on INSPIRE specifications and defines a scale-independent data model."
 modelsReferenced:       [inspireAD40, inspireAU40, inspireBU40,inspireCP40, inspireGN40, inspireHYP40, inspirePS40, inspireEL40, inspireGE40, inspireLC40, inspireTN40, inspireSR40, inspireSU40]
 modelReferenceTypes:    [associate, inherit]
+modelUsesPatterns:      [association, inheritance]
 modelSchemaLanguage:    "UML, OCL"
 modelSpokenLanguage:    "English"
 modelSchemaTool:        "Enterprise Architect"

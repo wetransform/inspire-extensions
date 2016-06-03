@@ -11,6 +11,7 @@ modelOrganisation:      "TU Dresden"
 modelSummary:           "This model extends the Hydrography schema to support reporting use cases."
 modelsReferenced:       [inspireHY40]
 modelReferenceTypes:    [inherit]
+modelUsesPatterns:      [inheritance]
 modelSchemaLanguage:    "UML"
 modelSpokenLanguage:    "German"
 modelSchemaTool:        "Enterprise Architect"

@@ -11,6 +11,7 @@ modelOrganisation:      "Instituto Geográfico Nacional (CNIG)"
 modelSummary:           "This model extends INSPIRE Hydrography to match Spanish standards."
 modelsReferenced:       [inspireHY40]
 modelReferenceTypes:    [inherit]
+modelUsesPatterns:      [inheritance]
 modelSchemaLanguage:    "UML"
 modelSpokenLanguage:    "Spanish"
 modelSchemaTool:        "Enterprise Architect"

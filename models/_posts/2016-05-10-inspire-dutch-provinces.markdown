@@ -11,6 +11,7 @@ modelOrganisation:      "IDGIS"
 modelSummary:           "This model makes existing province data available in an INSPIRE-compliant encoding."
 modelsReferenced:       [inspirePS40, inspireAM40, inspireRZ40, inspirePS40, inspireHB40, inspireNRZ40, inspirePIF40]
 modelReferenceTypes:    [inherit]
+modelUsesPatterns:      [inheritance]
 modelSchemaLanguage:    "XML Schema"
 modelSpokenLanguage:    "Dutch, English"
 modelSchemaTool:        ""

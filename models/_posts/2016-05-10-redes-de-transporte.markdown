@@ -11,6 +11,7 @@ modelOrganisation:      "Magrama (Ministry of Agriculture, Food and Environment)
 modelSummary:           "This model was created for the Spanish national implementation of INSPIRE Transport Networks."
 modelsReferenced:       [inspireTN40]
 modelReferenceTypes:    [inherit, associate]
+modelUsesPatterns:      [association, inheritance]
 modelSchemaLanguage:    "UML"
 modelSpokenLanguage:    "Spanish"
 modelSchemaTool:        "Enterprise Architect"

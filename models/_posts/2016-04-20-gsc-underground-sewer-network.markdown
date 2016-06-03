@@ -11,6 +11,7 @@ modelOrganisation:      "EPSILON Italia srl"
 modelSummary:           "This model extends the INSPIRE core Utility Networks schemas to fulfill requirements of the Italian and the Flanders Region National Specifications"
 modelsReferenced:       [inspireEN30]
 modelReferenceTypes:    [inherit]
+modelUsesPatterns:      [inheritance]
 modelSchemaLanguage:    XSD
 modelSpokenLanguage:    English
 modelSchemaTool:        ""

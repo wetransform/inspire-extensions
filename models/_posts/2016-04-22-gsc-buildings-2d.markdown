@@ -11,6 +11,7 @@ modelOrganisation:      "EPSILON Italia srl"
 modelSummary:           "This model extends the INSPIRE Buildings2D schema to add energy reporting and certification information."
 modelsReferenced:       [inspireBL40]
 modelReferenceTypes:    [inherit]
+modelUsesPatterns:      [inheritance]
 modelSchemaLanguage:    XSD
 modelSpokenLanguage:    English
 modelSchemaTool:        ""

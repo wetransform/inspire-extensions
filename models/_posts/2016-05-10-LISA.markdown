@@ -11,6 +11,7 @@ modelOrganisation:      "Umweltbundesamt Österreich"
 modelSummary:           "This model was created to improve the semantic harmonisation for land cover data sets and to include temporal phenomena in existing land cover datasets"
 modelsReferenced:       [inspirePS40, inspireLC40]
 modelReferenceTypes:    [inherit]
+modelUsesPatterns:      [inheritance]
 modelSchemaLanguage:    "UML, Esri Geodatabase, XML Schema"
 modelSpokenLanguage:    English
 modelSchemaTool:        "Enterprise Architect"

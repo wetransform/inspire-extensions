@@ -11,6 +11,7 @@ modelOrganisation:      "Czech Office for Surveying, Mapping and Cadastre"
 modelSummary:           "This model was created for the Czech INSPIRE Buildings implementation."
 modelsReferenced:       [inspireAD40, inspireCP40, inspireBL40]
 modelReferenceTypes:    [inherit]
+modelUsesPatterns:      [inheritance]
 modelSchemaLanguage:    "UML, XML Schema"
 modelSpokenLanguage:    "English, Czech"
 modelSchemaTool:        ""

@@ -5,4 +5,5 @@ _site
 *.iml
 *.lock
 Gemfile.lock
+bower_components/
 node_modules/

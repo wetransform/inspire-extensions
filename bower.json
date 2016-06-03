@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "dependencies": {
     "bootstrap": "~3.3.6",
-    "chartist": "^0.9.7"
+    "chartist": "^0.9.7",
+    "prism": "^1.5.0"
   }
 }

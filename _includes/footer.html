@@ -8,3 +8,9 @@
   </a></p>
 </footer>
 <script src="{{ "/javascripts/scale.fix.js" | prepend: site.baseUrl }}"></script>
+
+{% if page.category == "patterns" %}
+<script src="{{ "/bower_components/prism/prism.js" | prepend: site.baseUrl }}"></script>
+<script src="{{ "/bower_components/prism/plugins/line-highlight/prism-line-highlight.js" | prepend: site.baseUrl }}"></script>
+<script src="{{ "/bower_components/prism/plugins/line-numbers/prism-line-numbers.js" | prepend: site.baseUrl }}"></script>
+{% endif %}

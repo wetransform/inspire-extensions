@@ -17,15 +17,24 @@ Inheritance is a mechanism for reuse of software components, be it structure or 
 
 Inheritance establishes a clear hierarchy, which can be many levels deep. The parent class can have a grand-parent class, which can have a great-grand-parent class. All parent and further ancestors together are called *superclasses* of a class, while all children and grandchildren are called *subclasses*. In INSPIRE GML, we have inheritance hierarchies up to eight levels deep. As a consequence, when we create a new class that inherits from an INSPIRE class, it wil inherit every property defined on one of those superclasses.
 
+## Structure
+
+In this pattern, there is a parent class and a child class. They are connected through a Generalisation association which points from the child to the parent:
+
+<figure class="figure" style="margin-bottom: 20px">
+    <img src="/patterns/images/inheritance.png" class="figure-img img-fluid img-rounded" title="A matching table">
+    <figcaption class="figure-caption small"><code>JoinedParcel</code> inherits all properties from <code>CadastralParcel</code> and adds a <code>joinedFrom</code> property.</figcaption>
+</figure>
+
 ## When to use
 
-Inheritance is an easy way to achieve compatibility of your new classes with the respective INSPIRE classes. Your data will have additional information that goes beyond what INSPIRE mandates, which is not forbidden. Inheritance is particularly useful when...
+The primary use case that you can solve well with inheritance is when your objects are conceptually very similar to the concept of the INSPIRE class, and you just want to add a few attributes.
+
+Inheritance is furthermore an easy way to achieve compatibility of your new classes with the respective INSPIRE classes. Your data will have additional information that goes beyond what INSPIRE mandates, which is allowed. Inheritance is particularly useful when...
 
 1. ...you want to use one system for managing and publishing INSPIRE data and your extended data
 1. ...there is not just a syntactic relationship, but also a semantic relationship between the child and the parent. This relationship is called a *subtyping* relationship and is usually read as *child* ```is-a``` *parent*.
 1. ...you want to automatically keep your model compatible when superclasses change
-
-Inheritance should not be confused with subtyping. In some languages inheritance and subtyping agree,[a] whereas in others they differ; in general subtyping establishes an is-a relationship, whereas inheritance only reuses implementation and establishes a syntactic relationship, not necessarily a semantic relationship
 
 ## When not to use
 
@@ -36,63 +45,35 @@ Inheritance is a static relationship type with strong coupling. Many of the reas
 1. There is no ```is-a``` relationship between your class and the INSPIRE class
 1. Your class should have an equal relationship with multiple INSPIRE classes (or other classes from a local standard)
 
-## Structure
-
-In this pattern, there is a parent class and a child class. They are connected through a Generalisation association which points from the child to the parent:
-
-<figure class="figure" style="margin-bottom: 20px">
-    <img src="/patterns/images/inheritance.png" class="figure-img img-fluid img-rounded" title="A matching table">
-    <figcaption class="figure-caption small"><code>JoinedParcel</code> inherits all properties from <code>CadastralParcel</code> and adds a <code>joinedFrom</code> property.</figcaption>
-</figure>
-
 ## XML Schema Example
 
 A potential schema structure for the inheritance pattern is as follows:
 
-    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-        elementFormDefault="qualified" 
-        targetNamespace="http://www.wetransform.to/ie-examples/inheritance/1.0" version="1.0">
-      
-      <import namespace="http://inspire.ec.europa.eu/schemas/cp/4.0" schemaLocation="http://inspire.ec.europa.eu/schemas/cp/4.0/CadastralParcels.xsd"/>
+<pre data-line="10,13" class="line-numbers" data-src="/patterns/examples/inheritance.xsd">
+<code class="language-xml">
+</code>
+</pre>
 
-      <xs:element name="JoinedParcel" type="JoinedParcel"/>
-      <xs:complexType name="JoinedParcel">
-        <xs:complexContent>
-          <xs:extension base="cp:CadastralParcel">
-            <xs:sequence>
-              <xs:element name="joinedFrom" type="cp:CadastralParcel" minOccurs="1" maxOccurs="unbounded"/>
-            </xs:sequence>
-          </xs:extension>
-        </xs:complexContent>
-      </xs:complexType>
-      
-    </xs:schema>
+The key lines to look at are 10 and 13: 
+ 
+1. In line 10, we use ```substitutionGroup="cp:CadastralParcel"``` to indicate that ```JoinedParcel``` can be used in any place in an XML document where a ```CadastralParcel``` would be allowed.
+1. In line 13, we make ```JoinedParcel``` inherit all properties from ```CadastralParcel``` by using ```<xs:extension base="cp:CadastralParcel">```.
 
-The key line that implements the inheritance pattern in XML is ```<xs:extension base="cp:CadastralParcel">```.
-
-Due to the focus on the inheritance pattern, this example uses an in-place encoding of ```CadastralParcel``` for the ```joinedFrom``` association. There are other optons for this such as encoding by Reference, which we describe in other patterns. Please also note that we've omitted some of the properties that the INSPIRE ```CadastralParcel``` class has for brevity of the example.
+<table class="alert-warning important-info">
+    <tr>
+        <td style="width:3em"><div class="important-info-icon"><span class="glyphicon glyphicon-exclamation-sign" style="font-size:2em"></span></div></td>
+        <td>Due to the focus on the inheritance pattern, this example uses an in-place encoding of <code>CadastralParcel</code> for the <code>joinedFrom</code> property. There are other options for this such as encoding by reference, which we describe in the association pattern.</td>
+    </tr>
+</table>
 
 ## XML Instance Example
 
 Instances using this pattern have a simple structure in which the inheritance hierarchy is not apparent:
 
-    <JoinedParcel>
-      <inspireID>3</inspireID>
-      <label>My Joined Parcel</label>
-      <nationalCadastralReference>urn:wetransform.to:ie-examples:inheritance:3</nationalCadastralReference>
-      <joinedFrom>
-        <CadastralParcel>
-          <inspireID>1</inspireID>
-          <label>My Original Parcel 1</label>
-          <nationalCadastralReference>urn:wetransform.to:ie-examples:inheritance:1</nationalCadastralReference>
-        </CadastralParcel>
-        <CadastralParcel>
-          <inspireID>2</inspireID>
-          <label>My Original Parcel 2</label>
-          <nationalCadastralReference>urn:wetransform.to:ie-examples:inheritance:2</nationalCadastralReference>
-        </CadastralParcel>
-      </joinedFrom>
-    </JoinedParcel>
+<pre class="line-numbers" data-src="/patterns/examples/inheritance.xml">
+<code class="language-xml">
+</code>
+</pre>
 
 ## Implementation Considerations
 

@@ -49,29 +49,26 @@ In this pattern, there is a parent class and a child class. They are connected t
 
 A potential schema structure for the inheritance pattern is as follows:
 
-    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.wetransform.to/ie-examples/inheritance/1.0" version="1.0">
-      <import namespace="http://inspire.ec.europa.eu/schemas/base/3.3" schemaLocation="http://inspire.ec.europa.eu/schemas/base/3.3/BaseTypes.xsd"/>
-      <xs:element name="CadastralParcel" type="CadastralParcel"/>
-      <xs:complexType name="CadastralParcel">
-        <xs:sequence>
-          <xs:element name="inspireID" type="base:IdentifierPropertyType" />
-          <xs:element name="label" type="xs:string" />
-          <xs:element name="nationalCadastralReference" type="xs:string" />
-        </xs:sequence>
-      </xs:complexType>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+        elementFormDefault="qualified" 
+        targetNamespace="http://www.wetransform.to/ie-examples/inheritance/1.0" version="1.0">
+      
+      <import namespace="http://inspire.ec.europa.eu/schemas/cp/4.0" schemaLocation="http://inspire.ec.europa.eu/schemas/cp/4.0/CadastralParcels.xsd"/>
+
       <xs:element name="JoinedParcel" type="JoinedParcel"/>
       <xs:complexType name="JoinedParcel">
         <xs:complexContent>
-          <xs:extension base="CadastralParcel">
+          <xs:extension base="cp:CadastralParcel">
             <xs:sequence>
-              <xs:element name="joinedFrom" type="CadastralParcel" minOccurs="1" maxOccurs="unbounded"/>
+              <xs:element name="joinedFrom" type="cp:CadastralParcel" minOccurs="1" maxOccurs="unbounded"/>
             </xs:sequence>
           </xs:extension>
         </xs:complexContent>
       </xs:complexType>
+      
     </xs:schema>
 
-The key line that implements the inheritance pattern in XML is ```<xs:extension base="CadastralParcel">```.
+The key line that implements the inheritance pattern in XML is ```<xs:extension base="cp:CadastralParcel">```.
 
 Due to the focus on the inheritance pattern, this example uses an in-place encoding of ```CadastralParcel``` for the ```joinedFrom``` association. There are other optons for this such as encoding by Reference, which we describe in other patterns. Please also note that we've omitted some of the properties that the INSPIRE ```CadastralParcel``` class has for brevity of the example.
 

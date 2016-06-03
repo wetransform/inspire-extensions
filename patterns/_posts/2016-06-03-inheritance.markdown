@@ -15,7 +15,7 @@ patternIdentifier: inheritance
 
 Inheritance is a mechanism for reuse of software components, be it structure or behaviour. In object-oriented designs such as INSPIRE, inheritance is when a child class is based on a parent class. The child class inherits all the properties and methods from the parent class, which makes the child class usually interoperable to the target class. A child class can also override behaviour and in some cases structure of the parent class, making it at least partially incompatible to the parent class.
 
-Inheritance establishes a clear hierarchy, which can be many levels deep. The parent class can have a grand-parent class, which can have a great-grand-parent class. All parent and further ancestors together are called *superclasses* of a class, while all children and grandchildren are called *subclasses*. In INSPIRE GML, we have inheritance hierarchies up to eight levels deep. As a consequence, when we create a new class that inherits from an INSPIRE class, it wil inherit every property defined on one of those superclasses.
+Inheritance establishes a clear hierarchy, which can be many levels deep. The parent class can have a grand-parent class, which can have a great-grand-parent class. All parents and further ancestors together are called *superclasses* of a class, while all children and grandchildren and further descendants are called *subclasses*. In INSPIRE GML, we have inheritance hierarchies up to eight levels deep. As a consequence, when we create a new class that inherits from an INSPIRE class, it will inherit every property defined on one of those superclasses.
 
 ## Structure
 
@@ -85,13 +85,13 @@ This section provides information when and how this pattern can be implemented o
 
 ### Storage Backend
 
-There is usually no support for inheritance on relational or document-oriented platforms. Some platforms, such as Esri's Geodatabases, support a weaker form of subtyping, where all classes have the same property and differ in just one field value. This form of subtyping is suitable for sets of objects that are similar in data structure, but different in a classification value. An example for subtyping is road, which can have different classes (regional, national, highway).
+There is usually no support for inheritance on relational or document-oriented platforms. Some platforms, such as Esri's Geodatabases, support a weaker form of subtyping, where all classes have the same property and differ in just one field value. This form of subtyping is suitable for sets of objects that are similar in data structure, but different in a classification value. An example for weak subtyping is a *Road* hierarchy, which can have different classes (regional, national, highway).
  
 Nonetheless, an inheritance hierarchy can be mapped to a relational or document-oriented structure, and thus maintained. Three common approaches for such mappings include:
 
 1. **Table per class hierarchy**: Use one single table or document collection for all objects of all classes that are part of a given inheritance hierarchy. This can result in sparsely populated tables.
 1. **Table per subclass**: Use a separate table for every subclass in the hierarchy, even for abstract classes (classes such as ```AbstractFeatureType``` for which no objects are created, but which are used to built efficient hierarchies). This approach preserves the design structure well, but results in lots of database joins to deliver complete objects.
-1. **Table per concrete class**: Use a separate table for each concrete class in the hierarchy, with all fields they inherit from their respective superclasses. This approach doesn't preserve the design structure, but delivers higher performanc,e since no joins are required.
+1. **Table per concrete class**: Use a separate table for each concrete class in the hierarchy, with all fields they inherit from their respective superclasses. This approach doesn't preserve the design structure, but delivers higher performance, since no joins are required.
 
 ### Download Services
 

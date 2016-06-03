@@ -1,6 +1,6 @@
 ---
 layout:            pattern
-title:             "Inheritance"
+title:             "INSPIRE Class Extension Pattern: Inheritance"
 author:            "Thorsten Reitz"
 date:              2016-06-03 09:00:00 +0200
 category:          patterns
@@ -54,6 +54,8 @@ A potential schema structure for the inheritance pattern is as follows:
 </code>
 </pre>
 
+[Download the Example Schema](/patterns/examples/inheritance.xsd)
+
 The key lines to look at are 10 and 13: 
  
 1. In line 10, we use ```substitutionGroup="cp:CadastralParcel"``` to indicate that ```JoinedParcel``` can be used in any place in an XML document where a ```CadastralParcel``` would be allowed.
@@ -74,6 +76,8 @@ Instances using this pattern have a simple structure in which the inheritance hi
 <code class="language-xml">
 </code>
 </pre>
+
+[Download the Example Instance](/patterns/examples/inheritance.xml)
 
 ## Implementation Considerations
 

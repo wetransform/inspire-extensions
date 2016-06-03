@@ -6,59 +6,63 @@ layout: default
 
 <section>
     <div>
-        <h2>The purpose of Patterns</h2>
+        <h2>The Purpose of Patterns</h2>
 
-        <p>TODO</p>
+        <p>In software engineering, a software design pattern is a general reusable solution to a commonly occurring problem. It is a description or template for how to solve a problem that can be used in many different situations. Design patterns are formalized best practices that the designers or programmers can use to solve common problems when building a system.</p>
 
-        <h2>Types of Patterns for INSPIRE Extensions</h2>
+        <p>Software design patterns falls into multiple categories such as structural and behavioural patterns. Structural pattern show relationships between classes that are static. In our extension design context, we define several new categories of design patterns. Based on the information given for each pattern, you will be able to make informed choice about how to design your model extension, and how to make it INSPIRE compatible.</p>
 
-        <p>TODO</p>
+        <h3>Types of Patterns for INSPIRE Extensions</h3>
 
-        <h2><a class="anchor" name="modelPatterns" href="#modelPatterns" aria-hidden="true"></a>Patterns for Model Extension</h2>
+        <p>Model extension design as described in the <a href="/extension-methodology.html">extension methodology</a> is a hierarchical top-down process, where you first design a wide scope, and then drill down to make individual aspects concrete. We start at the level of the entire model, the proceed with adding classes, and then define these classes in detail by adding properties. For each of these phases, there are different patterns you can apply:</p>
+
+        <ol>
+            <li><strong>Model Extension:</strong> These patterns describe set of general rules about how to build up a model and how to integrate it with the model extension. The patterns typically include a number of constraints, such as whether the original model may be changed in any way or not.</li>
+            <li><strong>Class Extension:</strong> Class extension patterns describe how one or multiple classes are linked to classes in the INSPIRE data specification you'd like to extend. They describe which language features you use to implement them, and what consequences there are on a conceptual and implementation level.</li>
+            <li><strong>Property Extension:</strong> Property extension patterns describe how you can extend individual properties, e.g. by adding new constraints or by extending code lists. They also include consequences there are on a conceptual and implementation level.</li>
+        </ol>
+
+        <h3><a class="anchor" name="modelPatterns" href="#modelPatterns" aria-hidden="true"></a>Patterns for Model Extension</h3>
 
         <p>These patterns describe how you generally approach building an extension and provide rules for doing so. The most well-known of these approaches in the context of GML Application Schemas is the CityGML Application Domain Extension (ADE) Mechanism.</p>
 
+        <p>pattern candidates: ADE, INSPIRE, rebuild</p>
+
         <ul>
             {% for pattern in site.categories.patterns %}
-                {% for tagModel in pattern.tags %}
-                {% if tagModel == "modelPattern" %}
+                {% if pattern.patternType == "model" %}
                 <li>
                     <a href="{{ pattern.url }}">{{ pattern.patternName }}</a>
                 </li>
                 {% endif %}
-                {% endfor %}
             {% endfor %}
         </ul>
 
-        <h2><a class="anchor" name="classPatterns" href="#classPatterns" aria-hidden="true"></a>Patterns for Class Extension</h2>
+        <h3><a class="anchor" name="classPatterns" href="#classPatterns" aria-hidden="true"></a>Patterns for Class Extension</h3>
 
         <p>TODO</p>
 
         <ul>
             {% for pattern in site.categories.patterns %}
-                {% for tagModel in pattern.tags %}
-                {% if tagModel == "classPattern" %}
+                {% if pattern.patternType == "class" %}
                 <li>
                     <a href="{{ pattern.url }}">{{ pattern.patternName }}</a>
                 </li>
                 {% endif %}
-                {% endfor %}
             {% endfor %}
         </ul>
 
-        <h2><a class="anchor" name="propertyPatterns" href="#propertyPatterns" aria-hidden="true"></a>Patterns for Property Extension</h2>
+        <h3><a class="anchor" name="propertyPatterns" href="#propertyPatterns" aria-hidden="true"></a>Patterns for Property Extension</h3>
 
-        <p>Codelist extension, TODO</p>
+        <p>Codelist extension, constraints TODO</p>
 
         <ul>
             {% for pattern in site.categories.patterns %}
-                {% for tagModel in pattern.tags %}
-                {% if tagModel == "propertyPattern" %}
+                {% if pattern.patternType == "property" %}
                 <li>
                     <a href="{{ pattern.url }}">{{ pattern.patternName }}</a>
                 </li>
                 {% endif %}
-                {% endfor %}
             {% endfor %}
         </ul>
 

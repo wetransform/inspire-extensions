@@ -60,7 +60,14 @@
         </ol>
         {% endif %}
       </li>
-      <li><a href="/patterns/index.html"></a>The Pattern Catalogue
+      <li>{% if page.slug == "patterns" or page.category == "patterns" %}<strong>{% endif %}<a href="/patterns/index.html">The Pattern Catalogue</a>{% if page.slug == "patterns" or page.category == "patterns" %}</strong>{% endif %}
+        {% if page.slug == "patterns" or page.category == "patterns" %}
+        <ol class="tocLevel2">
+          <li><a href="/patterns/index.html#modelPatterns">Model Patterns</a></li>
+          <li><a href="/patterns/index.html#classPatterns">Class Patterns</a></li>
+          <li><a href="/patterns/index.html#propertyPatterns">Property Patterns</a></li>
+        </ol>
+        {% endif %}
       </li>
       <li><a href=""></a>An End-to-End Tutorial Project
       </li>

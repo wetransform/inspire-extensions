@@ -26,7 +26,7 @@ layout: default
 
         <p>These patterns describe how you generally approach building an extension and provide rules for doing so. The most well-known of these approaches in the context of GML Application Schemas is the CityGML Application Domain Extension (ADE) Mechanism.</p>
 
-        <p>pattern candidates: ADE, INSPIRE, rebuild</p>
+        <p>TODO Pattern candidates: INSPIRE, ADE, Rebuild</p>
 
         <ul>
             {% for pattern in site.categories.patterns %}
@@ -40,7 +40,9 @@ layout: default
 
         <h3><a class="anchor" name="classPatterns" href="#classPatterns" aria-hidden="true"></a>Patterns for Class Extension</h3>
 
-        <p>TODO</p>
+        <p>Class extension patterns describe how one or multiple classes are linked to classes in the INSPIRE data specification you'd like to extend. They describe which language features you use to implement them, and what consequences there are on a conceptual and implementation level.</p>
+
+        <p>TODO Pattern candidates: Aggregation, Association, Mixin</p>
 
         <ul>
             {% for pattern in site.categories.patterns %}
@@ -54,7 +56,9 @@ layout: default
 
         <h3><a class="anchor" name="propertyPatterns" href="#propertyPatterns" aria-hidden="true"></a>Patterns for Property Extension</h3>
 
-        <p>Codelist extension, constraints TODO</p>
+        <p>Property extension patterns describe how you can extend individual properties, e.g. by adding new constraints or by extending code lists. They also include consequences there are on a conceptual and implementation level.</p>
+
+        <p>TODO Pattern candidates: Codelist extension, Add constraints </p>
 
         <ul>
             {% for pattern in site.categories.patterns %}

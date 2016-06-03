@@ -3,16 +3,15 @@
            xmlns:cp="http://inspire.ec.europa.eu/schemas/cp/4.0"
            xmlns:ex="http://www.wetransform.to/ie-examples/inheritance/1.0"
            elementFormDefault="qualified"
-           targetNamespace="http://www.wetransform.to/ie-examples/inheritance/1.0" version="1.0">
+           targetNamespace="http://www.wetransform.to/ie-examples/inheritance/1.0"
+           version="1.0">
     <xs:import namespace="http://inspire.ec.europa.eu/schemas/cp/4.0" schemaLocation="http://inspire.ec.europa.eu/schemas/cp/4.0/CadastralParcels.xsd"/>
-    <xs:import namespace="http://inspire.ec.europa.eu/schemas/base/3.3" schemaLocation="http://inspire.ec.europa.eu/schemas/base/3.3/BaseTypes.xsd"/>
-    <xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
     <xs:element name="JoinedParcel" substitutionGroup="cp:CadastralParcel" type="ex:JoinedParcelType"/>
     <xs:complexType name="JoinedParcelType">
         <xs:complexContent>
             <xs:extension base="cp:CadastralParcelType">
                 <xs:sequence>
-                    <xs:element name="joinedFrom" type="cp:CadastralParcelType" minOccurs="1" maxOccurs="unbounded"/>
+                    <xs:element name="joinedFrom" type="cp:CadastralParcelPropertyType" minOccurs="1" maxOccurs="unbounded"/>
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>

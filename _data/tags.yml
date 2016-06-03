@@ -32,6 +32,8 @@
   name: "Associated with INSPIRE Habitats and Biotopes 4.0"
 - slug: inspireHYP40
   name: "Associated with INSPIRE Hydro-physical Waters 4.0"
+- slug: inspireLU40
+  name: "Associated with INSPIRE Land Use 4.0"
 - slug: inspireLC40
   name: "Associated with INSPIRE Land Cover 4.0"
 - slug: inspireMR40

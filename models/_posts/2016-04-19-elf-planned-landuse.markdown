@@ -3,8 +3,8 @@ layout:                 model
 title:                  "Inspire Extensions: Norwegian Planned Land Use"
 date:                   2016-04-19 18:00:02 +0200
 category:               models
-tags:                   [Inspire, model,inspireLU40, aggregate, associate, inherit]
-modelIdentifier:        Norwegian PLU
+tags:                   [inspire, model, inspireLU40, aggregate, associate, inherit]
+modelIdentifier:        noPLU
 modelName:              "Norwegian Planned Land Use"
 author:                 "Morten Borrebaek"
 modelOrganisation:      "Kartverket (Norwegian Mapping Authority)"
@@ -19,7 +19,7 @@ modelLatestVersion:     "5.0"
 modelPreviousVersions:  "4.5"
 modelNextVersion:       "Long-term resources available"
 modelLicense:           "Open (Unrestricted or attribution-only licenses such as CC-BY, BSD or Apache)"
-modelLink:              http://sosi.geonorge.no/SVNFAQ/EAP/SOSI_modellregister_JET40.eap (link to model repository with all models)
+modelLink:              http://sosi.geonorge.no/SVNFAQ/EAP/SOSI_modellregister_JET40.eap
 modelStatsSizeTypes:    0
 modelStatsSizeProps:    0 
 ---

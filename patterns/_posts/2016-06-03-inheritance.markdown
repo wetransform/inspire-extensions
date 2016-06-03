@@ -2,7 +2,7 @@
 layout:            pattern
 title:             "Inheritance"
 author:            "Thorsten Reitz"
-date:              2016-04-09 09:10:59 +0200
+date:              2016-06-03 09:00:00 +0200
 category:          patterns
 tags:              [pattern, class]
 patternName:       "Inheritance"
@@ -73,15 +73,29 @@ A potential schema structure for the inheritance pattern is as follows:
 
 The key line that implements the inheritance pattern in XML is ```<xs:extension base="CadastralParcel">```.
 
-Due to the focus on the inheritance pattern, this example uses an in-place encoding of ```CadastralParcel```for the ```joinedFrom``` association. There are other optons for this such as encoding by Reference, which we describe in other patterns.
+Due to the focus on the inheritance pattern, this example uses an in-place encoding of ```CadastralParcel``` for the ```joinedFrom``` association. There are other optons for this such as encoding by Reference, which we describe in other patterns. Please also note that we've omitted some of the properties that the INSPIRE ```CadastralParcel``` class has for brevity of the example.
 
 ## XML Instance Example
 
 Instances using this pattern have a simple structure in which the inheritance hierarchy is not apparent:
 
-    <example>
-        Some Content
-    </example>
+    <JoinedParcel>
+      <inspireID>3</inspireID>
+      <label>My Joined Parcel</label>
+      <nationalCadastralReference>urn:wetransform.to:ie-examples:inheritance:3</nationalCadastralReference>
+      <joinedFrom>
+        <CadastralParcel>
+          <inspireID>1</inspireID>
+          <label>My Original Parcel 1</label>
+          <nationalCadastralReference>urn:wetransform.to:ie-examples:inheritance:1</nationalCadastralReference>
+        </CadastralParcel>
+        <CadastralParcel>
+          <inspireID>2</inspireID>
+          <label>My Original Parcel 2</label>
+          <nationalCadastralReference>urn:wetransform.to:ie-examples:inheritance:2</nationalCadastralReference>
+        </CadastralParcel>
+      </joinedFrom>
+    </JoinedParcel>
 
 ## Implementation Considerations
 

@@ -1,0 +1,87 @@
+---
+layout:            pattern
+title:             "INSPIRE Class Extension Pattern: Mixin"
+author:            "Thorsten Reitz"
+date:              2016-06-03 09:30:00 +0200
+category:          patterns
+tags:              [pattern, class]
+patternName:       "Mixin"
+patternType:       class
+patternIdentifier: mixin
+
+---
+
+## Intent
+
+A mixin is a special case of multiple inheritance, where the class we design is composed of properties of multiple other classes. These other classes are called  *mixins*, or occasionally, *traits*. Each mixin is a collection of methods or properties that can be injected into the new class. Mixins are typically narrow in scope and not meant to be extended by themselves. In multiple inheritance, there is no clear inheritance hierarchy anymore, which may lead to conflicting concepts.
+
+In INSPIRE, we can use mixins to reuse both INSPIRE specifications and local specifications, and to make sure our new class is syntactically compatible to both.
+
+## Structure
+
+In this pattern, there is a child class, at least one mixin class and an optional parent class. The child class and the mixin class are connected through a Generalisation association which points from the child to the mixin. In this example, we make all our classes lifecycle aware by mixing in a class called Lifecycle:
+
+<figure class="figure" style="margin-bottom: 20px">
+    <img src="/patterns/images/mixin.png" class="figure-img img-fluid img-rounded" title="A matching table">
+    <figcaption class="figure-caption small"><code>JoinedParcel</code> inherits all properties from <code>CadastralParcel</code> and mixes in <code>Lifecycle</code>. Note that the generalization association has a stereotype set to indicate the mixin approach.</figcaption>
+</figure>
+
+## When to use
+
+There are three common cases where mixins can be effective:
+
+1. You want to provide a lot of optional features for a class.
+1. You want to use one particular feature in a lot of different classes.
+1. Your class should be compatible with an INSPIRE class and local standard classes.
+
+## When not to use
+
+Support for mixins varies greatly across different implementation platforms and can be complex to realize, which is the main downside. There are also other indicators when not to use mixins:
+
+1. You want to use multiple classes from the same hierarchy, as mixing them in will result in duplication or overloading.
+1. You need to bring in a single property or a set of unrelated properties from the mixin(s)
+1. You want to have the mixin conceptual relationship to be present in the implementation as well
+
+## XML Schema Example
+
+There is no direct support for multiple inheritance or mixins in XML Schema. A common approach is to do a model transformation that copies the proerpties and methods of the mixin to the new class, as in this example:
+
+<pre data-line="10,13" class="line-numbers" data-src="/patterns/examples/mixin.xsd">
+<code class="language-xml">
+</code>
+</pre>
+
+[Download the Example Schema](/patterns/examples/mixin.xsd)
+
+## XML Instance Example
+
+Instances using this pattern have a simple structure in which the properties inherited through mix-in can usually be identified through their namespace prefix:
+
+<pre class="line-numbers" data-src="/patterns/examples/mixin.xml">
+<code class="language-xml">
+</code>
+</pre>
+
+[Download the Example Instance](/patterns/examples/mixin.xml)
+
+## Implementation Considerations
+
+This section provides information when and how this pattern can be implemented on different types of platforms.
+
+### Storage Backend
+
+TODO
+
+### Download Services
+
+TODO
+
+### Business Logic
+
+TODO
+
+### Consumer Side
+
+TODO
+
+

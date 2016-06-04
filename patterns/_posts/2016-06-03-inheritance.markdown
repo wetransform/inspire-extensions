@@ -49,17 +49,17 @@ Inheritance is a static relationship type with strong coupling. Many of the reas
 
 A potential schema structure for the inheritance pattern is as follows:
 
-<pre data-line="10,13" class="line-numbers" data-src="/patterns/examples/inheritance.xsd">
+<pre data-line="9,12" class="line-numbers" data-src="/patterns/examples/inheritance.xsd">
 <code class="language-xml">
 </code>
 </pre>
 
 [Download the Example Schema](/patterns/examples/inheritance.xsd)
 
-The key lines to look at are 10 and 13: 
+The key lines to look at are 9 and 12: 
  
-1. In line 10, we use ```substitutionGroup="cp:CadastralParcel"``` to indicate that ```JoinedParcel``` can be used in any place in an XML document where a ```CadastralParcel``` would be allowed.
-1. In line 13, we make ```JoinedParcel``` inherit all properties from ```CadastralParcel``` by using ```<xs:extension base="cp:CadastralParcel">```.
+1. In line 9, we use ```substitutionGroup="cp:CadastralParcel"``` to indicate that ```JoinedParcel``` can be used in any place in an XML document where a ```CadastralParcel``` would be allowed.
+1. In line 12, we make ```JoinedParcel``` inherit all properties from ```CadastralParcel``` by using ```<xs:extension base="cp:CadastralParcel">```.
 
 <table class="alert-warning important-info">
     <tr>

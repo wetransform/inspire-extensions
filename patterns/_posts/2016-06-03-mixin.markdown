@@ -22,7 +22,7 @@ In INSPIRE, we can use mixins to reuse both INSPIRE specifications and local spe
 In this pattern, there is a child class, at least one mixin class and an optional parent class. The child class and the mixin class are connected through a Generalisation association which points from the child to the mixin. In this example, we make all our classes lifecycle aware by mixing in a class called Lifecycle:
 
 <figure class="figure" style="margin-bottom: 20px">
-    <img src="/patterns/images/mixin.png" class="figure-img img-fluid img-rounded" title="A matching table">
+    <img src="/patterns/images/mixin.png" class="figure-img img-fluid img-rounded" title="Mixin">
     <figcaption class="figure-caption small"><code>JoinedParcel</code> inherits all properties from <code>CadastralParcel</code> and mixes in <code>Lifecycle</code>. Note that the generalization association has a stereotype set to indicate the mixin approach.</figcaption>
 </figure>
 

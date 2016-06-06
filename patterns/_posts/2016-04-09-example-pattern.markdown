@@ -4,9 +4,9 @@ title:             "Example"
 author:            "Thorsten Reitz"
 date:              2016-04-09 09:10:59 +0200
 category:          patterns
-tags:              [pattern, class]
+tags:              [pattern, model]
 patternName:       "Example"
-patternType:       class
+patternType:       model
 patternIdentifier: example
 
 ---

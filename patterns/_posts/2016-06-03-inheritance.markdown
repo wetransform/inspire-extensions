@@ -22,7 +22,7 @@ Inheritance establishes a clear hierarchy, which can be many levels deep. The pa
 In this pattern, there is a parent class and a child class. They are connected through a Generalisation association which points from the child to the parent:
 
 <figure class="figure" style="margin-bottom: 20px">
-    <img src="/patterns/images/inheritance.png" class="figure-img img-fluid img-rounded" title="A matching table">
+    <img src="/patterns/images/inheritance.png" class="figure-img img-fluid img-rounded" title="Inheritance">
     <figcaption class="figure-caption small"><code>JoinedParcel</code> inherits all properties from <code>CadastralParcel</code> and adds a <code>joinedFrom</code> property.</figcaption>
 </figure>
 
@@ -35,6 +35,12 @@ Inheritance is furthermore an easy way to achieve compatibility of your new clas
 1. ...you want to use one system for managing and publishing INSPIRE data and your extended data
 1. ...there is not just a syntactic relationship, but also a semantic relationship between the child and the parent. This relationship is called a *subtyping* relationship and is usually read as *child* ```is-a``` *parent*.
 1. ...you want to automatically keep your model compatible when superclasses change
+
+Inheritance should only be used when the fllowing conditions are met:
+
+1. Parent and child classes are in the same logical domain
+1. The superclass’s implementation is necessary or appropriate for the subclass
+1. The enhancements made by the subclass are primarily additive and don't override the parent's behaviour.
 
 ## When not to use
 

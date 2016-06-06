@@ -1,9 +1,9 @@
 <?xml version="1.0" ?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:cp="http://inspire.ec.europa.eu/schemas/cp/4.0"
-           xmlns:ex="http://www.wetransform.to/ie-examples/inheritance/1.0"
+           xmlns:ex="http://www.wetransform.to/ie-examples/mixin/1.0"
            elementFormDefault="qualified"
-           targetNamespace="http://www.wetransform.to/ie-examples/inheritance/1.0"
+           targetNamespace="http://www.wetransform.to/ie-examples/mixin/1.0"
            version="1.0">
     <xs:import namespace="http://inspire.ec.europa.eu/schemas/cp/4.0" schemaLocation="http://inspire.ec.europa.eu/schemas/cp/4.0/CadastralParcels.xsd"/>
     <xs:element name="JoinedParcel" substitutionGroup="cp:CadastralParcel" type="ex:JoinedParcelType"/>

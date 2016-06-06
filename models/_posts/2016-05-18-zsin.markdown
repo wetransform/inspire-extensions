@@ -11,7 +11,7 @@ modelOrganisation:      "General Office of Geodesy and Cartography in Poland"
 modelSummary:           "This model extends INSPIRE Addresses, Administrative Units and Cadastral Parcels to implement a new Real Estate information system in Poland."
 modelsReferenced:       [inspireAD40, inspireAU40, inspireCP40]
 modelReferenceTypes:    [inherit, aggregate]
-modelUsesPatterns:      [aggregation, inheritance]
+modelUsesPatterns:      [composition, inheritance]
 modelSchemaLanguage:    "UML"
 modelSpokenLanguage:    "Polish"
 modelSchemaTool:        "Enterprise Architect"

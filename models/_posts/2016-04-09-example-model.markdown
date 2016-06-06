@@ -11,6 +11,7 @@ modelOrganisation:      "wetransform GmbH"
 modelSummary:           "This is an example model created as a template for the real INSPIRE-related Models."
 modelsReferenced:       [inspireHYP40, inspireAU40]
 modelReferenceTypes:    [aggregate, associate, inherit, mixin]
+modelUsesPatterns:      [composition, inheritance]
 modelSchemaLanguage:    UML
 modelSpokenLanguage:    English
 modelSchemaTool:        "Enterprise Architect"

@@ -6,10 +6,14 @@
         xmlns:ex="http://www.wetransform.to/ie-examples/inheritance/1.0"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:gml="http://www.opengis.net/gml/3.2"
-        xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd http://www.wetransform.to/ie-examples/inheritance/1.0 ./inheritance.xsd"
-        numberMatched="3" numberReturned="3" timeStamp="2016-05-31T10:55:38.697+02:00">
+        xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd http://www.wetransform.to/ie-examples/inheritance/1.0 ./mixin.xsd"
+        numberMatched="1" numberReturned="1" timeStamp="2016-05-31T10:55:38.697+02:00">
     <wfs:member>
         <ex:JoinedParcel gml:id="_3">
+            <ex:beginLifespan xsi:nil="false">
+                2016-05-31T10:55:38.697+02:00
+            </ex:beginLifespan>
+            <ex:endLifespan xsi:nil="true" />
             <cp:beginLifespanVersion xsi:nil="true" nilReason="unpopulated" />
             <cp:geometry><!-- ... --></cp:geometry>
             <cp:inspireId>
@@ -32,20 +36,6 @@
                     </cp:inspireId>
                     <cp:label>My Original Parcel 1</cp:label>
                     <cp:nationalCadastralReference>urn:wetransform.to:ie-examples:inheritance:1</cp:nationalCadastralReference>
-                </cp:CadastralParcel>
-            </ex:joinedFrom>
-            <ex:joinedFrom>
-                <cp:CadastralParcel gml:id="_2">
-                    <cp:beginLifespanVersion xsi:nil="true" nilReason="unpopulated" />
-                    <cp:geometry><!-- ... --></cp:geometry>
-                    <cp:inspireId>
-                        <base:Identifier>
-                            <base:localId>2</base:localId>
-                            <base:namespace>http://www.wetransform.to/ie-examples/inheritance/</base:namespace>
-                        </base:Identifier>
-                    </cp:inspireId>
-                    <cp:label>My Original Parcel 2</cp:label>
-                    <cp:nationalCadastralReference>urn:wetransform.to:ie-examples:inheritance:2</cp:nationalCadastralReference>
                 </cp:CadastralParcel>
             </ex:joinedFrom>
         </ex:JoinedParcel>

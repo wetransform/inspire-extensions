@@ -12,6 +12,20 @@
             <xs:extension base="cp:CadastralParcelType">
                 <xs:sequence>
                     <xs:element name="joinedFrom" type="cp:CadastralParcelPropertyType" minOccurs="1" maxOccurs="unbounded"/>
+                    <xs:element name="beginLifespan" nillable="true">
+                        <xs:complexType>
+                            <xs:simpleContent>
+                                <xs:extension base="xs:dateTime" />
+                            </xs:simpleContent>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element name="endLifespan" nillable="true">
+                        <xs:complexType>
+                            <xs:simpleContent>
+                                <xs:extension base="xs:dateTime" />
+                            </xs:simpleContent>
+                        </xs:complexType>
+                    </xs:element>
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>

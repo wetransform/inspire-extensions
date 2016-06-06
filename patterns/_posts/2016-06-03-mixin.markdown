@@ -44,7 +44,7 @@ Support for mixins varies greatly across different implementation platforms and 
 
 ## XML Schema Example
 
-There is no direct support for multiple inheritance or mixins in XML Schema. A common approach is to do a model transformation that copies the proerpties and methods of the mixin to the new class, as in this example:
+There is no direct support for multiple inheritance or mixins in XML Schema. A common approach is to do a model transformation that copies the properties and methods of the mixin to the new class, as in this example:
 
 <pre data-line="10,13" class="line-numbers" data-src="/patterns/examples/mixin.xsd">
 <code class="language-xml">
@@ -68,20 +68,30 @@ Instances using this pattern have a simple structure in which the properties inh
 
 This section provides information when and how this pattern can be implemented on different types of platforms.
 
+<table class="alert-warning important-info">
+    <tr>
+        <td style="width:3em"><div class="important-info-icon"><span class="glyphicon glyphicon-exclamation-sign" style="font-size:2em"></span></div></td>
+        <td>Mixin is the least commonly used class extension pattern nad is not supported directly in most implementation platforms.</td>
+    </tr>
+</table>
+
 ### Storage Backend
 
-TODO
+There is no storage backend type available that supports mixins directly. In any kind of relational or document-oriented storage, the information about the mixin structure would be lost. Usage of the pattern has no averse effect on storage size.
 
 ### Download Services
 
-TODO
+As there is no direct support of mixins or multiple inheritance in XML Schema, a Download Service implementation will not reflect the mixin conceptual schema directly. You will have to define which pattern of schema transformation you want to use:
+
+1. Use named model groups and named property groups
+1. Copy properties from the mixin class to the target class
 
 ### Business Logic
 
-TODO
+Some programming languages either provide support for mixins directly or through extensions.
 
 ### Consumer Side
 
-TODO
+No GIS client software is able to directly work with Mixins. As for the storage backend and download services, clients will interpret the instance documents with normal properties, and not be able to usnerstand that there was a mixin at the level of the conceptual schema.
 
 

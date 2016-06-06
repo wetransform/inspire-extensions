@@ -46,10 +46,12 @@ Support for mixins varies greatly across different implementation platforms and 
 
 There is no direct support for multiple inheritance or mixins in XML Schema. A common approach is to do a model transformation that copies the properties and methods of the mixin to the new class, as in this example:
 
-<pre data-line="10,13" class="line-numbers" data-src="/patterns/examples/mixin.xsd">
+<pre data-line="15-28" class="line-numbers" data-src="/patterns/examples/mixin.xsd">
 <code class="language-xml">
 </code>
 </pre>
+
+In the example, we make our new class ```JoinedParcel``` time-aware by copying the two properties ```beginLifespan``` and ```endLifespan``` from the class Lifecycle. Note that that class disappears from the XML Schema.
 
 [Download the Example Schema](/patterns/examples/mixin.xsd)
 

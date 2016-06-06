@@ -2,7 +2,7 @@
 layout:            pattern
 title:             "INSPIRE Class Extension Pattern: Association"
 author:            "Thorsten Reitz"
-date:              2016-06-06 10:50:00 +0200
+date:              2016-06-04 10:50:00 +0200
 category:          patterns
 tags:              [pattern, class]
 patternName:       "Association"

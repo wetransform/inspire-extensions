@@ -46,14 +46,14 @@ Associations should not be used when:
 
 A potential schema structure for the association pattern is as follows:
 
-<pre data-line="11,24,25" class="line-numbers" data-src="/patterns/examples/association.xsd">
+<pre data-line="11,28,29" class="line-numbers" data-src="/patterns/examples/association.xsd">
 <code class="language-xml">
 </code>
 </pre>
 
 [Download the Example Schema](/patterns/examples/association.xsd)
 
-In line 11, we set the ```Owner``` element's ```substitutionGroup``` to ```AbstractFeature```. This is mandatory to allow objects of this type to be included in the container, a ```wfs:FeatureCollection```. In lines 24 and 25, we use ```gml:ReferenceType``` as the type of the properties, instead of the actual types the references point to (which could be ```CadastralParcel``` and ```Owner```). This means we lose some information in the XML schema. There are several ways to encode this information, such as using annotations or optional attributes of the XLink, but non of them were standardised in INSPIRE.
+In line 11, we set the ```Owner``` element's ```substitutionGroup``` to ```AbstractFeature```. This is mandatory to allow objects of this type to be included in the container, a ```wfs:FeatureCollection```. In lines 28 and 29, we use ```gml:ReferenceType``` as the type of the properties, instead of the actual types the references point to (which could be ```CadastralParcel``` and ```Owner```). This means we lose some information in the XML schema. There are several ways to encode this information, such as using annotations or optional attributes of the XLink, but non of them were standardised in INSPIRE.
 
 ## XML Instance Example
 

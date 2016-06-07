@@ -7,7 +7,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:xlink="http://www.w3.org/1999/xlink"
         xmlns:gml="http://www.opengis.net/gml/3.2"
-        xsi:schemaLocation="http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd http://inspire.ec.europa.eu/schemas/base/3.3 http://inspire.ec.europa.eu/schemas/base/3.3/BaseTypes.xsd http://inspire.ec.europa.eu/schemas/cp/4.0 http://inspire.ec.europa.eu/schemas/cp/4.0/CadastralParcels.xsd http://www.wetransform.to/ie-examples/association/1.0 ./association.xsd"
+        xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd http://inspire.ec.europa.eu/schemas/cp/4.0 http://inspire.ec.europa.eu/schemas/cp/4.0/CadastralParcels.xsd http://www.wetransform.to/ie-examples/association/1.0 ./association.xsd"
         numberMatched="3" numberReturned="3" timeStamp="2016-05-31T10:55:38.697+02:00">
     <wfs:member>
         <ex:JoinedParcel gml:id="_3">
@@ -25,6 +25,8 @@
             <ex:owner xlink:href="#owner_1"></ex:owner>
             <ex:owner xlink:href="#owner_2"></ex:owner>
         </ex:JoinedParcel>
+    </wfs:member>
+    <wfs:member>
         <cp:CadastralParcel gml:id="parcel_1">
             <cp:beginLifespanVersion xsi:nil="true" nilReason="unpopulated" />
             <cp:geometry><!-- ... --></cp:geometry>
@@ -37,11 +39,15 @@
             <cp:label>My Original Parcel 1</cp:label>
             <cp:nationalCadastralReference>urn:wetransform.to:ie-examples:inheritance:1</cp:nationalCadastralReference>
         </cp:CadastralParcel>
+    </wfs:member>
+    <wfs:member>
         <ex:owner gml:id="owner_1">
             <ex:givenName>Thorsten</ex:givenName>
             <ex:familyName>Reitz</ex:familyName>
             <ex:address>Fraunhoferstr. 5, 64283 Darmstadt</ex:address>
         </ex:owner>
+    </wfs:member>
+    <wfs:member>
         <ex:owner gml:id="owner_2">
             <ex:givenName>Simon</ex:givenName>
             <ex:familyName>Templer</ex:familyName>

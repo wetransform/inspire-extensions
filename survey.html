@@ -43,94 +43,94 @@ slug: survey
 
     <h2><a class="anchor" name="overview" href="#overview" aria-hidden="true"></a>Overview of Responses</h2>
 
-    <p>Between March 20th and April 15th 2016, 66 people responded to the survey. The overall response rate is
+    <p>Between March 20th and May 31st 2016, 112 people responded to the survey. The overall response rate is
         estimated at 3%. Some channels, such as the direct mails to the INSPIRE Maintenance and Implementation
         Groups, naturally had a higher response rate (between 10 and 20%). The rate of incomplete responses was
-        relatively low, at 5%.<p>
+        relatively low, at 3%.<p>
     <p>The questionnaire is still online and open. We will update the numbers and figures on this page once per month
-    if new entries are made, until the end of the project. The 66 respondents documented 19 existing data models related
-    to the INSPIRE data specifications. 16 of documented an intent to create such a model in the near future.</p>
+    if new entries are made, until the end of the project. The 112 respondents documented 34 existing data models related
+    to the INSPIRE data specifications. 29 of documented an intent to create such a model in the near future.</p>
 
     <h2><a class="anchor" name="expertise" href="#expertise" aria-hidden="true"></a>Expertise and Background</h2>
 
     <p><strong>Question 1.1:</strong> In what areas do you consider yourself an expert?
-        <br><em><small>60 responses, multiple answers allowed</small></em></p>
+        <br><em><small>105 responses, multiple answers allowed</small></em></p>
 
     <div class="ct-chart ct-octave" id="q1-1"></div>
 
     <p><strong>Question 1.2:</strong> How knowledgeable are you about standards for geospatial data and services?
-        <br><em><small>65 responses</small></em></p>
+        <br><em><small>109 responses</small></em></p>
 
     <div class="ct-chart ct-octave" id="q1-2"></div>
 
     <p><strong>Question 1.4:</strong> Have you worked with any INSPIRE Data Specification or a GML Application Schema?
-        <br><em><small>54 responses</small></em></p>
+        <br><em><small>95 responses</small></em></p>
 
     <div class="ct-chart ct-octave" id="q1-4"></div>
 
     <p><strong>Question 1.5:</strong> Did you create at least one data model that references or extends INSPIRE data
         specifications, e.g. by including properties that are references to INSPIRE objects?
-        <br><em><small>66 responses</small></em></p>
+        <br><em><small>112 responses</small></em></p>
 
     <div class="ct-chart ct-major-twelfth" id="q1-5"></div>
 
     <h2><a class="anchor" name="motivation" href="#motivation" aria-hidden="true"></a>Motivation, Scope and Usage</h2>
 
     <p><strong>Question 2.1:</strong> Why did you create this data model?
-        <br><em><small>19 responses</small></em></p>
+        <br><em><small>36 responses</small></em></p>
 
     <div class="ct-chart ct-octave" id="q2-1"></div>
 
     <p><strong>Question 2.3:</strong> Compared to the INSPIRE Data Specifications, what have you done to create your
         data model?
-        <br><em><small>19 responses</small></em></p>
+        <br><em><small>36 responses</small></em></p>
 
     <div class="ct-chart ct-octave" id="q2-3"></div>
 
     <p><strong>Question 2.4:</strong> What methods did you use to relate your data model to other models?
-        <br><em><small>19 responses</small></em></p>
+        <br><em><small>35 responses</small></em></p>
 
     <div class="ct-chart ct-octave" id="q2-4"></div>
 
     <p><strong>Question 2.6:</strong> How many people were involved in the creation of the data model?
-        <br><em><small>19 responses</small></em></p>
+        <br><em><small>36 responses</small></em></p>
 
     <div class="ct-chart ct-major-twelfth" id="q2-6"></div>
 
     <p><strong>Question 2.7:</strong> Which schema language did you use to create the new data model?
-    <br><em><small>19 responses</small></em></p>
+    <br><em><small>36 responses</small></em></p>
 
     <div class="ct-chart ct-octave" id="q2-7"></div>
 
     <p><strong>Question 2.9:</strong> Is the data model used?
-        <br><em><small>19 responses</small></em></p>
+        <br><em><small>36 responses</small></em></p>
 
     <div class="ct-chart ct-octave" id="q2-9"></div>
 
     <p><strong>Question 2.11:</strong> How many versions of your data model have you released?
-        <br><em><small>19 responses</small></em></p>
+        <br><em><small>36 responses</small></em></p>
 
     <div class="ct-chart ct-octave" id="q2-11"></div>
 
     <p><strong>Question 2.12:</strong> Will you continue to develop the data model?
-        <br><em><small>19 responses</small></em></p>
+        <br><em><small>34 responses</small></em></p>
 
     <div class="ct-chart ct-major-twelfth" id="q2-12"></div>
 
     <p><strong>Question 2.13:</strong> What is the license of your data model?
-        <br><em><small>17 responses</small></em></p>
+        <br><em><small>33 responses</small></em></p>
 
     <div class="ct-chart ct-octave" id="q2-13"></div>
 
     <h2><a class="anchor" name="challenges" href="#challenges" aria-hidden="true"></a>Challenges reported</h2>
 
     <p><strong>Question 2.17:</strong> Which challenges did you encounter when designing the data model?
-        <br><em><small>19 responses</small></em></p>
+        <br><em><small>35 responses</small></em></p>
 
     <div class="ct-chart ct-golden-section" id="q2-17"></div>
 
     <p><strong>Question 2.18:</strong> Which challenges did you encounter when implementing the data model?
-        <br><em><small>19 responses</small></em></p>
+        <br><em><small>35 responses</small></em></p>
 
     <div class="ct-chart ct-golden-section" id="q2-18"></div>
 
@@ -153,6 +153,9 @@ slug: survey
 
 <script>
 
+    var highAll = 120;
+    var highModel = 40;
+
     $.getJSON("/data/1_1.json", function(json) {
         new Chartist.Bar('#q1-1', json, {
             seriesBarDistance: 0,
@@ -162,7 +165,7 @@ slug: survey
                 offset: 100
             },
             low: 0,
-            high: 50
+            high: highAll
         });
     });
 
@@ -178,7 +181,7 @@ slug: survey
                 offset: 100
             },
             low: 0,
-            high: 50
+            high: highAll
         });
     });
 
@@ -191,7 +194,7 @@ slug: survey
                 offset: 100
             },
             low: 0,
-            high: 50
+            high: highAll
         });
     });
 
@@ -243,7 +246,7 @@ slug: survey
             divisor: 5
         },
         low: 0,
-        high: 20
+        high: highModel
     };
 
     $.getJSON("/data/2_1.json", function(json) {
@@ -346,7 +349,7 @@ slug: survey
                 divisor: 5
             },
             low: 0,
-            high: 20
+            high: highModel
         });
         rankSeries(json.series, json.labels.length);
     });
@@ -367,7 +370,7 @@ slug: survey
                 divisor: 5
             },
             low: 0,
-            high: 20
+            high: highModel
         });
         rankSeries(json.series, json.labels.length);
     });

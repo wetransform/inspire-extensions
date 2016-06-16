@@ -23,7 +23,7 @@ title:  INSPIRE data specification extensions - The Extension Methodology
     <p>In your daily work, you will be confronted with requirements to use standardized data in order to fulfil a certain task. Such requirements often have a legal foundation, such as a European directive that requires monitoring and reporting. Examples for reporting directives include the Air Quality directive and the Marine directive. National legislation also often requires standardisation. As an example, the new Spatial Planning Act in the Netherlands mandates interoperability. </p>
     <p>Even when no legal foundation requires the use of standards, building on interoperable data can yield huge efficiency gains. With the INSPIRE framework, you have a great starting point to develop interoperable infrastructures that fully cover your organisation's use cases. That is when extending INSPIRE is the way forward.</p>
 
-    <p>This section gives you an overview of the whole process, which has six main phases:</p>
+    <p>This section gives you an overview of the whole process, which has seven main phases:</p>
 
     <ol>
         <li><strong>Organise:</strong> Build your working group, define your process and discuss work agreements</li>
@@ -32,6 +32,7 @@ title:  INSPIRE data specification extensions - The Extension Methodology
         <li><strong>Design:</strong> Create or modify your model extension </li>
         <li><strong>Validate:</strong> Test and validate the model extension through implementation on the target platform, data integration, and usage</li>
         <li><strong>Operate:</strong> Deploy and operate the model extension in view and download services</li>
+        <li><strong>Consult:</strong> Invite all stakeholders and the public to review the design and to improve the process (retrospective)</li>
     </ol>
 
     <p>You will iterate over all of these phases multiple times. Typically, iterations that include a release will take weeks, while iterations where you design and implement features will take only minutes, hours or at most weeks:</p>
@@ -52,11 +53,13 @@ title:  INSPIRE data specification extensions - The Extension Methodology
         implement the model. As you are hopefully not working alone, you do not need to be an expert at all required
         skills, but you should have the following skills:</p>
     <ol>
-        <li>You have very good understanding of the domain the model should cover</li>
-        <li>You understand basic modelling concepts such as classes and properties</li>
-        <li>You are a good technical writer who writes concise, easy to understand prose</li>
         <li>You are a good moderator</li>
+        <li>You are a good technical writer who writes concise, easy to understand prose</li>
+        <li>You have basic understanding of the domain the model should cover</li>
+        <li>You understand basic modelling concepts such as classes and properties</li>
     </ol>
+
+    <p>If you join the team as a domain expert, make sure you assume a neutral role as a facilitator and moderator. Try to look at the domain with a new, fresh view. When you do so, you will be able to separate the domain requirements and the ‘way things work’ in the domain and are natural for the domain experts – and sometimes difficult to let go. </p>
 
     <h3>Your Team</h3>
 
@@ -408,9 +411,11 @@ title:  INSPIRE data specification extensions - The Extension Methodology
 
     <h2><a name="operation" id="operation" href="#operation"></a>Transition to operational usage</h2>
 
-    <p>Alright, you're satisfied with your services and data model after internal testing and analysis in your working group. One step remains - to see how other stakeholders react to the design, and to see how the design behaves under the load of continued production or beta usage for a while. Quite often, you'll find that a model that performed well for a small amount of data might not work well anymore for large amounts of data.</p>
+    <p>Alright, you're satisfied with your services and data model after internal testing and analysis in your working group. One step remains - to see how other stakeholders react to the design. In this phase, you should publish your first model and perform a public consultation.</p>
 
-    <p>During this phase, make sure to collect feedback from the users of your data sets or network services. Ask them how the new data model helped or hindered them in their business processes, collect these inputs as new requirements and use them to do another release iteration. We recommend to do at least two release iterations (e.g. Alpha and Beta) before calling the model ready for production.</p>
+    <p>During this phase, make sure to collect feedback from the users of your data sets or network services. Ask them how the new data model helped or hindered them in their business processes, collect these inputs as new requirements similar to the User Stories and use them to do another release iteration. We recommend to do at least two release iterations (e.g. Alpha and Beta) before calling the model ready for production.</p>
+
+    <p>You should also use this public consultation phase to perform scalability and load testing to see how the design behaves under the load of continued production or beta usage for a while. Quite often, you'll find that a model that performed well for a small amount of data might not work well anymore for large amounts of data.</p>
 
     <p><em>You've reached the end of this process, congratulations! Let the community participate and <a href="/introduction.html#contributions" target="_blank">submit your model extension</a> to the inventory!</em></p>
 

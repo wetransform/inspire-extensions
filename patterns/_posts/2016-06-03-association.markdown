@@ -66,7 +66,7 @@ Instances using this pattern are usually encoded as follows:
 
 [Download the Example Instance](/patterns/examples/association.xml)
 
-We use ```gml:ReferenceTypes``` to encode the association. Such references use XLinks to point to any local or remote resource with a resolvalbe URL. In this case, we sue in-document anchors such as ```#owner_1``` to point to any element identified by an ```id```.
+We use ```gml:ReferenceTypes``` to encode the association. Such references use XLinks to point to any local or remote resource with a resolvalbe URL. In this case, we define in-document anchors such as ```#owner_1``` to point to any element identified by an ```id```.
 
 ## Implementation Considerations
 

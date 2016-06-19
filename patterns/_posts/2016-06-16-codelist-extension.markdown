@@ -25,11 +25,9 @@ A relatively easy way to extend an INSPIRE Data Specification is to modify or su
 What exactly an individual code list allows is defined in its extensibility element:
 
 <pre class="line-numbers">
-<code class="language-xml"><!--
-  <extensibility id="http://inspire.ec.europa.eu/registry/extensibility/open">
+<extensibility id="http://inspire.ec.europa.eu/registry/extensibility/open">
     <uriname>open</uriname>
-  </extensibility> -->
-</code>
+</extensibility>
 </pre>
 
 When the code list you need to modify permits extension of any type and there is a type or classification property on the class you need to extend, you can often use code list extension instead of inheritance to create new subtypes. This helps to keep the number of structurally similar classes down and helps with general interoperability.

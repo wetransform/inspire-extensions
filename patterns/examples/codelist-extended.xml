@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<codelist xmlns="http://inspire.ec.europa.eu/codelist_register/codelist"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://inspire.ec.europa.eu/codelist_register/codelist http://inspire.ec.europa.eu/draft-schemas/registry/1.2/CodeList.xsd"
+          id="http://www.wetransform.to/ie-examples/codelist/BuildingNatureExtendedValue">
+    <thisversion>http://www.wetransform.to/ie-examples/codelist/BuildingNatureValue:1</thisversion>
+    <latestversion>http://www.wetransform.to/ie-examples/codelist/BuildingNatureValue</latestversion>
+    <language>en</language>
+    <label xml:lang="en">Building Nature Extended</label>
+    <definition xml:lang="en">Values indicating the nature of a building.</definition>
+    <extensibility id="http://inspire.ec.europa.eu/registry/extensibility/open">
+        <uriname>open</uriname>
+    </extensibility>
+    <governance-level id="http://inspire.ec.europa.eu/registry/governance-level/eu-technical">
+        <label>eu-technical</label>
+    </governance-level>
+    <theme id="http://inspire.ec.europa.eu/theme/bu">
+        <label xml:lang="en">Buildings</label>
+    </theme>
+    <applicationschema id="http://inspire.ec.europa.eu/applicationschema/bu-base">
+        <label xml:lang="en">Building Base</label>
+    </applicationschema>
+    <itemclass uriname="CodeList">
+        <label xml:lang="en">Code list</label>
+    </itemclass>
+    <status id="http://inspire.ec.europa.eu/registry/status/valid">
+        <label xml:lang="en">Valid</label>
+    </status>
+    <register id="http://www.wetransform.to/ie-examples/">
+        <label xml:lang="en">Wetransform INSPIRE Extensions code list register</label>
+        <registry id="http://www.wetransform.to/ie-registry/">
+            <label xml:lang="en">Wetransform INSPIRE Extensions registry</label>
+        </registry>
+    </register>
+    <containeditems>
+        <value id="http://www.wetransform.to/ie-examples/codelist/singleFamilyResidential">
+            <thisversion>http://www.wetransform.to/ie-examples/codelist/singleFamilyResidential:1</thisversion>
+            <latestversion>http://www.wetransform.to/ie-examples/codelist/singleFamilyResidential</latestversion>
+            <label xml:lang="en">single family residential</label>
+            <definition xml:lang="en">A freestanding building designed to provide permanent accommodation for one
+                family.
+            </definition>
+            <itemclass uriname="CodeListValue">
+                <label xml:lang="en">Code list value</label>
+            </itemclass>
+            <status id="http://inspire.ec.europa.eu/registry/status/valid">
+                <label xml:lang="en">Valid</label>
+            </status>
+        </value>
+        <value id="http://www.wetransform.to/ie-examples/codelist/multiFamilyResidential">
+            <thisversion>http://www.wetransform.to/ie-examples/codelist/multiFamilyResidential:1</thisversion>
+            <latestversion>http://www.wetransform.to/ie-examples/codelist/multiFamilyResidential</latestversion>
+            <label xml:lang="en">multi-family residential</label>
+            <definition xml:lang="en">A freestanding building with multiple units such as condominiums, each of which is designed to provide permanent accommodation for one
+                family.
+            </definition>
+            <itemclass uriname="CodeListValue">
+                <label xml:lang="en">Code list value</label>
+            </itemclass>
+            <status id="http://inspire.ec.europa.eu/registry/status/valid">
+                <label xml:lang="en">Valid</label>
+            </status>
+        </value>
+        <!-- All original values -->
+    </containeditems>
+</codelist>

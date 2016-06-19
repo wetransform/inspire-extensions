@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<wfs:FeatureCollection
+        xmlns:bu-core2d="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"
+        xmlns:bu-base="http://inspire.ec.europa.eu/schemas/bu-base/4.0"
+        xmlns:base="http://inspire.ec.europa.eu/schemas/base/3.3"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xmlns:gml="http://www.opengis.net/gml/3.2"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:wfs="http://www.opengis.net/wfs/2.0"
+        xsi:schemaLocation="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0 http://inspire.ec.europa.eu/schemas/bu-core2d/4.0/BuildingsCore2D.xsd http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd" numberMatched="1" numberReturned="1" timeStamp="2015-10-02T11:24:09.287+02:00">
+    <wfs:member>
+        <bu-core2d:Building gml:id="ABC123">
+            <bu-base:beginLifespanVersion>2010-02-24T00:00:00+01:00</bu-base:beginLifespanVersion>
+            <bu-base:conditionOfConstruction xlink:href="http://inspire.ec.europa.eu/codelist/ConditionOfConstructionValue/functional" />
+            <bu-base:endLifespanVersion nilReason="unknown" xsi:nil="true" />
+            <bu-base:inspireId>
+                <base:Identifier>
+                    <base:localId>ABC123</base:localId>
+                    <base:namespace>http://www.wetransform.to/ie-registry/buildings/</base:namespace>
+                </base:Identifier>
+            </bu-base:inspireId>
+            <bu-base:buildingNature
+                    xlink:href="http://www.wetransform.to/ie-examples/codelist/singleFamilyResidential"
+                    xlink:title="single-family residential"/>
+            <bu-base:currentUse>
+                <bu-base:CurrentUse>
+                    <bu-base:currentUse xlink:href="http://inspire.ec.europa.eu/codelist/CurrentUseValue/commerceAndServices"/>
+                    <bu-base:percentage xsi:nil="true"/>
+                </bu-base:CurrentUse>
+            </bu-base:currentUse>
+            <bu-core2d:geometry2D>
+                <!-- Geometry -->
+            </bu-core2d:geometry2D>
+        </bu-core2d:Building>
+    </wfs:member>
+</wfs:FeatureCollection>

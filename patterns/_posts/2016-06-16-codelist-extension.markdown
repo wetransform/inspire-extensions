@@ -25,10 +25,10 @@ A relatively easy way to extend an INSPIRE Data Specification is to modify or su
 What exactly an individual code list allows is defined in its extensibility element:
 
 <pre class="line-numbers">
-<code class="language-xml">
+<code class="language-xml"><!--
   <extensibility id="http://inspire.ec.europa.eu/registry/extensibility/open">
     <uriname>open</uriname>
-  </extensibility>
+  </extensibility> -->
 </code>
 </pre>
 
@@ -54,7 +54,7 @@ Alternatively, you might want to give a stronger indication that the substitutio
 <table class="alert-warning important-info">
     <tr>
         <td style="width:3em"><div class="important-info-icon"><span class="glyphicon glyphicon-exclamation-sign" style="font-size:2em"></span></div></td>
-        <td>Please note that **redefine** is only available in UML 2.0, and that tool support might be limited.</td>
+        <td>Please note that <code>redefine</code> is only available in UML 2.0, and that tool support might be limited.</td>
     </tr>
 </table>
 

@@ -38,14 +38,14 @@ In UML, we indicate usage of an extended code list by substituting the existing 
 
 <figure class="figure" style="margin-bottom: 20px">
     <img src="/patterns/images/codelist.png" class="figure-img img-fluid img-rounded" title="Code List Extension">
-    <figcaption class="figure-caption small"><code>UrbanDesignationType</code> extends and substitutes <code>DesignationType</code>.</figcaption>
+    <figcaption class="figure-caption small"><code>BuildingNatureExtendedValue</code> extends and substitutes <code>BuildingNatureValue</code>.</figcaption>
 </figure>
 
-Alternatively, you might want to give a stronger indication that the substitution code list needs to be used. In that case, you can either define a constraint or create a subtype that **redefines** the property (`siteDesignation`) in the example to use the extended code list instead. This is conceptually acceptable, since the extended code is a subtype of the original code list. 
+Alternatively, you might want to give a stronger indication that the substitution code list needs to be used. In that case, you can either define a constraint or create a subtype that **redefines** the property (`buildingNature`) in the example to use the extended code list instead. This is conceptually acceptable, since the extended code is a subtype of the original code list. 
 
 <figure class="figure" style="margin-bottom: 20px">
     <img src="/patterns/images/codelist-redefine.png" class="figure-img img-fluid img-rounded" title="Code List Extension">
-    <figcaption class="figure-caption small">An explicit reference to the extended <code>UrbanDesignationType</code> code list through subtyping of <code>ProtectedSite</code>and redefining the <code>siteDesignation</code>.</figcaption>
+    <figcaption class="figure-caption small">An explicit reference to the extended <code>BuildingNatureExtendedValue</code> code list through subtyping of <code>Building</code>and redefining the <code>buildingNature</code>.</figcaption>
 </figure>
 
 <table class="alert-warning important-info">

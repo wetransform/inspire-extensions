@@ -25,9 +25,9 @@ A relatively easy way to extend an INSPIRE Data Specification is to modify or su
 What exactly an individual code list allows is defined in its extensibility element:
 
 <pre class="line-numbers">
-<extensibility id="http://inspire.ec.europa.eu/registry/extensibility/open">
-    <uriname>open</uriname>
-</extensibility>
+<code class="language-xml">&lt;extensibility id="http://inspire.ec.europa.eu/registry/extensibility/open"&gt;
+    &lt;uriname>open&lt;/uriname&gt;
+&lt;/extensibility&gt;</code>
 </pre>
 
 When the code list you need to modify permits extension of any type and there is a type or classification property on the class you need to extend, you can often use code list extension instead of inheritance to create new subtypes. This helps to keep the number of structurally similar classes down and helps with general interoperability.
@@ -45,8 +45,7 @@ Alternatively, you might want to give a stronger indication that the substitutio
 
 <figure class="figure" style="margin-bottom: 20px">
     <img src="/patterns/images/codelist-redefine.png" class="figure-img img-fluid img-rounded" title="Code List Extension">
-    <figcaption class="figure-caption small">An explicit reference to the extended <code>UrbanDesignationType</code> code list through subtyping of <code>ProtectedSite</code>and redefining the <code>siteDesignation</code>.
-    .</figcaption>
+    <figcaption class="figure-caption small">An explicit reference to the extended <code>UrbanDesignationType</code> code list through subtyping of <code>ProtectedSite</code>and redefining the <code>siteDesignation</code>.</figcaption>
 </figure>
 
 <table class="alert-warning important-info">
@@ -83,6 +82,8 @@ What needs to be changed is the code list itself. You can see the code list as a
 </code>
 </pre>
 
+[Download the Code List Example](/patterns/examples/codelist-extended.xml)
+
 In this example, we take the `BuildingNature` code list published in the INSPIRE registry and add two new values for single-family residential houses and for multi-family residential houses. Any original values in the code list have to be left in, but are omitted in the example for brevity.
 
 ## XML Instance Example
@@ -93,6 +94,8 @@ In INSPIRE GML 3.3, we encode an instance of a code list value by using a `gml:R
 <code class="language-xml">
 </code>
 </pre>
+
+[Download the GML Example](/patterns/examples/codelist-instance.xml)
 
 In line 23, we use `xlink:href` to link to the complete, qualified and resolvable value definition of `singleFamilyResidential`. We also add a readable title by means of the `xlink:title` attribute in line 24.
 

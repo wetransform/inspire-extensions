@@ -1,0 +1,34 @@
+---
+layout:            pattern
+title:             "INSPIRE Model Extension Pattern: INSPIRE Generic Conceptual Model"
+author:            "Thorsten Reitz"
+date:              2016-06-17 09:40:00 +0200
+category:          patterns
+tags:              [pattern, model]
+patternName:       "INSPIRE Generic Conceptual Model"
+patternType:       model
+patternIdentifier: inspire
+
+---
+
+## Intent
+
+The INSPIRE Generic Conceptual Model (GCM) provided the data specification drafting teams and everybody who wants to create related data models with a common framework. The maintenance of the specification follows the same common framework. The GCM also contains an informal annex that describes how to create an extension to an INSPIRE application schema. You need to consider these rules as a baseline; whatever you model as part of your extension project, you have to fulfill the rules as defined below to produce a valid INSPIRE Extension.
+
+## General Rules
+
+Annex F of the INSPIRE Generic Conceptual Model (GCM) provides the following hard, minimum requirements any INSPIRE extension needs to fulfill:
+
+* the extension does not change anything **in** the INSPIRE data specification but normatively references it with all its requirements, such as the Guidelines for the encoding of spatial data
+* the extension does not add a requirement that breaks any requirement of the INSPIRE data specification, in particular those defined through the ISO 191xx standard and through the UML profile for INSPIRE
+
+You may do any of the following in an INSPIRE Extension according to the GCM:
+
+* add new application schemas importing INSPIRE or other schemas as needed
+* add new types and new constraints in your own application schemas
+* extend INSPIRE code lists as long as the INSPIRE data specification does not identify the code list as a centrally managed, non-extensible code list
+* add additional portrayal rules
+
+## Technical Approach
+
+As in the main methodology, the GCM recommends to start by modelling the extension in a conceptual environment. On the conceptual level, the INSPIRE Data Specifications are available as a UML model, which uses a set of stereotypes and tags. To create the implementation schema, such as a Geodatabase schema or a GML Application schema, you then perform a model transformation using Shapechange. A more detailed description of the technical approach is available with the tutorial project.

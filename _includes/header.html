@@ -69,7 +69,16 @@
         </ol>
         {% endif %}
       </li>
-      <li><a href=""></a>An End-to-End Tutorial Project
+      <li>{% if page.slug == "tutorial" %}<strong>{% endif %}<a href="/tutorial.html">An End-to-End Tutorial Project</a>{% if page.slug == "tutorial" %}</strong>{% endif %}
+        {% if page.slug == "patterns" or page.category == "patterns" %}
+        <ol class="tocLevel2">
+          <li><a href="/tutorial.html#analysis">Analysis</a></li>
+          <li><a href="/tutorial.html#comparison">Comparison</a></li>
+          <li><a href="/tutorial.html#extension">Extension</a></li>
+          <li><a href="/tutorial.html#validation">Validation</a></li>
+          <li><a href="/tutorial.html#publication">Publication</a></li>
+        </ol>
+        {% endif %}
       </li>
       <li><a href=""></a>Summary and Conclusions
       </li>

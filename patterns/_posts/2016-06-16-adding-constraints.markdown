@@ -42,7 +42,7 @@ In this example, we add an association called `onParcel` to `Building`, to link 
 <table class="alert-warning important-info">
     <tr>
         <td style="width:3em"><div class="important-info-icon"><span class="glyphicon glyphicon-exclamation-sign" style="font-size:2em"></span></div></td>
-        <td>None of the common constraint languages has support for spatial operations such as the OCL `isContainedBy` operation referenced above. These have to be implemented separately.</td>
+        <td>None of the common constraint languages has support for spatial operations such as the OCL <code>isContainedBy</code> operation referenced above. These have to be implemented separately.</td>
     </tr>
 </table>
 
@@ -83,7 +83,7 @@ A GML instance doesn't need to use any specific elements to support being valida
 </code>
 </pre>
 
-[Download this GML Example](/patterns/examples/schematron-instance.xml)
+[Download this GML Example](/patterns/examples/schematron-instance.xml)<br/>
 [Download the matching GML Application Schema](/patterns/examples/constraints.xsd)
 
 ## Implementation Considerations

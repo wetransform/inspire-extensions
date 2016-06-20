@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:bu-core2d="http://inspire.ec.europa.eu/schemas/bu-core2d/4.0"
+           xmlns:gml="http://www.opengis.net/gml/3.2"
+           xmlns:bu-extended="http://www.wetransform.to/ie-examples/constraints/1.0"
+           elementFormDefault="qualified"
+           targetNamespace="http://www.wetransform.to/ie-examples/constraints/1.0"
+           version="1.0">
+    <xs:import namespace="http://inspire.ec.europa.eu/schemas/cp/4.0" schemaLocation="http://inspire.ec.europa.eu/schemas/cp/4.0/CadastralParcels.xsd"/>
+    <xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+    <xs:element name="ExtendedBuilding" substitutionGroup="bu-core2d:Building" type="bu-extended:ExtendedBuildingType"/>
+    <xs:complexType name="ExtendedBuildingType">
+        <xs:complexContent>
+            <xs:extension base="bu-core2d:Building">
+                <xs:sequence>
+                    <xs:element name="onParcel" type="gml:ReferenceType" minOccurs="1" maxOccurs="1" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

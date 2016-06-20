@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" xml:lang="en">
+    <sch:ns prefix="sch" uri="http://purl.oclc.org/dsdl/schematron" />
+    <sch:ns prefix="gml" uri="http://www.opengis.net/gml/3.2" />
+    <sch:ns prefix="base" uri="http://inspire.ec.europa.eu/schemas/base/3.3" />
+    <sch:ns prefix="xlink" uri="http://www.w3.org/1999/xlink" />
+    <sch:ns prefix="bu-extended" uri="http://www.wetransform.to/ie-examples/composition/1.0" />
+    <sch:ns prefix="cp" uri="http://inspire.ec.europa.eu/schemas/cp/4.0" />
+
+    <sch:pattern>
+        <sch:title>Parcel exists for ExtendedBuilding</sch:title>
+        <sch:rule context="//bu-extended:ExtendedBuilding">
+            <sch:let name="gmlid" value="./@gml:id"/>
+            <sch:let name="namespace" value="//base:namespace" />
+
+            <sch:let name="onParcel" value="./bu-extended:onParcel/@xlink:href"/>
+            <sch:let name="onParcelRefId" value="substring-after($onParcel, $namespace)"/>
+
+            <sch:let name="parcelFound" value="//cp:Parcel/cp:inspireId/base:Identifier[base:localId = $onParcelRefId]/.." />
+            <sch:assert test="(string-length($parcelFound)>0)" >
+                ExtendedBuilding [<sch:value-of select="$gmlid"/>]: Missing Parcel [<sch:value-of select="$onParcelRefId"/>]
+            </sch:assert>
+        </sch:rule>
+    </sch:pattern>
+</sch:schema>

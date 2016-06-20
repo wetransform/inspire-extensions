@@ -32,6 +32,8 @@ What exactly an individual code list allows is defined in its extensibility elem
 
 When the code list you need to modify permits extension of any type and there is a type or classification property on the class you need to extend, you can often use code list extension instead of inheritance to create new subtypes. This helps to keep the number of structurally similar classes down and helps with general interoperability.
 
+If the schema permits multiple instances of a coded value element and you're working with a hierarchical code list, you should add a more generic value in addition to the specific value. This will also help with interoperability, in particular when you use your own, narrower, values.
+
 ## Structure
 
 In UML, we indicate usage of an extended code list by substituting the existing code list. No new subtype of the class that has the property using the code list is necessary in this case. The code list itself is tagged with the GML stereotype `codelist`. 
@@ -73,7 +75,7 @@ Code List extension is limited in scope, so there are many scenarios where it's 
  
 ## XML Schema Example
 
-Since a GML 3.3 Application Schema encodes code list values using a `gml:ReferenceType`, there is no direct reference to either the extended code list or the new subtype. The GML Application schema doesn't need to be changed to allow usage of the extended code list. For the codelist itself, there is no mandated encoding. In INSPIRE, we recommend a specific code list format defined as part of the data specifications.
+Since a GML 3.3 Application Schema encodes code list values using a `gml:ReferenceType`, there is no direct reference to either the extended code list or the new subtype. The GML Application schema doesn't need to be changed to allow usage of the extended code list. For the code list itself, there is no mandated encoding. In INSPIRE, we recommend a specific code list format defined as part of the data specifications.
 
 What needs to be changed is the code list itself. You can see the code list as an addendum to the schema that defines allowed values.
 
@@ -88,7 +90,7 @@ In this example, we take the `BuildingNature` code list published in the INSPIRE
 
 ## XML Instance Example
 
-In INSPIRE GML 3.3, we encode an instance of a code list value by using a `gml:ReferenceType`. In the `ReferenceType` element, we set the `xlink:href` attribute to point to the fully qualified name of the code list and the value. In addition, the INSPIRE guidelines recommend using the `xlink:title` attribute to a meaningful label.
+In INSPIRE 4.0, which uses GML 3.3, we encode an instance of a code list value by using a `gml:ReferenceType`. In the `ReferenceType` element, we set the `xlink:href` attribute to point to the fully qualified name of the code list and the value. In addition, the INSPIRE guidelines recommend using the `xlink:title` attribute to a meaningful label.
 
 <pre data-line="23,24" class="line-numbers" data-src="/patterns/examples/codelist-instance.xml">
 <code class="language-xml">

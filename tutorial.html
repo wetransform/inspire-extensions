@@ -17,32 +17,78 @@ title:  An End-to-End-Tutorial - INSPIRE data specification extensions
     <li>Service Publishing:<a href="http://www.deegree.org/" target="_blank">deegree (Open Source)</a></li>
   </ol>
 
-  <p>You also need a test data set to play around with. We're going to use an Open Data resource provided by the city of Hamburg.</p>
+  <p>You also need a test data set to play around with in later stages of the project. We're going to use an Open Data resource provided by the city of Hamburg.</p>
 
-  <h2><a href="#analysis" id="analysis" name="analysis"></a>Analysis</h2>
+  <h2><a href="#analysis" id="analysis" name="analysis"></a>Analysis and Comparison</h2>
 
   <blockquote>
     <p>It's late on a rainy Friday afternoon. I am in the middle of reviewing an article when my boss Alex calls. He sounds agitated and tells me that there is a problem, so he needs me to help him. Ten minutes later, we sit together at the bar of the pub across the road. Alex tells me about the meeting he has had in the last two days in the capitol city, with many other directors of public authorities.
     </p>
     <p>
-      After ordering our drinks, he starts to tell me what bothers him: &laquo;<em>We're being blamed for lack of progress on two projects. The ministry is under pressure from the EU, because of our lack of progress in INSPIRE implementation. In addition, after last year's new legal act, we're supposed to implement a new national building permit system, but we haven't made any headway on this one either. After the meeting yesterday, we at least have some funding for the national project, though there is almost no budget for INSPIRE. I need you to take over the building permit implementation project, while I will figure out how to fund the INSPIRE project.&raquo;</em> I listen to his explanations for a few more moments, then I interrupt him: &laquo;<em>You know what? Give me both your problem projects. I have an idea how we can make both work at the same time, with one budget! Do I have your support?&raquo;</em>
+      After ordering our drinks, Alex starts to tell me what bothers him: &laquo;<em>We're being blamed for lack of progress on two projects. The ministry is under pressure from the EU, because of our lack of progress in INSPIRE implementation. In addition, after last year's new legal act, we're supposed to implement a new national building permit system, but we haven't made any headway on this one either. After the meeting yesterday, we at least have some funding for the national project, though there is almost no budget for INSPIRE. I need you to take over the building permit implementation project, while I will figure out how to fund the INSPIRE project.&raquo;</em> I listen to his explanations for a few more moments, then I interrupt him: &laquo;<em>You know what? Give me both your problem projects. I have an idea how we can make both work at the same time, with one budget! Do I have your support?&raquo;</em>
     </p>
-    <p>Two weeks later, I've assembled my team. I've got three domain experts from spatial planning and cadastre, an integration expertIt was really hard to get some of them on board - everybody is tied up in their daily projects, and some were not exactly keen on INSPIRE. In our first meeting, we analyse relevant documents</p>
+    <p>Two weeks later, I've assembled my team. I've got three domain experts from spatial planning and cadastre, Chris, who is an integration expert and Thorbjörn, who is an ETL expert. It was really hard to get some of them on board - everybody is tied up in their daily projects, and some were not exactly keen on INSPIRE. In our first meeting, we analyse relevant documents and take a look at the <a href="/patterns/index.html#modelPatterns">model patterns</a>. We quickly decide that we will use the <a href="/patterns/2016/06/17/inspire.html"> INSPIRE extension pattern</a>, which means that whatever model we design, our model is not allowed to make compatibility-breaking changes.</p>
   </blockquote>
 
-  <p>TODO</p>
+  <p>After you've <a href="/extension-methodology.html#organisation">set up your team and got organised</a>, your team's first step is to perform an analysis on the requirements for the extended data model. These requirements come from various source, such as legal texts or implementation rules. We will use the following example text:</p>
 
-  <h2><a href="#comparison" id="comparison" name="comparison"></a>Comparison</h2>
+  <blockquote>
+    In the Building Permit System, each Application is submitted by a natural person, who can act on behalf of one or more legal persons or other natural persons. The Building Permit Application (BPA) has to refer to all directly and indirectly affected Parcels, as well as to existing build structures, such as Buildings or Bridges. For each affected Parcel, the BPA  has to describe how that Parcel will be affected, e.g. by shadow, glare, as access way for construction equipment, or through the construction itself. The BPA also has to reference to any relevant restriction zones and development plans. The BPA shall furthermore contain a 3D LOD2 Geometry of the exterior of the planned Building. The BPA has to contain information on the intended uses of the structure. In case of a residential or office building, the BPA also needs to state the planned energy efficiency level, the type of heating and cooling planned, as well as planned regenerative energy generation measures.
+  </blockquote>
+
+  <p>TODO Extract Requirements</p>
+
+  <h3>Finding your scope and comparing to existing specifications</h3>
 
   <p>TODO</p>
 
   <h2><a href="#extension" id="extension" name="extension"></a>Extension Design (Modelling)</h2>
 
+  <blockquote>
+    <p>We now know exactly what we need to add to the INSPIRE data specification, but we don't yet know how we should do it. I organise a two-day meeting with the others of my working group in a somewhat remote location, in the hopes of getting everyone's full attention. After the usual agenda setting and introductions, we directly start working. First of all, we prioritize requirements. We vote to identify the 10 most important ones. We start with the most important requirement. For each requirement, everybody on the team gets three minutes to decide how he or she would design a model for that requirement, using any tools they prefer. Most of us simply draw on the ample whiteboards we have in the room. Everybody then presents their design, and the others give feedback about aspects they like or dislike. During all the time, I note done the likes and dislikes, and consolidate them into a single conceptual model using my UML modelling software After an intense day, we've gone through 14 requirements. While the others are off to enjoy a well-deserved beer on the patio, I finalize the integrated draft model.</p>
+  </blockquote>
+
   <p>TODO</p>
+
+  <h3></h3>
 
   <h2><a href="#validation" id="validation" name="validation"></a>Validation</h2>
 
+  <blockquote>
+    <p>After the first day of the workshop, we've already drafted a first, rough model that covers the most important requirements. Before we hammer out all the details, I ask Chris, our integration expert, and Thorbjörn, the ETL expert, to quickly create a first prototype, so that we can learn what our data will look like. This is what they did:</p>
+  </blockquote>
+
+  <h3>Vertical Mapping</h3>
+
+  <p>Our goal is now to see whether we can use the conceptual model we've designed to store and serve BPAs effectively. We thus create two logical models based on the conceptual model:</p>
+
+  <ol>
+    <li>The GML Application Schema, which we need to provide Download Services</li>
+    <li>A PostgreSQL Database Schema, which we need to provide persistent storage for the BPAs</li>
+  </ol>
+
+  <p>We will use Shapechange to create these two logical schemas.</p>
+
+  <ol>
+
+  </ol>
+
   <p>TODO</p>
+
+  <h3>Data Integration</h3>
+
+  <p>After creating the target schemas, it's now time for us to see what real data using these schemas looks like. Since the end product we need to create is INSPIRE GML, we will start with data integration into the GML Application Schema. We will use <a href="https://www.wetransform.to/products/halestudio/" target="_blank">hale studio 2.9.4+</a>  for that purpose.</p>
+
+  <h3>Performance Metrics</h3>
+
+  <p>TODO</p>
+
+  <ol class="workflow">
+    <li>Model Coverage</li>
+    <li>Source Data Coverage</li>
+    <li>Instance complexity</li>
+    <li>Schema complexity</li>
+  </ol>
 
   <h2><a href="#publication" id="publication" name="publication"></a>Publication</h2>
 

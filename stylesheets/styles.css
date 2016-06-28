@@ -257,6 +257,39 @@ footer {
     -webkit-font-smoothing: subpixel-antialiased;
 }
 
+.workflow {
+    list-style: none;
+    position: relative;
+}
+
+.workflow > li {
+    border-left: thin solid rgba(128,128,128,.55);
+    padding-left: 10px;
+    margin: 20px 0;
+    counter-increment: item;
+}
+
+*::before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.workflow > li::before {
+    position: absolute;
+    margin-right: 1em;
+    content: counter(item);
+    background: #51a1e9;
+    border-radius: 100%;
+    color: #fff;
+    width: 1.6em;
+    height: 1.6em;
+    text-align: center;
+    display: inline-block;
+    line-height: 1.6em;
+    left: 0.25em;
+}
+
 @media print, screen and (max-width: 960px) {
 
     div.wrapper {

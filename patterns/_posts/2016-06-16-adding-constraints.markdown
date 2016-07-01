@@ -13,7 +13,7 @@ patternIdentifier: constraint
 
 ## Intent
 
-Constraints allow us to exactly describe what a valid data structure looks like at runtime. In a very simple form, a constraint limits the values a certain property can take, similar to assigning a code list to the property. Constraints can be used to define a range of valid values, or to define requirements on the geometry, such as that the outer ring of polygon must have a counter-clockwise winding order. Constraints can also be used to enforce consistency across multiple properties or even objects of multiple classes. An example for this is ensuring that a centroid geometry of an object lies inside the surface geometry property that the same object also has.
+Constraints are restrictions that allow us to exactly describe what a valid data structure looks like. In a very simple form, a constraint limits the values a certain property can take, similar to assigning a code list to the property. Constraints can be used to define a range of valid values, or to define requirements on the geometry, such as that the outer ring of polygon must have a counter-clockwise winding order. Constraints can also be used to enforce consistency across multiple properties or even objects of multiple classes. An example for this is ensuring that a centroid geometry of an object lies inside the surface geometry property that the same object also has.
 
 By defining additional constraints on an INSPIRE class, we can use some of the more open structures and scope them down, so that they better match our own requirements. An example for this is the `geometry` property on any `FeatureType`. Often, any subtype of `AbstractGeometry` is allowed, such as `Point`, `MultiSurface` or even `RectifiedGrid`. This flexibility doesn't help implementation of clients and business logic that need to consume this data, so it makes sense to explicitly define what kind of data we are actually able to process.
 
@@ -25,6 +25,8 @@ We also define constraints to remove ambiguity between the text definition of th
 * `minInclusive`, `maxInclusive`: What range of integer values is allowed?
 * `pattern`: Does the content of the element match the regular expression given in pattern?
 * `length`, `minLength`, `maxLength`: Does the length of the string content match the allowed length?
+
+To add XML schema constraints, we need to create a new subclass of the INSPIRE class and then add the additional constraints to the new subtype. An alternative is to use a Schematron constraint, which we define outside of the GML application schema. In this case, we don't need to create a new GML application schema.
 
 If we need to go beyond that, in particular to express cross-element constraints, we use specific constraint languages such as [Schematron](https://en.wikipedia.org/wiki/Schematron), or XSLT processors with additional custom functions. 
 
@@ -61,9 +63,9 @@ Constraint extension is limited in scope. Constraints may not be used to profile
  
 ## XML Schema Example
 
-If you add the new constraints via an extra file, there is no need to modify or create an existing GML 3.3 Application Schema. If you want to change or add the constraints defined in the INSPIRE schema, you have to be very careful to not break the rules of INSPIRE extensions in general, as most changes will reduce interoperability.
+If you add the new constraints via an extra file, there is no need to modify or create an existing GML Application Schema. If you want to change or add the constraints defined in the INSPIRE schema, you have to be very careful to not break the rules of INSPIRE extensions in general, as most changes will reduce interoperability.
 
-What you need to add is the implementation of the OCL constraint you've modelled before. On the XML implementation platform, we can use Schematron. Schematron, by itself, can't do spatial operations 
+What you need to add is the implementation of the OCL constraint you've modelled before. On the XML implementation platform, we can use Schematron. Schematron, by itself, can't do spatial operations. 
 
 <pre class="line-numbers" data-src="/patterns/examples/schematron-rule.xml">
 <code class="language-xml">

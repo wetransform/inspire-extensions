@@ -18,6 +18,12 @@ Composition is a form of object aggregation, where a whole data structure is mad
 1. In composition, the lifecycle of the contained object is bound to the lifecycle of the containing object.
 1. In aggregation, the lifecycle of the contained object is independent of the lifecycle of the containing object. The contained object can thus exist independently and even be shared by more than one containing object.
 
+TODO: Split Composition and Aggregation; make cardinality difference clear (1:n vs n:m)
+
+TODO: How can a composition be an INSPIRE pattern? Can the lifecycle of an INSPIRE object be dependent on an non-INSPIRE object? 
+
+TODO Note: If you discover need for a composition, make sure you resolve the associated organisational issues that come from ownership of the composed class. You should not use composition between models/data sets maintained b different organisations or have a trusted relationship?
+
 For the purpose of INSPIRE extensions, we'll refer to both modes as composition. The defining characteristic of the composition is that we build a whole object from parts, where there is a ```contains``` association between the parts.
 
 ## Structure
@@ -76,7 +82,7 @@ This section provides information when and how this pattern can be implemented o
 
 ### Storage Backend
 
-Composition is well-supported by all types of storage backends. Some backends, such as document-oriented databases, have limitations in the way in which encoding by reference can be used.
+Composition is well-supported by all types of storage backends. In-line encoding in document-oriented backends has the advantage of not requiring joins.
 
 ### Download Services
 

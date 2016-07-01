@@ -1,11 +1,11 @@
 ---
 layout:            pattern
-title:             "INSPIRE Class Extension Pattern: Mixin"
+title:             "INSPIRE Class Extension Pattern: Multiple Inheritance"
 author:            "Thorsten Reitz"
-date:              2016-06-03 09:30:00 +0200
+date:              2016-06-01 09:30:00 +0200
 category:          patterns
 tags:              [pattern, class]
-patternName:       "Mixin"
+patternName:       "Multiple Inheritance"
 patternType:       class
 patternIdentifier: mixin
 
@@ -13,7 +13,7 @@ patternIdentifier: mixin
 
 ## Intent
 
-A mixin is a special case of multiple inheritance, where the class we design is composed of properties of multiple other classes. These other classes are called  *mixins*, or occasionally, *traits*. Each mixin is a collection of methods or properties that can be injected into the new class. Mixins are typically narrow in scope and not meant to be extended by themselves. In multiple inheritance, there is no clear inheritance hierarchy anymore, which may lead to conflicting concepts.
+TODO A mixin is a special case of multiple inheritance, where the class we design is composed of properties of multiple other classes. These other classes are called  *mixins*, or occasionally, *traits*. Each mixin is a collection of methods or properties that can be injected into the new class. Mixins are typically narrow in scope and not meant to be extended by themselves. In multiple inheritance, there is no clear inheritance hierarchy anymore, which may lead to conflicting concepts.
 
 In INSPIRE, we can use mixins to reuse both INSPIRE specifications and local specifications, and to make sure our new class is syntactically compatible to both.
 
@@ -28,16 +28,16 @@ In this pattern, there is a child class, at least one mixin class and an optiona
 
 ## When to use
 
-There are three common cases where mixins can be effective:
+In the context of an INSPIRE Data Specification Extension, there are two cases where mixins can be effective:
 
-1. You want to provide a lot of optional features for a class.
-1. You want to use one particular feature in a lot of different classes.
 1. Your class should be compatible with an INSPIRE class and local standard classes.
+1. You want to use a common set of properties with consistent property names to new multiple subclasses of INSPIRE classes.
 
 ## When not to use
 
 Support for mixins varies greatly across different implementation platforms and can be complex to realize, which is the main downside. There are also other indicators when not to use mixins:
 
+1. When one of the other patterns also satisfies your requirements.
 1. You want to use multiple classes from the same hierarchy, as mixing them in will result in duplication or overloading.
 1. You need to bring in a single property or a set of unrelated properties from the mixin(s)
 1. You want to have the mixin conceptual relationship to be present in the implementation as well

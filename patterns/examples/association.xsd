@@ -25,7 +25,7 @@
         <xs:complexContent>
             <xs:extension base="cp:CadastralParcelType">
                 <xs:sequence>
-                    <xs:element name="joinedFrom" type="gml:ReferenceType" minOccurs="1" maxOccurs="unbounded" />
+                    <xs:element name="joinedParcel" type="gml:ReferenceType" minOccurs="1" maxOccurs="unbounded" />
                     <xs:element name="owner" type="gml:ReferenceType" minOccurs="1" maxOccurs="unbounded" />
                 </xs:sequence>
             </xs:extension>

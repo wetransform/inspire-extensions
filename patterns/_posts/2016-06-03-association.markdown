@@ -13,9 +13,13 @@ patternIdentifier: association
 
 ## Intent
 
-An association is a general relation between objects, where at least one of the objects has knowledge of the other one and can access that object's data and methods.  The lifecycle of the associated objects is typically decoupled. The objects can be from different domain models and even managed on different systems - an association is a type of *loose coupling*.
+An association is a general relation between two or more objects, where at least one of the objects has knowledge of the other one and can access that object's data and methods.  The lifecycle of the associated objects is typically decoupled. The objects can be from different domain models and even managed on different systems - an association is a type of *loose coupling*.
 
-Associations can be unidirectional or bidirectional. In a bidirectional relationship, both objects know of the other one and can invoke its data and methods. In a unidirectional association, the object that has knowledge of the other object is called the *controller*, the other one the *controlled* object.
+TODO: Note: n-ary (card 3+) assoc not recommended
+
+Associations can be unidirectional or bidirectional. In a bidirectional relationship, both objects know of the other one and can invoke its data and methods. In a unidirectional association, the object that has knowledge of the other object is called the *controller*, the other one the *controlled* object. 
+
+TODO You cannot create an association from an existing INSPIRE class, including a bidirectional one -> need to create a subtype instead TODO.
 
 The objects that are related via the association are considered to act in a role with respect to the association, such as an object of type ```Owner``` acting in the role ```hasOwner``` on a ```Parcel``` object. A role can be used to distinguish two objects of the same class when describing its use in the context of the association, such as a Person who may be in a ```parent``` and a ```child``` role at the same time.
 
@@ -54,6 +58,8 @@ A potential schema structure for the association pattern is as follows:
 [Download the Example Schema](/patterns/examples/association.xsd)
 
 In line 11, we set the ```Owner``` element's ```substitutionGroup``` to ```AbstractFeature```. This is mandatory to allow objects of this type to be included in the container, a ```wfs:FeatureCollection```. In lines 28 and 29, we use ```gml:ReferenceType``` as the type of the properties, instead of the actual types the references point to (which could be ```CadastralParcel``` and ```Owner```). This means we lose some information in the XML schema. There are several ways to encode this information, such as using annotations or optional attributes of the XLink, but non of them were standardised in INSPIRE.
+
+Please note that we create a new `Owner` class instead of re-using one of the metadata classes such as `CI_ResponsibleParty`, since the latter cannot exist as a stad-alone member of a `FeatureCollection`.
 
 ## XML Instance Example
 

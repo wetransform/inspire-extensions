@@ -2,7 +2,7 @@
 layout:            pattern
 title:             "INSPIRE Class Extension Pattern: Inheritance"
 author:            "Thorsten Reitz"
-date:              2016-06-03 09:00:00 +0200
+date:              2016-06-05 09:00:00 +0200
 category:          patterns
 tags:              [pattern, class]
 patternName:       "Inheritance"
@@ -16,6 +16,8 @@ patternIdentifier: inheritance
 Inheritance is a mechanism for reuse of software components, be it structure or behaviour. In object-oriented designs such as INSPIRE, inheritance is when a child class is based on a parent class. The child class inherits all the properties and methods from the parent class, which makes the child class usually interoperable to the target class. A child class can also override behaviour and in some cases structure of the parent class, making it at least partially incompatible to the parent class.
 
 Inheritance establishes a clear hierarchy, which can be many levels deep. The parent class can have a grand-parent class, which can have a great-grand-parent class. All parents and further ancestors together are called *superclasses* of a class, while all children and grandchildren and further descendants are called *subclasses*. In INSPIRE GML, we have inheritance hierarchies up to eight levels deep. As a consequence, when we create a new class that inherits from an INSPIRE class, it will inherit every property defined on one of those superclasses.
+
+TODO If you want to create an association from an existing INSPIRE class -> need to create a subtype instead TODO.
 
 ## Structure
 

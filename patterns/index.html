@@ -17,28 +17,13 @@ layout: default
         <p>Model extension design as described in the <a href="/extension-methodology.html">extension methodology</a> is a hierarchical top-down process, where you first design a wide scope, and then drill down to make individual aspects concrete. We start at the level of the entire model, the proceed with adding classes, and then define these classes in detail by adding properties. For each of these phases, there are different patterns you can apply:</p>
 
         <ol>
-            <li><strong>Model Extension:</strong> These patterns describe set of general rules about how to build up a model and how to integrate it with the model extension. The patterns typically include a number of constraints, such as whether the original model may be changed in any way or not.</li>
-            <li><strong>Class Extension:</strong> Class extension patterns describe how one or multiple classes are linked to classes in the INSPIRE data specification you'd like to extend. They describe which language features you use to implement them, and what consequences there are on a conceptual and implementation level.</li>
-            <li><strong>Property Extension:</strong> Property extension patterns describe how you can extend individual properties, e.g. by adding new constraints or by extending code lists. They also include consequences there are on a conceptual and implementation level.</li>
+            <li><strong>Patterns for adding classes and properties:</strong> These patterns describe how one or multiple classes are linked to classes in the INSPIRE data specification you'd like to extend. They describe which language features you use to implement them, and what consequences there are on a conceptual and implementation level.</li>
+            <li><strong>Patterns for modifying properties:</strong> Property modification patterns describe how you can extend individual properties, e.g. by adding new constraints or by extending code lists. They also include consequences there are on a conceptual and implementation level.</li>
         </ol>
 
-        <h3><a class="anchor" name="modelPatterns" href="#modelPatterns" aria-hidden="true"></a>Patterns for Model Extension</h3>
+        <h3><a class="anchor" name="classPatterns" href="#classPatterns" aria-hidden="true"></a>Patterns for adding classes and properties</h3>
 
-        <p>These patterns describe how you generally approach building an extension and provide rules for doing so. The most well-known of these approaches in the context of GML Application Schemas is the CityGML Application Domain Extension (ADE) Mechanism.</p>
-
-        <ul>
-            {% for pattern in site.categories.patterns %}
-                {% if pattern.patternType == "model" %}
-                <li>
-                    <a href="{{ pattern.url }}">{{ pattern.patternName }}</a>
-                </li>
-                {% endif %}
-            {% endfor %}
-        </ul>
-
-        <h3><a class="anchor" name="classPatterns" href="#classPatterns" aria-hidden="true"></a>Patterns for Class Extension</h3>
-
-        <p>Class extension patterns describe how one or multiple classes are linked to classes in the INSPIRE data specification you'd like to extend. They describe which language features you use to implement them, and what consequences there are on a conceptual and implementation level.</p>
+        <p>These patterns describe how one or multiple classes are linked to classes in the INSPIRE data specification you'd like to extend. They allow you to add new classes and also to add properties. The patterns describe which language features you use to implement them, and what consequences there are on a conceptual and implementation level.</p>
 
         <ul>
             {% for pattern in site.categories.patterns %}
@@ -50,9 +35,11 @@ layout: default
             {% endfor %}
         </ul>
 
-        <h3><a class="anchor" name="propertyPatterns" href="#propertyPatterns" aria-hidden="true"></a>Patterns for Property Extension</h3>
+        <p>TODO Summary when to use which - Table with overview of pros/cons</p>
 
-        <p>Property extension patterns describe how you can extend individual properties, e.g. by adding new constraints or by extending code lists. They also include consequences there are on a conceptual and implementation level.</p>
+        <h3><a class="anchor" name="propertyPatterns" href="#propertyPatterns" aria-hidden="true"></a>Patterns for modifying properties</h3>
+
+        <p>Property extension patterns describe how you can modify individual properties, e.g. by adding new constraints or by extending code lists. They also include consequences there are on a conceptual and implementation level.</p>
 
         <ul>
             {% for pattern in site.categories.patterns %}

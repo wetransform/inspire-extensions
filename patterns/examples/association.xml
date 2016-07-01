@@ -21,7 +21,7 @@
             </cp:inspireId>
             <cp:label>My Joined Parcel</cp:label>
             <cp:nationalCadastralReference>urn:wetransform.to:ie-examples:inheritance:3</cp:nationalCadastralReference>
-            <ex:joinedFrom xlink:href="#parcel_1"></ex:joinedFrom>
+            <ex:joinedParcel xlink:href="#parcel_1"></ex:joinedParcel>
             <ex:owner xlink:href="#owner_1"></ex:owner>
             <ex:owner xlink:href="#owner_2"></ex:owner>
         </ex:JoinedParcel>

@@ -1,11 +1,11 @@
 ---
 layout:                 model
-title:                  "Inspire Extensions: Norwegian Planned Land Use"
+title:                  "Inspire Extensions: SOSI Planned Land Use"
 date:                   2016-04-19 18:00:02 +0200
 category:               models
 tags:                   [inspire, model, inspireLU40, aggregate, associate, inherit]
 modelIdentifier:        noPLU
-modelName:              "Norwegian Planned Land Use"
+modelName:              "SOSI Planned Land Use"
 author:                 "Morten Borrebaek"
 modelOrganisation:      "Kartverket (Norwegian Mapping Authority)"
 modelSummary:           "Planned Land Use extensions UML model"
@@ -25,6 +25,6 @@ modelStatsSizeTypes:    0
 modelStatsSizeProps:    0 
 ---
 
-This model was created as part of the revision of Norwegian Planned Land Use model version 4.5, if possibl in alignment with INSPIRE PLU.
+This model was created as part of the revision of Norwegian Planned Land Use model version 4.5, where possible in alignment with INSPIRE PLU.
 
 The model was stored in a national UML model repository with SVN, with a copy of the INSPIRE and ISO 191xx models in addition to other national models.

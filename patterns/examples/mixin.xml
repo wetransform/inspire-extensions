@@ -6,7 +6,10 @@
         xmlns:ex="http://www.wetransform.to/ie-examples/mixin/1.0"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:gml="http://www.opengis.net/gml/3.2"
-        xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd http://www.wetransform.to/ie-examples/mixin/1.0 ./mixin.xsd"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xsi:schemaLocation="http://inspire.ec.europa.eu/schemas/base/3.3 http://inspire.ec.europa.eu/schemas/base/3.3/BaseTypes.xsd
+            http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
+            http://www.wetransform.to/ie-examples/mixin/1.0 ./mixin.xsd"
         numberMatched="1" numberReturned="1" timeStamp="2016-05-31T10:55:38.697+02:00">
     <wfs:member>
         <ex:JoinedParcel gml:id="_3">
@@ -15,11 +18,11 @@
             <cp:inspireId>
                 <base:Identifier>
                     <base:localId>3</base:localId>
-                    <base:namespace>http://www.wetransform.to/ie-examples/inheritance/</base:namespace>
+                    <base:namespace>http://www.wetransform.to/ie-examples/mixin/</base:namespace>
                 </base:Identifier>
             </cp:inspireId>
             <cp:label>My Joined Parcel</cp:label>
-            <cp:nationalCadastralReference>urn:wetransform.to:ie-examples:inheritance:3</cp:nationalCadastralReference>
+            <cp:nationalCadastralReference>urn:wetransform.to:ie-examples:mixin:3</cp:nationalCadastralReference>
             <ex:joinedFrom>
                 <cp:CadastralParcel gml:id="_1">
                     <cp:beginLifespanVersion xsi:nil="true" nilReason="unpopulated" />
@@ -27,17 +30,19 @@
                     <cp:inspireId>
                         <base:Identifier>
                             <base:localId>1</base:localId>
-                            <base:namespace>http://www.wetransform.to/ie-examples/inheritance/</base:namespace>
+                            <base:namespace>http://www.wetransform.to/ie-examples/mixin/</base:namespace>
                         </base:Identifier>
                     </cp:inspireId>
                     <cp:label>My Original Parcel 1</cp:label>
-                    <cp:nationalCadastralReference>urn:wetransform.to:ie-examples:inheritance:1</cp:nationalCadastralReference>
+                    <cp:nationalCadastralReference>urn:wetransform.to:ie-examples:mixin:1</cp:nationalCadastralReference>
                 </cp:CadastralParcel>
             </ex:joinedFrom>
-            <ex:beginLifespan xsi:nil="false">
-                2016-05-31T10:55:38.697+02:00
-            </ex:beginLifespan>
-            <ex:endLifespan xsi:nil="true" />
+            <ex:accessGeometry xsi:nil="false">
+                <gml:Point srsDimension="2" srsName="http://www.opengis.net/def/crs/EPSG/0/4326">
+                    <gml:pos>49.40 -123.26</gml:pos>
+                </gml:Point>
+            </ex:accessGeometry>
+            <ex:accessType xlink:href="http://inspire.ec.europa.eu/codelist/AccessRestrictionValue/publicAccess" xlink:title="Public Access"/>
         </ex:JoinedParcel>
     </wfs:member>
 </wfs:FeatureCollection>

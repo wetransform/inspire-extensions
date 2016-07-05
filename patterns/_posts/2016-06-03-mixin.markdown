@@ -13,7 +13,7 @@ patternIdentifier: mixin
 
 ## Intent
 
-TODO A mixin is a special case of multiple inheritance, where the class we design is composed of properties of multiple other classes. These other classes are called  *mixins*, or occasionally, *traits*. Each mixin is a collection of methods or properties that can be injected into the new class. Mixins are typically narrow in scope and not meant to be extended by themselves. In multiple inheritance, there is no clear inheritance hierarchy anymore, which may lead to conflicting concepts.
+In multiple inheritance, the class we design is composed of properties of multiple other classes. In multiple inheritance, there is no clear inheritance hierarchy anymore, which may lead to conflicting concepts. There are several mechanisms for multiple inheritance, once of which is called *Mixin*. Each mixin is a collection of methods or properties that can be injected into the new class. Mixins are typically narrow in scope and not meant to be extended by themselves. 
 
 In INSPIRE, we can use mixins to reuse both INSPIRE specifications and local specifications, and to make sure our new class is syntactically compatible to both.
 
@@ -28,14 +28,14 @@ In this pattern, there is a child class, at least one mixin class and an optiona
 
 ## When to use
 
-In the context of an INSPIRE Data Specification Extension, there are two cases where mixins can be effective:
+In the context of an INSPIRE Data Specification Extension, there are two cases where multiple inheritance via mixin can be effective:
 
 1. Your class should be compatible with an INSPIRE class and local standard classes.
 1. You want to use a common set of properties with consistent property names to new multiple subclasses of INSPIRE classes.
 
 ## When not to use
 
-Support for mixins varies greatly across different implementation platforms and can be complex to realize, which is the main downside. There are also other indicators when not to use mixins:
+Support for multiple inheritance via mixin varies greatly across different implementation platforms and can be complex to realize, which is the main downside. There are also other indicators when not to use mixins:
 
 1. When one of the other patterns also satisfies your requirements.
 1. You want to use multiple classes from the same hierarchy, as mixing them in will result in duplication or overloading.
@@ -44,14 +44,14 @@ Support for mixins varies greatly across different implementation platforms and 
 
 ## XML Schema Example
 
-There is no direct support for multiple inheritance or mixins in XML Schema. A common approach is to do a model transformation that copies the properties and methods of the mixin to the new class, as in this example:
+There is no direct support for multiple inheritance or mixins in XML Schema. A common approach is to do a schema generation that copies the properties and methods of the mixin to the new class. Shapechange is able to do this when you add a UML tag to the mixin class: `gmlMixin = true`. The result looks as in this example:
 
-<pre data-line="15-28" class="line-numbers" data-src="/patterns/examples/mixin.xsd">
+<pre data-line="20,21" class="line-numbers" data-src="/patterns/examples/mixin.xsd">
 <code class="language-xml">
 </code>
 </pre>
 
-In the example, we make our new class ```JoinedParcel``` time-aware by copying the two properties ```beginLifespan``` and ```endLifespan``` from the class Lifecycle. Note that that class disappears from the XML Schema.
+In the example, we make our new class ```JoinedParcel``` accessible by copying the two properties `accessGeometry` and `accessLevel` from the class `AccessPoint`. Note that that the `AccessPoint` is abstract; it's not intended to be used directly to create objects using it.
 
 [Download the Example Schema](/patterns/examples/mixin.xsd)
 

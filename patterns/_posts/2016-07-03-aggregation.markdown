@@ -13,68 +13,68 @@ patternIdentifier: aggregation
 
 ## Intent
 
-Composition is a form of object aggregation, where a whole data structure is made of parts belonging to one or more classes, such as a car also having an engine and four wheels. In software engineering, we often make a distinction between composition and aggregation:
+Similar to composition, aggregation is a form of object combination. In aggregation, a whole data structure is made of parts belonging to one or more classes, such as a student belonging to multiple classes in their course of studies. In software engineering, we often make a distinction between composition and aggregation:
 
-1. In composition, the lifecycle of the contained object is bound to the lifecycle of the containing object.
-1. In aggregation, the lifecycle of the contained object is independent of the lifecycle of the containing object. The contained object can thus exist independently and even be shared by more than one containing object.
+1. In [composition](/patterns/2016/06/03/composition.html), the lifecycle of the contained object is bound to the lifecycle of the containing object. There is exactly one object that owns the contained objects.
+1. In aggregation, the lifecycle of the contained object is independent of the lifecycle of the containing object. The contained object ("containee") can thus exist independently and be shared by more than one containing object.
 
-TODO: Split Composition and Aggregation; make cardinality difference clear (1:n vs n:m)
-
-TODO: How can a composition be an INSPIRE pattern? Can the lifecycle of an INSPIRE object be dependent on an non-INSPIRE object? 
-
-TODO Note: If you discover need for a composition, make sure you resolve the associated organisational issues that come from ownership of the composed class. You should not use composition between models/data sets maintained b different organisations or have a trusted relationship?
-
-For the purpose of INSPIRE extensions, we'll refer to both modes as composition. The defining characteristic of the composition is that we build a whole object from parts, where there is a ```contains``` association between the parts.
+In aggregation, the container is incomplete when it's missing the containee. A car without wheels isn't complete, but the wheel can be mounted on a different car. Note that the encoding for the [Association](/patterns/2016/06/03/association.html) pattern is the same as for aggregation. 
 
 ## Structure
 
-In composition, there is a containing class and a contained class. They are connected through an Composition association which points from the containing class to the contained class:
+In aggregation, there is a containing class and a contained class. They are connected through an aggregation association which points from the containing class to the contained class:
 
 <figure class="figure" style="margin-bottom: 20px">
     <img src="/patterns/images/composition.png" class="figure-img img-fluid img-rounded" title="Composition">
-    <figcaption class="figure-caption small"><code>JoinedParcel</code> contains an <code>owner</code> property.</figcaption>
+    <figcaption class="figure-caption small"><code>JoinedParcel</code> aggregates an <code>owner</code>.</figcaption>
 </figure>
+
+<table class="alert-warning important-info">
+    <tr>
+        <td style="width:3em"><div class="important-info-icon"><span class="glyphicon glyphicon-exclamation-sign" style="font-size:2em"></span></div></td>
+        <td>Please note that while we have created a new <code>Owner</code> class, you would be well-advised to re-used existing classes such as <code>CI_ResponsibleParty</code>. .</td>
+    </tr>
+</table>
 
 ## When to use
 
-Composition is a very versatile, well-supported pattern, and has several applicable uses:
+Aggregation is a very versatile, well-supported pattern, and has several applicable uses:
 
-1. When there is a clear whole-part relationship between the objects
-1. When the lifecycle of the aggregated objects is linked
+1. When there is a whole-part relationship between the objects
+1. When the lifecycle of the containees is linked to more than one container
 1. When inheritance is not applicable because the ```is-a``` statement is not true and would break proper encapsulation.
 
 ## When not to use
 
-Composition implies a contains/contained relationship, and often also mandates linked lifespans. It is thus not suitable for coupling of loosely related objects:
+Aggregation implies a contains/contained relationship, and provides looser coupling than composition in terms of ownership and lifespans. It is thus not suitable for coupling of all types of closely related objects:
 
-1. You want to point at a related object where there is no composition (e.g. neighboringHouse)
-1. You want to link objects that have a different lifecycle
+1. You want to relate to an object where there is no aggregation (e.g. neighboringHouse)
+1. You want to combine objects that have a fully dependant lifecycle
 
 ## XML Schema Example
 
-A potential schema structure for the composition pattern is as follows:
+A potential schema structure for the aggregation pattern is as follows:
 
-<pre data-line="23" class="line-numbers" data-src="/patterns/examples/composition.xsd">
+<pre data-line="23" class="line-numbers" data-src="/patterns/examples/aggregation.xsd">
 <code class="language-xml">
 </code>
 </pre>
 
-[Download the Example Schema](/patterns/examples/composition.xsd)
+[Download the Example Schema](/patterns/examples/aggregation.xsd)
 
 In line 23, we define the contained property like any other property in the sequence. We declare it to be of type ```ex:OwnerType```. This schema allows us to do different types of encodings for the instance, as described below.
 
 ## XML Instance Example
 
-Instances using this pattern are usually encoded using an in-place encoding:
+Instances using this pattern are usually encoded using a by-reference encoding to enable many-to-many relationships:
 
-<pre class="line-numbers" data-src="/patterns/examples/composition.xml">
+<pre class="line-numbers" data-src="/patterns/examples/aggregation.xml">
 <code class="language-xml">
 </code>
 </pre>
 
-[Download the Example Instance](/patterns/examples/composition.xml)
+[Download the Example Instance](/patterns/examples/aggregation.xml)
 
-This encoding strategy means we can't re-use contained objects. Please refer to the Association pattern to learn how a single ```ex:Owner``` object can be shared by many ```ex:JoinedParcel``` objects.
 
 ## Implementation Considerations
 

@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:cp="http://inspire.ec.europa.eu/schemas/cp/4.0"
+           xmlns:gml="http://www.opengis.net/gml/3.2"
+           xmlns:ex="http://www.wetransform.to/ie-examples/aggregation/1.0"
+           elementFormDefault="qualified"
+           targetNamespace="http://www.wetransform.to/ie-examples/aggregation/1.0"
+           version="1.0">
+    <xs:import namespace="http://inspire.ec.europa.eu/schemas/cp/4.0" schemaLocation="http://inspire.ec.europa.eu/schemas/cp/4.0/CadastralParcels.xsd"/>
+    <xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+    <xs:element name="Owner" type="ex:OwnerType" substitutionGroup="gml:AbstractFeature" />
+    <xs:complexType name="OwnerType">
+        <xs:complexContent>
+            <xs:extension base="gml:AbstractFeatureType">
+                <xs:sequence>
+                    <xs:element name="givenName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                    <xs:element name="familyName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                    <xs:element name="address" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="JoinedParcel" substitutionGroup="cp:CadastralParcel" type="ex:JoinedParcelType"/>
+    <xs:complexType name="JoinedParcelType">
+        <xs:complexContent>
+            <xs:extension base="cp:CadastralParcelType">
+                <xs:sequence>
+                    <xs:element name="joinedParcel" type="gml:ReferenceType" minOccurs="1" maxOccurs="unbounded" />
+                    <xs:element name="owner" type="gml:ReferenceType" minOccurs="1" maxOccurs="unbounded" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

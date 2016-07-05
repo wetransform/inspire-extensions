@@ -63,7 +63,7 @@ In line 23, we define the contained property like any other property in the sequ
 
 ## XML Instance Example
 
-Instances using this pattern are usually encoded using an in-place encoding:
+Composition is highly similar to adding a property to your class, to a degree that it's indistinguishable on the encoding level. Instances using this pattern are usually encoded using an in-place encoding:
 
 <pre class="line-numbers" data-src="/patterns/examples/composition.xml">
 <code class="language-xml">
@@ -72,7 +72,7 @@ Instances using this pattern are usually encoded using an in-place encoding:
 
 [Download the Example Instance](/patterns/examples/composition.xml)
 
-This encoding strategy means we can't re-use contained objects. Please refer to the Association pattern to learn how a single ```ex:Owner``` object can be shared by many ```ex:JoinedParcel``` objects.
+This encoding strategy means we can't re-use contained objects. Please refer to the [association](/patterns/2016/06/03/association.html) or [aggregation](/patterns/2016/07/03/aggregation.html) patterns to learn how an object can be shared by many ```ex:JoinedParcel``` containers.
 
 ## Implementation Considerations
 

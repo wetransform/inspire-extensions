@@ -104,7 +104,7 @@ layout: default
                   <td width="30%"><strong>Reference Types:</strong></td>
                   <td>
                     <ul style="margin-bottom: 0px;  padding-left: 10px">
-                      {% for referenceType in page.modelReferenceTypes %}
+                      {% for referenceType in page.modelUsesPatterns %}
                       <li><a class="tag-style mt-sm" href="/patterns/{{ referenceType }}.html">{{ referenceType }}</a></li>
                       {% endfor %}
                     </ul>

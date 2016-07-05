@@ -8,7 +8,7 @@ tags:              [pattern, class]
 patternName:       "Multiple Inheritance"
 patternType:       class
 patternIdentifier: mixin
-permalink:         none
+permalink:         /:categories/:title.html
 
 ---
 

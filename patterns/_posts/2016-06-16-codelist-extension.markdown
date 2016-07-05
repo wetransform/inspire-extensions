@@ -8,7 +8,7 @@ tags:              [pattern, property]
 patternName:       "Codelist Extension"
 patternType:       property
 patternIdentifier: codelist
-permalink:         none
+permalink:         /:categories/:title.html
 
 ---
 

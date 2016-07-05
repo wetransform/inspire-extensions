@@ -8,7 +8,7 @@ tags:              [pattern, class]
 patternName:       "Inheritance"
 patternType:       class
 patternIdentifier: inheritance
-permalink:         none
+permalink:         /:categories/:title.html
 
 ---
 

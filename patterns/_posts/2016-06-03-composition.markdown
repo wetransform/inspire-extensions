@@ -8,7 +8,7 @@ tags:              [pattern, class]
 patternName:       "Composition"
 patternType:       class
 patternIdentifier: composition
-permalink:         none
+permalink:         /:categories/:title.html
 
 ---
 

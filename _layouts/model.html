@@ -95,13 +95,17 @@ layout: default
                   <td>
                     <ul style="margin-bottom: 0px; padding-left: 10px">
                       {% for reference in page.modelsReferenced %}
-                      <li><a class="tag-style mt-sm" href="/models/index.html#{{ reference }}">{{ reference }}</a></li>
+                        {% for tag in site.data.tags %}
+                          {% if tag.slug == reference %}
+                      <li><a class="tag-style mt-sm" href="/models/index.html#{{ reference }}">{{ tag.name }}</a></li>
+                          {% endif %}
+                        {% endfor %}
                       {% endfor %}
                     </ul>
                   </td>
                 </tr>
                 <tr>
-                  <td width="30%"><strong>Reference Types:</strong></td>
+                  <td width="30%"><strong>Patterns:</strong></td>
                   <td>
                     <ul style="margin-bottom: 0px;  padding-left: 10px">
                       {% for referenceType in page.modelUsesPatterns %}

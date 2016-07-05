@@ -19,7 +19,7 @@
         <xs:complexContent>
             <xs:extension base="cp:CadastralParcelType">
                 <xs:sequence>
-                    <xs:element name="joinedFrom" type="cp:CadastralParcelPropertyType" minOccurs="1" maxOccurs="unbounded" />
+                    <xs:element name="joinedParcel" type="cp:CadastralParcelPropertyType" minOccurs="1" maxOccurs="unbounded" />
                     <xs:element name="owner" type="ex:OwnerType" minOccurs="1" maxOccurs="unbounded" />
                 </xs:sequence>
             </xs:extension>

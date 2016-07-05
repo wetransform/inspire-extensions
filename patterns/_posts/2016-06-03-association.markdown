@@ -8,7 +8,7 @@ tags:              [pattern, class]
 patternName:       "Association"
 patternType:       class
 patternIdentifier: association
-permalink:         none
+permalink:         /:categories/:title.html
 
 ---
 

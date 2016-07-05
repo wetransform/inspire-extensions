@@ -8,7 +8,7 @@ tags:              [pattern, model]
 patternName:       "INSPIRE Generic Conceptual Model"
 patternType:       model
 patternIdentifier: inspire
-permalink:         none
+permalink:         /:categories/:title.html
 
 ---
 

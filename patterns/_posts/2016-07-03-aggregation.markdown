@@ -8,6 +8,7 @@ tags:              [pattern, class]
 patternName:       "Aggregation"
 patternType:       class
 patternIdentifier: aggregation
+permalink:         /:categories/:title.html
 
 ---
 

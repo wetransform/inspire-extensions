@@ -8,6 +8,7 @@ tags:              [pattern, class]
 patternName:       "Association"
 patternType:       class
 patternIdentifier: association
+permalink:         none
 
 ---
 
@@ -15,11 +16,9 @@ patternIdentifier: association
 
 An association is a general relation between two or more objects, where at least one of the objects has knowledge of the other one and can access that object's data and methods.  The lifecycle of the associated objects is typically decoupled. The objects can be from different domain models and even managed on different systems - an association is a type of *loose coupling*.
 
-TODO: Note: n-ary (card 3+) assoc not recommended
+Associations can be unidirectional, bidirectional or multi-directional. In a unidirectional association, the object that has knowledge of the other object is called the *controller*, the other one the *controlled* object. In a bidirectional relationship, both objects know of the other one and can invoke its data and methods. Note that you cannot create an association from an existing INSPIRE class directly, so there can be no bidirectional associations between your class and an INSPIRE class. You will need to [create a subtype](/patterns/inheritance.html) of the INSPIRE class to add that association.
 
-Associations can be unidirectional or bidirectional. In a bidirectional relationship, both objects know of the other one and can invoke its data and methods. In a unidirectional association, the object that has knowledge of the other object is called the *controller*, the other one the *controlled* object. 
-
-TODO You cannot create an association from an existing INSPIRE class, including a bidirectional one -> need to create a subtype instead TODO.
+Multi-directional (sometimes called n-ary) associations connect three or more different objects. They are very complex and we don't recommend their usage in INSPIRE extensions.
 
 The objects that are related via the association are considered to act in a role with respect to the association, such as an object of type ```Owner``` acting in the role ```hasOwner``` on a ```Parcel``` object. A role can be used to distinguish two objects of the same class when describing its use in the context of the association, such as a Person who may be in a ```parent``` and a ```child``` role at the same time.
 
@@ -34,11 +33,12 @@ When using associations, we connect controllers and controlled objects through a
 
 ## When to use
 
-Associations are very versatile, and has several applicable uses:
+Associations are very versatile, and have several applicable uses:
 
 1. When the associated objects have different lifespans
 1. When associated objects should be re-used many times, e.g. in N:M relationships
 1. Generally, when loose coupling of objects is desirable, e.g. when the associated objects are part of different domains or implemented in different systems
+1. When coupling objects of two classes, but not more (for that you should instead create new types)
 
 ## When not to use
 
@@ -57,9 +57,14 @@ A potential schema structure for the association pattern is as follows:
 
 [Download the Example Schema](/patterns/examples/association.xsd)
 
-In line 11, we set the ```Owner``` element's ```substitutionGroup``` to ```AbstractFeature```. This is mandatory to allow objects of this type to be included in the container, a ```wfs:FeatureCollection```. In lines 28 and 29, we use ```gml:ReferenceType``` as the type of the properties, instead of the actual types the references point to (which could be ```CadastralParcel``` and ```Owner```). This means we lose some information in the XML schema. There are several ways to encode this information, such as using annotations or optional attributes of the XLink, but non of them were standardised in INSPIRE.
+In line 11, we set the ```Owner``` element's ```substitutionGroup``` to ```AbstractFeature```. This is mandatory to allow objects of this type to be included in the container, a ```wfs:FeatureCollection```. In lines 28 and 29, we use ```gml:ReferenceType``` as the type of the properties, instead of the actual types the references point to (which could be ```CadastralParcel``` and ```Owner```). This means we lose some information in the XML schema. There are several ways to encode this information, such as using annotations or optional attributes of the `xlink`, but none of them were standardised in INSPIRE.
 
-Please note that we create a new `Owner` class instead of re-using one of the metadata classes such as `CI_ResponsibleParty`, since the latter cannot exist as a stad-alone member of a `FeatureCollection`.
+<table class="alert-warning important-info">
+    <tr>
+        <td style="width:3em"><div class="important-info-icon"><span class="glyphicon glyphicon-exclamation-sign" style="font-size:2em"></span></div></td>
+        <td>Please note that we create a new <code>Owner</code> class instead of re-using one of the metadata classes such as <code>CI_ResponsibleParty</code>, since the latter cannot exist as a stand-alone member of a <code>FeatureCollection</code>.</td>
+    </tr>
+</table>
 
 ## XML Instance Example
 

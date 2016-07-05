@@ -8,6 +8,7 @@ tags:              [pattern, class]
 patternName:       "Composition"
 patternType:       class
 patternIdentifier: composition
+permalink:         none
 
 ---
 
@@ -16,7 +17,7 @@ patternIdentifier: composition
 Composition is a strong form of object combination, where a whole data structure is made of parts belonging to one or more classes, such as a car also having an engine and four wheels. In software engineering, we often make a distinction between composition and aggregation:
 
 1. In composition, the lifecycle of the contained object is bound to the lifecycle of the containing object. There is exactly one object that owns the contained objects.
-1. In [aggregation](/patterns/2016/07/03/aggregation.html), the lifecycle of the contained object is independent of the lifecycle of the containing object. The contained object ("containee") can thus exist independently and be shared by more than one containing object.
+1. In [aggregation](/patterns/aggregation.html), the lifecycle of the contained object is independent of the lifecycle of the containing object. The contained object ("containee") can thus exist independently and be shared by more than one containing object.
 
 In composition, your extension object always **contains** an INSPIRE object. If the lifecycle of your extension object ends, the INSPIRE object would have to be removed as well. The other way around is not possible since you can't modify the INSPIRE class to add the new relation.
 
@@ -72,7 +73,7 @@ Composition is highly similar to adding a property to your class, to a degree th
 
 [Download the Example Instance](/patterns/examples/composition.xml)
 
-This encoding strategy means we can't re-use contained objects. Please refer to the [association](/patterns/2016/06/03/association.html) or [aggregation](/patterns/2016/07/03/aggregation.html) patterns to learn how an object can be shared by many ```ex:JoinedParcel``` containers.
+This encoding strategy means we can't re-use contained objects. Please refer to the [association](/patterns/association.html) or [aggregation](/patterns/aggregation.html) patterns to learn how an object can be shared by many ```ex:JoinedParcel``` containers.
 
 ## Implementation Considerations
 

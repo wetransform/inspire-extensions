@@ -8,6 +8,7 @@ tags:              [pattern, model]
 patternName:       "CityGML Application Domain Extension"
 patternType:       model
 patternIdentifier: ade
+permalink:         none
 
 ---
 

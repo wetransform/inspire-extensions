@@ -8,6 +8,7 @@ tags:              [pattern, property]
 patternName:       "Adding Constraints"
 patternType:       property
 patternIdentifier: constraint
+permalink:         none
 
 ---
 

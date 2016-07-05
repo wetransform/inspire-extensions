@@ -8,6 +8,7 @@ tags:              [pattern, class]
 patternName:       "Inheritance"
 patternType:       class
 patternIdentifier: inheritance
+permalink:         none
 
 ---
 
@@ -16,8 +17,6 @@ patternIdentifier: inheritance
 Inheritance is a mechanism for reuse of software components, be it structure or behaviour. In object-oriented designs such as INSPIRE, inheritance is when a child class is based on a parent class. The child class inherits all the properties and methods from the parent class, which makes the child class usually interoperable to the target class. A child class can also override behaviour and in some cases structure of the parent class, making it at least partially incompatible to the parent class.
 
 Inheritance establishes a clear hierarchy, which can be many levels deep. The parent class can have a grand-parent class, which can have a great-grand-parent class. All parents and further ancestors together are called *superclasses* of a class, while all children and grandchildren and further descendants are called *subclasses*. In INSPIRE GML, we have inheritance hierarchies up to eight levels deep. As a consequence, when we create a new class that inherits from an INSPIRE class, it will inherit every property defined on one of those superclasses.
-
-TODO If you want to create an association from an existing INSPIRE class -> need to create a subtype instead TODO.
 
 ## Structure
 
@@ -34,24 +33,25 @@ The primary use case that you can solve well with inheritance is when your objec
 
 Inheritance is furthermore an easy way to achieve compatibility of your new classes with the respective INSPIRE classes. Your data will have additional information that goes beyond what INSPIRE mandates, which is allowed. Inheritance is particularly useful when...
 
-1. ...you want to use one system for managing and publishing INSPIRE data and your extended data
-1. ...there is not just a syntactic relationship, but also a semantic relationship between the child and the parent. This relationship is called a *subtyping* relationship and is usually read as *child* ```is-a``` *parent*.
-1. ...you want to automatically keep your model compatible when superclasses change
+1. You want to use one system for managing and publishing INSPIRE data and your extended data
+1. You want to create an association from an existing INSPIRE class.
+1. When there is not just a syntactic relationship, but also a semantic relationship between the child and the parent. This relationship is called a *subtyping* relationship and is usually read as *child* ```is-a``` *parent*.
+1. You want to automatically keep your model compatible when superclasses change.
 
-Inheritance should only be used when the fllowing conditions are met:
+Inheritance should only be used when the following conditions are met:
 
-1. Parent and child classes are in the same logical domain
-1. The superclass’s implementation is necessary or appropriate for the subclass
+1. Parent and child classes are in the same logical domain.
+1. The superclass’s implementation is necessary or appropriate for the subclass.
 1. The enhancements made by the subclass are primarily additive and don't override the parent's behaviour.
 
 ## When not to use
 
 Inheritance is a static relationship type with strong coupling. Many of the reasons not to use inheritance derive from that strong coupling:
 
-1. You don't want to bring in complexity inherited from a large set of superclasses
-1. You don't want to inherit any changes from the imported superclasses
-1. There is no ```is-a``` relationship between your class and the INSPIRE class
-1. Your class should have an equal relationship with multiple INSPIRE classes (or other classes from a local standard)
+1. You don't want to bring in complexity inherited from a large set of superclasses.
+1. You don't want to inherit any changes from the imported superclasses.
+1. There is no ```is-a``` relationship between your class and the INSPIRE class.
+1. Your class should have an equal relationship with multiple INSPIRE classes (or other classes from a local standard).
 
 ## XML Schema Example
 

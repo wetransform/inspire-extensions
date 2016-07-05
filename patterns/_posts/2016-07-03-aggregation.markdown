@@ -15,7 +15,7 @@ patternIdentifier: aggregation
 
 Similar to composition, aggregation is a form of object combination. In aggregation, a whole data structure is made of parts belonging to one or more classes, such as a student belonging to multiple classes in their course of studies. In software engineering, we often make a distinction between composition and aggregation:
 
-1. In [composition](/patterns/2016/06/03/composition.html), the lifecycle of the contained object is bound to the lifecycle of the containing object. There is exactly one object that owns the contained objects.
+1. In [composition](/patterns/composition.html), the lifecycle of the contained object is bound to the lifecycle of the containing object. There is exactly one object that owns the contained objects.
 1. In aggregation, the lifecycle of the contained object is independent of the lifecycle of the containing object. The contained object ("containee") can thus exist independently and be shared by more than one containing object.
 
 In aggregation, the container is incomplete when it's missing the containee. A car without wheels isn't complete, but the wheel can be mounted on a different car. Note that the encoding for the [Association](/patterns/2016/06/03/association.html) pattern is the same as for aggregation. 
@@ -25,14 +25,14 @@ In aggregation, the container is incomplete when it's missing the containee. A c
 In aggregation, there is a containing class and a contained class. They are connected through an aggregation association which points from the containing class to the contained class:
 
 <figure class="figure" style="margin-bottom: 20px">
-    <img src="/patterns/images/composition.png" class="figure-img img-fluid img-rounded" title="Composition">
+    <img src="/patterns/images/aggregation.png" class="figure-img img-fluid img-rounded" title="Aggregation">
     <figcaption class="figure-caption small"><code>JoinedParcel</code> aggregates an <code>owner</code>.</figcaption>
 </figure>
 
 <table class="alert-warning important-info">
     <tr>
         <td style="width:3em"><div class="important-info-icon"><span class="glyphicon glyphicon-exclamation-sign" style="font-size:2em"></span></div></td>
-        <td>Please note that while we have created a new <code>Owner</code> class, you would be well-advised to re-used existing classes such as <code>CI_ResponsibleParty</code>. .</td>
+        <td>Please note that we create a new <code>Owner</code> class instead of re-using one of the metadata classes such as <code>CI_ResponsibleParty</code>, since the latter cannot exist as a stand-alone member of a <code>FeatureCollection</code>.</td>
     </tr>
 </table>
 

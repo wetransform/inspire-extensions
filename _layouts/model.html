@@ -95,7 +95,7 @@ layout: default
                   <td>
                     <ul style="margin-bottom: 0px; padding-left: 10px">
                       {% for reference in page.modelsReferenced %}
-                      <li><a class="tag-style mt-sm" href="/models/tag/{{ reference }}">{{ reference }}</a></li>
+                      <li><a class="tag-style mt-sm" href="/models/index.html#{{ reference }}">{{ reference }}</a></li>
                       {% endfor %}
                     </ul>
                   </td>
@@ -105,7 +105,7 @@ layout: default
                   <td>
                     <ul style="margin-bottom: 0px;  padding-left: 10px">
                       {% for referenceType in page.modelReferenceTypes %}
-                      <li><a class="tag-style mt-sm" href="/models/tag/{{ referenceType }}">{{ referenceType }}</a></li>
+                      <li><a class="tag-style mt-sm" href="/models/index.html#{{ referenceType }}">{{ referenceType }}</a></li>
                       {% endfor %}
                     </ul>
                   </td>

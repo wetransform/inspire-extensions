@@ -8,7 +8,7 @@ layout: default
     <div>
         <h2><a class="anchor" name="browseByTag" href="#browseByTag" aria-hidden="true"></a>Browse Models by Tag</h2>
         {% for tag in site.data.tags %}
-        <h4>{{ tag.name }}</h4>
+        <h4><a name="{{ tag.slug }}" id="{{ tag.slug }}" href="#{{ tag.slug }}"></a>{{ tag.name }}</h4>
         <ul>
             {% for model in site.categories.models %}
                 {% for tagModel in model.tags %}
@@ -25,7 +25,7 @@ layout: default
         <ul>
             {% for model in site.categories.models %}
             <li>
-                <a href="{{ model.url }}">{{ model.modelName }} (added {{ model.date | date: "%d.%m.%Y" }})</a>
+                <a name="" id="" href="{{ model.url }}">{{ model.modelName }} (added {{ model.date | date: "%d.%m.%Y" }})</a>
             </li>
             {% endfor %}
         </ul>

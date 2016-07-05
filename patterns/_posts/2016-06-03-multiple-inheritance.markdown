@@ -23,7 +23,7 @@ In this pattern, there is a child class, at least one mixin class and an optiona
 
 <figure class="figure" style="margin-bottom: 20px">
     <img src="/patterns/images/mixin.png" class="figure-img img-fluid img-rounded" title="Mixin">
-    <figcaption class="figure-caption small"><code>JoinedParcel</code> inherits all properties from <code>CadastralParcel</code> and mixes in <code>Lifecycle</code>. Note that the generalization association has a stereotype set to indicate the mixin approach.</figcaption>
+    <figcaption class="figure-caption small"><code>JoinedParcel</code> inherits all properties from <code>CadastralParcel</code> and mixes in <code>AccessPoint</code>. Note that the mixin class association has a tag set to indicate the mixin approach.</figcaption>
 </figure>
 
 ## When to use

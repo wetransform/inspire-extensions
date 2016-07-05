@@ -16,9 +16,9 @@ patternIdentifier: composition
 Composition is a strong form of object combination, where a whole data structure is made of parts belonging to one or more classes, such as a car also having an engine and four wheels. In software engineering, we often make a distinction between composition and aggregation:
 
 1. In composition, the lifecycle of the contained object is bound to the lifecycle of the containing object. There is exactly one object that owns the contained objects.
-1. In aggregation, the lifecycle of the contained object is independent of the lifecycle of the containing object. The contained object ("containee") can thus exist independently and be shared by more than one containing object.
+1. In [aggregation](/patterns/2016/07/03/aggregation.html), the lifecycle of the contained object is independent of the lifecycle of the containing object. The contained object ("containee") can thus exist independently and be shared by more than one containing object.
 
-This pattern describes composition only. In composition, you extension object always **contains** an INSPIRE object. If the lifecycle of your extension object ends, the INSPIRE object would have to be removed as well. The other way around is not possible since you can't modify the INSPIRE class to add the new relation.
+In composition, your extension object always **contains** an INSPIRE object. If the lifecycle of your extension object ends, the INSPIRE object would have to be removed as well. The other way around is not possible since you can't modify the INSPIRE class to add the new relation.
 
 If you discover need for a composition, make sure you resolve the associated organisational issues that come from ownership of the composed class. You should only use composition between data sets maintained by different organisations if you also have a trusted working relationship with these organisations.
 

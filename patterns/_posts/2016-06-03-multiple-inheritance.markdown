@@ -19,7 +19,7 @@ In INSPIRE, we can use mixins to reuse both INSPIRE specifications and local spe
 
 ## Structure
 
-In this pattern, there is a child class, at least one mixin class and an optional parent class. The child class and the mixin class are connected through a Generalisation association which points from the child to the mixin. In this example, we make all our classes lifecycle aware by mixing in a class called Lifecycle:
+In this pattern, there is a child class, at least one mixin class and an optional parent class. The child class and the mixin class are connected through a Generalisation association which points from the child to the mixin. In this example, we add information on the position and level of access to our classes  by mixing in a class called `AccessPoint`:
 
 <figure class="figure" style="margin-bottom: 20px">
     <img src="/patterns/images/mixin.png" class="figure-img img-fluid img-rounded" title="Mixin">

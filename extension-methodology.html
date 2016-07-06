@@ -94,6 +94,8 @@ title:  INSPIRE data specification extensions - The Extension Methodology
         <li><strong>Working Environment:</strong> How do you decide which tools and technologies to use?</li>
     </ul>
 
+    <p>If you decide to translate the INSPIRE data specification to your spoken language, make sure to check out the <a href="http://inspire.ec.europa.eu/featureconcept" target="_blank">INSPIRE Feature Concept Dictionary</a>. It contains all the domain terms used in INSPIRE and provides translations for all official languages of the EU.</p>
+
     <h3>Working Environment and Tools</h3>
 
     <p>It's also helpful to agree on a set of tools that everybody uses, to reduce interoperability challenges inside the team. Take into account previous experience, available licenses and suitability for the project at hand. Typically, you will need the following types of tools:</p>
@@ -103,6 +105,7 @@ title:  INSPIRE data specification extensions - The Extension Methodology
         <li><strong>Communication</strong>: A central place for all communication can be incredibly helpful for documentation and understanding how a project developed. This archive should be searchable and easily accessible. Typical choices include a mailing list, or tools like <a href="https://hipchat.com/" target="_blank">HipChat</a> or <a href="https://slack.com/" target="_blank">Slack</a>.</li>
         <li><strong>Source Code Management</strong>: You will benefit greatly from using a proper source and version control repository for your model from the start on. Such tools enable effective cooperation even in larger or distributed teams and allow you to review progress, and they have become much easier to use thanks to sites like Github. The three most common tools are <a href="https://www.mercurial-scm.org/" target="_blank">Mercurial</a>, <a href="https://git-scm.com/" target="_blank">Git</a> and <a href="https://subversion.apache.org/" target="_blank">Subversion (SVN)</a>. Which one you use will depend on the modelling software you use.</li>
         <li><strong>Data Modelling</strong>: The tool you use to design the actual model extension. Use an UML Editor such as <a href="http://www.sparxsystems.com.au/" target="_blank">Enterprise Architect</a> or <a href="http://argouml.tigris.org/" target="_blank">ArgoUML (Open Source)</a>.</li>
+        <li><strong>Model Validation</strong>:ISO/TC211 provides Enterprise Architect Model <a href="https://github.com/ISO-TC211/UML-Best-Practices" target="_blank">Validation Scripts</a> you can use to test your model's compliance to the ISO guidance on which INSPIRE data specifications are built.</li>
         <li><strong>Schema Generation</strong>: When you design your model in a conceptual language like UML, you need to transform it to an implementation language before you can actually use it. While some of the data modelling tools listed, like Enterprise Architect, have such capabilities, you will need a specific schema generation tool to generate valid INSPIRE GML Application Schemas. For that, there is a specific tool: <a href="http://shapechange.net/" target="_blank">ShapeChange (Open Source)</a>. If you absolutely need to edit the generated XML Schema or extend a code list later in the process, you can do so in any programmer's text editor. There is also specialized software available such as <a href="http://www.altova.com/xmlspy.html" target="_blank">XMLSpy</a>.</li>
         <li><strong>Data Transformation</strong>: Your model under design needs to be tested, and that can only be done meaningfully by filling it with data. This process, also known as transformation testing, is done with data transformation software, sometimes also called ETL (Extract Transform Load). The most commonly used products for this purpose are <a href="https://en.wikipedia.org/wiki/XSLT" target="_blank">XSLT</a>, <a href="http://www.safe.com/fme" target="_blank">FME</a> and <a href="https://www.wetransform.to/products/halestudio/" target="_blank">hale studio (Open Source)</a>.</li>
         <li><strong>Service Publishing</strong>: At the end, a successful implementation extending INSPIRE requires you to set up view and download services, and you will need to test your model extension by deploying such services. There are several options available for publishing services using the GML Application Schemas, such as <a href="http://www.deegree.org/" target="_blank">deegree (Open Source)</a>, <a href="http://docs.geoserver.org/stable/en/user/data/app-schema/" target="_blank">GeoServer with app-schema (Open Source)</a> and <a href="http://www.interactive-instruments.de/xtraserver/" target="_blank">ArcGIS Server with XtraServer</a>.</li>
@@ -263,7 +266,7 @@ title:  INSPIRE data specification extensions - The Extension Methodology
     <table class="alert-warning important-info">
         <tr>
             <td style="width:3em"><div class="important-info-icon"><span class="glyphicon glyphicon-exclamation-sign" style="font-size:2em"></span></div></td>
-            <td>All your requirements are covered by the existing INSPIRE Data Specification? Great, you can directly proceed to the <a href="#validation">Testing section</a>!</td>
+            <td>All your requirements are covered by the existing INSPIRE Data Specification? Great, you can directly proceed to the <a href="#testing">Testing section</a>!</td>
         </tr>
     </table>
 
@@ -294,11 +297,13 @@ title:  INSPIRE data specification extensions - The Extension Methodology
     <p>The design phase has the following steps:</p>
 
     <ol>
+        <li>Choose what <a href="/patterns/index.html#modelPatterns" target="_blank">Model Compatibility patterns</a> in addition to INSPIRE you want to apply</li>
         <li>Create your new Model</li>
         <li>Choose a <a href="/patterns/index.html#classPatterns" target="_blank">Class Extension pattern</a> to define how this new class should be linked to any INSPIRE class</li>
         <li>Create required new classes</li>
         <li>Choose a <a href="/patterns/index.html#propertyPatterns" target="_blank">Property Extension pattern</a> to define how properties in the new class should be linked to any INSPIRE classes or properties</li>
-        <li>Add required properties to new classes, add constraints or extend code lists</li>
+        <li>Add required properties to new classes, including constraints such as the allowed cardinality, adding the <code>nilReason</code> attribute and setting the  <code>nillable</code> flag</li>
+        <li>Add external constraints or extend code lists</li>
         <li>Validate that your model does not violate any of the model extension pattern's rules, to ensure compatibility with INSPIRE Data Specifications</li>
     </ol>
 
@@ -336,8 +341,8 @@ title:  INSPIRE data specification extensions - The Extension Methodology
     <ul>
         <li><strong>GML application schema:</strong>
             <ul>
-                <li><em>What is it?</em> The default implementation format for interoperable INSPIRE data is the Geography Markup Language (GML). GML is in turn built on the eXtensible Markup Language (XML). What sets XML apart from many other formats is its rich schema language, called XML Schema Definition (XSD), which allows to define structures, constraints, types and many other kinds of schema definitions.</li>
-                <li><em>Why do you need it?</em> A GML schema enables you to create compliant download services and interoperable data sets.</li>
+                <li><em>What is it?</em> The default implementation format for interoperable INSPIRE data is the Geography Markup Language (GML). GML is in turn built on the eXtensible Markup Language (XML). What sets XML apart from many other formats is its rich schema language, called XML Schema Definition (XSD), which allows to define structures, constraints, types and many other kinds of schema definitions. </li>
+                <li><em>Why do you need it?</em> A GML schema enables you to create compliant download services and interoperable data sets. GML Application Schemas are the only formlaied definitions for INSPIRE. If you decide to use a different schema language to provide services, you will have to prove that you still fulfill all INSPIRE requirements.</li>
             </ul>
         </li>
         <li><strong>Relational Database schema:</strong>
@@ -371,9 +376,9 @@ title:  INSPIRE data specification extensions - The Extension Methodology
 
     <h3>Validation of the Schema</h3>
 
-    <p>When you've generated the logical schema, make sure you validate it against the requirements of a GML Application Schema. TODO Briefcase, ATS</p>
+    <p>When you've generated the logical schema, make sure you validate it against the requirements of a GML Application Schema. As part of the CITE toolbox, the OGC provides a service that allows you to validate your schema.</p>
 
-    <h2><a name="validation" id="validation" href="#validation"></a>Testing and Integration</h2>
+    <h2><a name="testing" id="testing" href="#testing"></a>Testing and Integration</h2>
 
     <p>Now that you've created the platform-specific models, it's time to put them to the test. The goal of this phase is to see whether you can implement the model as designed or whether some unforeseen problems pop up. The two main areas we'll be looking at are data integration and data publishing.</p>
 

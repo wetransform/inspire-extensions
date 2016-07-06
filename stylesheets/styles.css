@@ -290,6 +290,44 @@ footer {
     left: 0.25em;
 }
 
+.listPros {
+    list-style: none;
+    padding-left: 25px;
+    position: relative;
+}
+
+.listPros > li::before {
+    position: absolute;
+    content: '+';
+    font-weight: bold;
+    color: darkgreen;
+    display: inline-block;
+    margin-right: 1em;
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    left: 0.25em;
+}
+
+.listCons {
+    list-style: none;
+    padding-left: 25px;
+    position: relative;
+}
+
+.listCons > li::before {
+    position: absolute;
+    content: '-';
+    font-weight: bold;
+    color: darkred;
+    display: inline-block;
+    margin-right: 1em;
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    left: 0.25em;
+}
+
 @media print, screen and (max-width: 960px) {
 
     div.wrapper {

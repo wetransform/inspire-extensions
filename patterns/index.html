@@ -17,9 +17,24 @@ layout: default
         <p>Model extension design as described in the <a href="/extension-methodology.html">extension methodology</a> is a hierarchical top-down process, where you first design a wide scope, and then drill down to make individual aspects concrete. We start at the level of the entire model, the proceed with adding classes, and then define these classes in detail by adding properties. For each of these phases, there are different patterns you can apply:</p>
 
         <ol>
+            <li><strong>Patterns for Model compliance:</strong> These patterns define restriction you cna apply to ensure compliance of your model to INSPIRE and to other frameworks.</li>
             <li><strong>Patterns for adding classes and properties:</strong> These patterns describe how one or multiple classes are linked to classes in the INSPIRE data specification you'd like to extend. They describe which language features you use to implement them, and what consequences there are on a conceptual and implementation level.</li>
             <li><strong>Patterns for modifying properties:</strong> Property modification patterns describe how you can extend individual properties, e.g. by adding new constraints or by extending code lists. They also include consequences there are on a conceptual and implementation level.</li>
         </ol>
+
+        <h3><a class="anchor" name="modelPatterns" href="#modelPatterns" aria-hidden="true"></a>Patterns for Model compliance</h3>
+
+        <p>These patterns define restriction you can apply to ensure compliance of your model to INSPIRE and to other frameworks. You might also have a set of national or regional regulations that fit this description, so make sure you capture those as a specific Model compliance pattern for your work as well.</p>
+
+        <ul>
+            {% for pattern in site.categories.patterns %}
+            {% if pattern.patternType == "compliance" %}
+            <li>
+                <a href="{{ pattern.url }}">{{ pattern.patternName }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+        </ul>
 
         <h3><a class="anchor" name="classPatterns" href="#classPatterns" aria-hidden="true"></a>Patterns for adding classes and properties</h3>
 
@@ -35,7 +50,96 @@ layout: default
             {% endfor %}
         </ul>
 
-        <p>TODO Summary when to use which - Table with overview of pros/cons</p>
+        <p>If you are wondering when to use which of these patterns, here is a table summarizing the indicators when to use which pattern. Answer each of the questions and pick the pattern where the balance between + and - is the most positive. When multiple patterns get the same score, use the one to the top of the list, as these are generally easier to implement.</p>
+
+        <table class="table table-striped">
+            <tr>
+                <th style="min-width: 120px">Pattern Name</th>
+                <th>When to use</th>
+                <th>When not to use</th>
+            </tr>
+            <tr>
+                <td><em>Association</em></td>
+                <td>
+                    <ul class="listPros">
+                        <li>Do your associated objects have different lifespans?</li>
+                        <li>Is there a many-to-many relationship between your objects?</li>
+                        <li>Are your objects maintained in different systems or managed by different organisations?</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul class="listCons">
+                        <li>Do you need strong coupling because one part can't exist without the other meaningfully?</li>
+                        <li>Are you associating more than two classes?</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><em>Inheritance</em></td>
+                <td>
+                    <ul class="listPros">
+                        <li>Do you want to create an association <em>from</em> an existing INSPIRE class?</li>
+                        <li>Is there a semantic <code>is-a</code> relationship between your class and the INSPIRE class, and both classes are in the same domain?</li>
+                        <li>Do you want to automatically keep your model compatible when the INSPIRE superclasses change?</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul class="listCons">
+                        <li>Do you want to limit complexity brought in via the superclass?</li>
+                        <li>Should your class have an equal relationship with multiple INSPIRE classes (or other classes from a local standard)?</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><em>Aggregation</em></td>
+                <td>
+                    <ul class="listPros">
+                        <li>Is there a whole-part relationship between the objects?</li>
+                        <li>Is the lifecycle of the parts linked to more than one whole?</li>
+                        <li>Inheritance is not applicable because the ```is-a``` statement is not true?</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul class="listCons">
+                        <li>Do you want to relate objects that are equal peers (e.g. neighboringHouse)?</li>
+                        <li>Do the objects have a fully dependant lifecycle?</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><em>Composition</em></td>
+                <td>
+                    <ul class="listPros">
+                        <li>Is there a whole-part relationship between the objects?</li>
+                        <li>Is there exactly one whole that contains one or more part objects?</li>
+                        <li>Is the lifecycle of the composed objects identical?</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul class="listCons">
+                        <li>Do you need a many-to-many relationship between the whole and parts?</li>
+                        <li>Do you control the part object's lifecycle?</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><em>Multiple Inheritance</em></td>
+                <td>
+                    <ul class="listPros">
+                        <li>Does your new class have to be compatible with an INSPIRE class and local standard classes?</li>
+                        <li>Do you want to use a common set of properties with consistent property names to new multiple subclasses of INSPIRE classes?</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul class="listCons">
+                        <li>Does one of the other patterns also satisfy your requirements?</li>
+                        <li>Do you want to inherit from multiple classes from the same hierarchy?</li>
+                        <li>Do you need to bring in only a single property or a set of unrelated properties from the mixin(s)?</li>
+                        <li>Do you need the mixin conceptual relationship to be visible in the logical schema as well?</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
 
         <h3><a class="anchor" name="propertyPatterns" href="#propertyPatterns" aria-hidden="true"></a>Patterns for modifying properties</h3>
 

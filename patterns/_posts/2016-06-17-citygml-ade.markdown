@@ -1,12 +1,12 @@
 ---
 layout:            pattern
-title:             "INSPIRE Model Extension Pattern: CityGML Application Domain Extension"
+title:             "Model Extension Compliance Pattern: CityGML Application Domain Extension"
 author:            "Thorsten Reitz"
 date:              2016-06-17 09:40:00 +0200
 category:          patterns
-tags:              [pattern, model]
+tags:              [pattern, compliance]
 patternName:       "CityGML Application Domain Extension"
-patternType:       model
+patternType:       compliance
 patternIdentifier: ade
 permalink:         /:categories/:title.html
 

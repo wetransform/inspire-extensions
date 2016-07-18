@@ -14,7 +14,7 @@ permalink:         /:categories/:title.html
 
 ## Intent
 
-The INSPIRE Generic Conceptual Model (GCM) provided the data specification drafting teams and everybody who wants to create related data models with a common framework. The maintenance of the specification follows the same common framework. The GCM also contains an informal annex that describes how to create an extension to an INSPIRE application schema. You need to consider these rules as a baseline; whatever you model as part of your extension project, you have to fulfill the rules as defined below to produce a valid INSPIRE Extension.
+The INSPIRE Generic Conceptual Model (GCM) provided the data specification drafting teams and everybody who wants to create related data models with a common framework. The maintenance of the specification follows the same common framework. The GCM also contains an informal annex (Annex F) that describes how to create an extension to an INSPIRE application schema. You need to consider these rules as a baseline; whatever you model as part of your extension project, you have to fulfill the rules as defined below to produce a valid INSPIRE Extension.
 
 ## General Rules
 

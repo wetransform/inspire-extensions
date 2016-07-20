@@ -14,7 +14,7 @@ permalink:         /:categories/:title.html
 
 ## Intent
 
-In multiple inheritance, the class we design is composed of properties of multiple other classes. In multiple inheritance, there is no clear inheritance hierarchy anymore, which may lead to conflicting concepts. There are several mechanisms for multiple inheritance, once of which is called *Mixin*. Each mixin is a collection of methods or properties that can be injected into the new class. Mixins are typically narrow in scope and not meant to be extended by themselves. 
+In multiple inheritance, the class we design is composed of properties of multiple other classes. In multiple inheritance, there is no clear inheritance hierarchy anymore, which may lead to conflicting concepts. Therefore multiple inheritance is not recommended, however there are several mechanisms for multiple inheritance, one of which is called *Mixin*, that are useful. Each mixin is a collection of methods or properties that can be injected into the new class. Mixins are typically narrow in scope and not meant to be extended by themselves. 
 
 In INSPIRE, we can use mixins to reuse both INSPIRE specifications and local specifications, and to make sure our new class is syntactically compatible to both.
 
@@ -31,7 +31,7 @@ In this pattern, there is a child class, at least one mixin class and an optiona
 
 In the context of an INSPIRE Data Specification Extension, there are two cases where multiple inheritance via mixin can be effective:
 
-1. Your class should be compatible with an INSPIRE class and local standard classes.
+1. Your class should be compatible with an INSPIRE class <strong>and</strong> local standard classes.
 1. You want to use a common set of properties with consistent property names to new multiple subclasses of INSPIRE classes.
 
 ## When not to use
@@ -74,7 +74,7 @@ This section provides information when and how this pattern can be implemented o
 <table class="alert-warning important-info">
     <tr>
         <td style="width:3em"><div class="important-info-icon"><span class="glyphicon glyphicon-exclamation-sign" style="font-size:2em"></span></div></td>
-        <td>Mixin is the least commonly used class extension pattern nad is not supported directly in most implementation platforms.</td>
+        <td>Mixin is the least commonly used class extension pattern and is not supported directly in most implementation platforms.</td>
     </tr>
 </table>
 

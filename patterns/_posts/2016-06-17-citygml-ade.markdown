@@ -37,6 +37,8 @@ Other rules:
     </tr>
 </table>
 
+The first one describes how data fragments may be embedded into the application’s XML data files. Which means that it works directly at the XML implementation platform, and is not an extension at the conceptual level (UML). The second option focuses on how to incorporate specific information into the CityGML instance documents, which in mine understanding is tied to the W3C XML Schema (and not to the UML model). It's also allowed to embed CityGML objects into a (larger) application framework and establish the connection between application data and CityGML data within the application framework. For example, CityGML data fragments may be embedded into the application’s XML data files or stored as attributes of application objects according to the application’s data model.
+
 ## Technical Approach
 
 CityGML 2.0 is an Application Schema based on GML 3.1.1, while INSPIRE is based on GML 3.3. CityGML 3.0 will also be based on GML 3.3. CityGML 2.0 doesn't contain provisions on the conceptual modelling of an ADE in UML, though there is a best practice papers on how to do this. Furthermore, the working group intends to include such guidelines with the 3.0 version of the standard.

@@ -18,6 +18,12 @@ In multiple inheritance, the class we design is composed of properties of multip
 
 In INSPIRE, we can use mixins to reuse both INSPIRE specifications and local specifications, and to make sure our new class is syntactically compatible to both.
 
+### Variant: Realization
+
+`Realization` is a fine-grained type of (multiple) inheritance, where one set of classes represents a specification and another set of classes represents the implementation of that specification. We often use `Realization` to specify a set of operations, which multiple implementations realize. A single implementing class can thus realize a subset of an INSPIRE class. This type of association will not create an INSPIRE compliant model, but will be useful when the extended model has stronger semantics than the INSPIRE class that is realized. 
+
+We recommend to limit usage of this type of inheritance, as the `Realization` association is mostly used for the modelling of behaviour, not of structure.
+
 ## Structure
 
 In this pattern, there is a child class, at least one mixin class and an optional parent class. The child class and the mixin class are connected through a Generalisation association which points from the child to the mixin. In this example, we add information on the position and level of access to our classes  by mixing in a class called `AccessPoint`:

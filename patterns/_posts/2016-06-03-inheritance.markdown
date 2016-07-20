@@ -18,6 +18,12 @@ Inheritance is a mechanism for reuse of software components, be it structure or 
 
 Inheritance establishes a clear hierarchy, which can be many levels deep. The parent class can have a grand-parent class, which can have a great-grand-parent class. All parents and further ancestors together are called *superclasses* of a class, while all children and grandchildren and further descendants are called *subclasses*. In INSPIRE GML, we have inheritance hierarchies up to eight levels deep. As a consequence, when we create a new class that inherits from an INSPIRE class, it will inherit every property defined on one of those superclasses.
 
+### Variant: Redefine
+
+`Redefine` is a special type of inheritance, where properties of the supertype can be modified in the subtype. You can use `Redefine` to rename properties, e.g. to translate them from English to your native language. It's also possible to change the type of a property, e.g. from a `Point` to a `MultiPoint`.
+
+We recommend not to use `Redefine`, as current implementation platforms can't make use of the redefine information. As a result, interoperability is reduced.
+
 ## Structure
 
 In this pattern, there is a parent class and a child class. They are connected through a Generalisation association which points from the child to the parent:

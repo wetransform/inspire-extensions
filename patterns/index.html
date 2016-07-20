@@ -17,14 +17,14 @@ layout: default
         <p>Model extension design as described in the <a href="/extension-methodology.html">extension methodology</a> is a hierarchical top-down process, where you first design a wide scope, and then drill down to make individual aspects concrete. We start at the level of the entire model, the proceed with adding classes, and then define these classes in detail by adding properties. For each of these phases, there are different patterns you can apply:</p>
 
         <ol>
-            <li><strong>Patterns for Model compliance:</strong> These patterns define restriction you cna apply to ensure compliance of your model to INSPIRE and to other frameworks.</li>
-            <li><strong>Patterns for adding classes and properties:</strong> These patterns describe how one or multiple classes are linked to classes in the INSPIRE data specification you'd like to extend. They describe which language features you use to implement them, and what consequences there are on a conceptual and implementation level.</li>
+            <li><strong>Patterns for Model compliance:</strong> These patterns define restrictions you can apply to ensure compliance of your model to INSPIRE and to other frameworks where you want to comply to.</li>
+            <li><strong>Patterns for adding classes and properties:</strong> These patterns describe how one or multiple classes are linked to classes in the INSPIRE data specification you'd like to extend. If in another language they describe which language features you use to implement them, and what consequences there are on a conceptual and implementation level.</li>
             <li><strong>Patterns for modifying properties:</strong> Property modification patterns describe how you can extend individual properties, e.g. by adding new constraints or by extending code lists. They also include consequences there are on a conceptual and implementation level.</li>
         </ol>
 
         <h3><a class="anchor" name="modelPatterns" href="#modelPatterns" aria-hidden="true"></a>Patterns for Model compliance</h3>
 
-        <p>These patterns define restriction you can apply to ensure compliance of your model to INSPIRE and to other frameworks. You might also have a set of national or regional regulations that fit this description, so make sure you capture those as a specific Model compliance pattern for your work as well.</p>
+        <p>These patterns define restrictions you can apply to ensure compliance of your model to INSPIRE and to other frameworks. You might also have a set of national or regional regulations that fit this description, so make sure you capture those as a specific Model compliance pattern for your work as well.</p>
 
         <ul>
             {% for pattern in site.categories.patterns %}

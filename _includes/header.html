@@ -80,7 +80,7 @@
         </ol>
         {% endif %}
       </li>
-      <li><a href=""></a>Summary and Conclusions
+      <li>{% if page.slug == "conclusions" %}<strong>{% endif %}<a href="/conclusions.html">Conclusions and Outlook</a>{% if page.slug == "conclusions" %}</strong>{% endif %}
       </li>
     </ol>
   </div>

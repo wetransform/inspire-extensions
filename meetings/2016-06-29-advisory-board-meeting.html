@@ -1,0 +1,124 @@
+---
+layout: default
+slug:   meeting
+title:  INSPIRE data specification extensions - Advisory Board Meeting 29.06.2016
+---
+
+<section>
+  <h2><a id="meeting" class="anchor" href="#meeting" aria-hidden="true"></a>2<sup>nd</sup> Advisory Board and Expert Group Meeting, 29th of April 2016, Ispra</h2>
+
+  <p>We've invited the INSPIRE community to contribute to this project from day one, and we've now done our
+    second meeting with the expert group as well as JRC and DG Environment representatives from the advisory board. We
+    had set these objectives for the meeting:
+  </p>
+
+  <ul>
+    <li>Ensure this site provides Value to the experts so that this is a resource that they like pointing people to</li>
+    <li>Ensure a common understanding of the goals of the project among stakeholders</li>
+    <li>Experts are asked to provide feedback on the Full Extension Pattern Catalogue and the guidance</li>
+  </ul>
+  
+  <img src="/images/ispra20160421.jpg" alt="The group of experts and advisors at the JRC in Ispra" title="The group of experts and advisors at the JRC in Ispra" style="width: 70%; padding: 20px">
+
+  <p style="margin-top: 1em">Meeting agenda:</p>
+  <ol>
+    <li>Update on the survey and on the Extension Inventory (Thorsten Reitz)</li>
+    <li>Discussion: Survey results and Inventory (All)</li>
+    <li>Introduction to the Extension Methodology (Thorsten Reitz)</li>
+    <li>Expert round table on Extension Methodology (All)</li>
+    <li>Introduction to the Pattern Catalogue (Thorsten Reitz)</li>
+    <li>Expert round table on each Pattern (All)</li>
+    <li>Toolchain and tooling (All)</li>
+    <li>Inventory on follow up and recommendations (All)</li>
+  </ol>
+
+  <h2><a id="minutes" class="anchor" href="#minutes" aria-hidden="true"></a>Notes from the meeting</h2>
+
+  <p>Vlado Cetl, INSPIRE team member at JRC, welcomes the participants. Thorsten Reitz (wetransform) gave an introduction to the agenda. The first topic was to provide the latest results of the survey and new model extensions, and to discuss the these findings:</p>
+
+  <ol>
+    <li>At the second cutoff date of 20th of June 2016, we collected 109 responses. This number will make some realistic statistics possible, an analysis could be added to explain better the results of the survey</li>
+    <li>35 unique reported models; 19 are so far released by the submitters to be freely published. Some models are added just a few days ago and still need to be integrated on the right places in the document.</li>
+    <li>There is a last call for known missing extensions to the inspire team. The survey will be open for one more week to include models appearing from this last check. A plain list of the reported extension will send around</li>
+    <li>It is stressed to include as much as possible the models, for even a PDF will do and a link to the source for more information, which is crucial for a more detailed look up</li>
+    <li>Thorsten will look into the format of the meta data of the models now available to improve the use and usability</li>
+    <li>For some specific questions the explanation should be added more extensively. Is should be clear the answer are supplied by the applicants. No quality check is carried out to verify the answers.</li>
+  </ol>
+
+  <p>The second topic of the day was the Extension methodology. Thorsten walked the group through the whole methodology, after which we discussed the approach and made edits where possible:</p>
+
+  <ol>
+    <li>For the phase ‘consult’ is added to stress the importance of the role of the stakeholders. It is added before the operating phase but might be present in previous phases as well</li>
+    <li>Validation of the specification at the UML level to be added</li>
+    <li>An important issue during this meeting was the primary goal and focus related to the compliance for INSPIRE. It is confirmed that primary objective the study is on extending INSPIRE data specs, but it is also clear that compliance for INSPIRE is an important driver for this study and needs to be addressed. When relevant, the reuse of INSPIRE models where compliance is lost using the same methodology and patterns is also valuable.</li>
+    <li>The clarification of all of this should be best described in the introduction which will be revised in the final phase of the document to match up with what we did</li>
+    <li>Emphasis should be in the modeling part coming to the patterns described. But it is also clear that the full process of the chain up to creating the services  (including the methodology) should also be described in a concise, but complete way</li>
+    <li>The model extension in the pattern chapter (GCM) r should be rewritten and moved to the methodology part. They describe rules to follow and basic principles which is less recognized as a pattern</li>
+    <li>The work is basically done at more then one level, the conceptual, the schema and the data level. Is might be good to show this for the described actions/activities in a matrix where this takes place.</li>
+  </ol>
+
+  <p>During the second day, we discussed the patterns and the tutorial project. We also discussed how the proceed, finalizing this project and how to hand over the results and follow up actions where needed. First, on the patterns:
+  </p>
+
+  <ol>
+    <li>We have 6 patterns identified, 5 related to the models on the level of classes and properties and 2 related to codelists and constraints.</li>
+    <li>Association: Bi-directional associations violate the GCM rules (annex F) and cannot be used - state clearly in pattern</li>
+    <li>Aggregation: It is decided to keep aggregation and composition both. On the conceptual level they are different. A better example is needed to make this clearer. It was noted that aggregation when implemented (encoded) is basically reduced to associations.</li>
+    <li>Mixin: can be seen as a form of multiple inheritance, so that will be a better entrance to this pattern. Mixin is handle by tagging, which is less visible in the UML class diagram. Use notes to show this clearly. Mixin only to be used when this makes sense, sometimes the use of a ‘datatype’ will be sufficient</li>
+    <li>Inheritance. For INSPIRE compliance extensions this is mainly restricted to sub-typing. There are many specific uses of inheritance allowed in UML which compromises INSPIRE compliance, such as suppress and redefine, but also ‘tricks’ to inherit also documentation (all-in-all-documentation) a lot of this is discussed in ELF before. Main message is that be aware of the compliant and not-compliant use when extending INSPIRE models</li>
+    <li>Constraints: the same message as for inheritance: don’t compromise compliance when compliance is the primary goal</li>
+    <li>Codelists: the issue basically is how to publis and preserv consistency and keep the proper links to the sources. The JRC  registry can be used for this. There is already a clear description of ‘How To’ in the GCM 2.5</li>
+  </ol>
+
+  <p>We then proceeded to discuss the tutorial project:</p>
+
+  <ol>
+    <li>As an example with sample data set it is proposed to use the CDDA model. The data is publicly available, in English, the process steps are done and it includes more then one pattern.</li>
+  </ol>
+
+  <p>After a brief discussion of general remarks, we concluded the meeting with a discussion of the next steps:</p>
+
+  <ol>
+    <li>Recommendations:
+      <ol>
+        <li>Set up the registry for extension properly and maintain this</li>
+        <li>Validate the metadata of the currently submitted extensions</li>
+        <li>Promote to complete the inventory including the models and references to the source</li>
+        <li>Include extensions in ‘find your scope’</li>
+        <li>Follow up the open issues identified</li>
+      </ol>
+    </li>
+    <li>Relation to the INSPIRE Technical Maintenance and Implementation Group (MIG-T):
+      <ol>
+        <li>Put on the agenda of the next MIG-T meeting</li>
+        <li>Setting up the registry</li>
+        <li>Get approval for endorsement, include a validation framework</li>
+        <li>Take care of governance and decide how to maintain:
+          <ol>
+            <li>Continue the study when it is judged to be useful</li>
+            <li>Follow up on open issues, surfaced in the study</li>
+            <li>Open up for comment resolution in the member states</li>
+            <li>Decide how to integrate with other activities, such as ARE3NA or ELISA</li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li>Dissemination channels:
+      <ol>
+        <li>wetransform and data harmonisation panel pages</li>
+        <li>The Geonovum website</li>
+        <li>The INSPIRE website (including Thematic Clusters)</li>
+        <li>ISO best practices</li>
+      </ol>
+    </li>
+    <li>Technical improvements for follow-up:
+      <ol>
+        <li>Add a simple self-registration form for more extensions instead of the survey</li>
+        <li>Improve the statistics, model links, and pattern identification using concrete models</li>
+        <li>Make sure we get access to the actual model for as many extensions as possible</li>
+      </ol>
+    </li>
+    <li></li>
+  </ol>
+
+</section>

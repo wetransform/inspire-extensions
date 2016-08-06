@@ -8,72 +8,242 @@ title:  An End-to-End-Tutorial - INSPIRE data specification extensions
 <section>
   <h1>The End-To-End Tutorial</h1>
 
-  <p>After all the background and methodology, it's time to get our hands dirty. For this tutorial, we will use as many freely accessible tools (such as Open Source) as possible to make the material more accessible.  You will need the following software:</p>
+  <p>After all the background and methodology, it's time to get our hands dirty. For this tutorial, we will use as many freely accessible tools (such as Open Source) as possible to make the material more accessible. You will need the following software installed on your Linux/Windows/Mac environment:</p>
 
   <ol>
-    <li>Data Modelling: <a href="http://www.sparxsystems.com.au/" target="_blank">Enterprise Architect</a></li>
-    <li>Schema Transformation: <a href="http://shapechange.net/" target="_blank">ShapeChange (Open Source)</a></li>
-    <li>Data Transformation: <a href="https://www.wetransform.to/products/halestudio/" target="_blank">hale studio (Open Source)</a></li>
-    <li>Service Publishing:<a href="http://www.deegree.org/" target="_blank">deegree (Open Source)</a></li>
+    <li>Data Modelling: <a href="http://www.sparxsystems.com.au/" target="_blank">Enterprise Architect 12.0</a></li>
+    <li>Schema Transformation: <a href="http://shapechange.net/" target="_blank">ShapeChange 2.1.0 (Open Source)</a></li>
+    <li>Data Transformation: <a href="https://www.wetransform.to/products/halestudio/" target="_blank">hale studio 2.9.4 (Open Source)</a></li>
+    <li>Service Publishing: <a href="http://www.deegree.org/" target="_blank">deegree 3.3.18 (Open Source)</a></li>
   </ol>
 
-  <p>You also need a test data set to play around with in later stages of the project. We're going to use an Open Data resource provided by the city of Hamburg.</p>
+  <p>You also need a test data set to play around with in later stages of the project. We're going to use an SQLite CDDA data set that we can <a href="http://www.eea.europa.eu/data-and-maps/data/nationally-designated-areas-national-cdda-10#tab-gis-data" target="_blank">download from the European Environmental Agency</a> .</p>
 
-  <h2><a href="#analysis" id="analysis" name="analysis"></a>Analysis and Comparison</h2>
+  <h2><a href="#analysis" id="analysis" name="analysis"></a>Analysis</h2>
 
   <blockquote>
     <p>It's late on a rainy Friday afternoon. I am in the middle of reviewing an article when my boss Alex calls. He sounds agitated and tells me that there is a problem, so he needs me to help him. Ten minutes later, we sit together at the bar of the pub across the road. Alex tells me about the meeting he has had in the last two days in the capitol city, with many other directors of public authorities.
     </p>
     <p>
-      After ordering our drinks, Alex starts to tell me what bothers him: &laquo;<em>We're being blamed for lack of progress on two projects. The ministry is under pressure from the EU, because of our lack of progress in INSPIRE implementation. In addition, after last year's new legal act, we're supposed to implement a new national building permit system, but we haven't made any headway on this one either. After the meeting yesterday, we at least have some funding for the national project, though there is almost no budget for INSPIRE. I need you to take over the building permit implementation project, while I will figure out how to fund the INSPIRE project.&raquo;</em> I listen to his explanations for a few more moments, then I interrupt him: &laquo;<em>You know what? Give me both your problem projects. I have an idea how we can make both work at the same time, with one budget! Do I have your support?&raquo;</em>
+      After ordering our drinks, Alex starts to tell me what bothers him: &laquo;<em>We're being blamed for lack of progress on two projects. The ministry is under pressure from the EU, because of our lack of progress in INSPIRE implementation. In addition, after last year's new legal act, we're supposed to implement a new protected sites reporting system using the Common Database on Designated Areas (CDDA) standard, but we haven't made any headway on this one either. After the meeting yesterday, we at least have some funding for the CDDA project, though there is almost no budget for INSPIRE. I need you to take over the protected sites implementation project, while I will figure out how to fund the INSPIRE project.&raquo;</em> I listen to his explanations for a few more moments, then I interrupt him: &laquo;<em>You know what? Give me both your problem projects. I have an idea how we can make both work at the same time, with one budget! Do I have your support?&raquo;</em>
     </p>
-    <p>Two weeks later, I've assembled my team. I've got three domain experts from spatial planning and cadastre, Chris, who is an integration expert and Thorbjörn, who is an ETL expert. It was really hard to get some of them on board - everybody is tied up in their daily projects, and some were not exactly keen on INSPIRE. In our first meeting, we analyse relevant documents and take a look at the <a href="/patterns/index.html#modelPatterns">model patterns</a>. We quickly decide that we will use the <a href="/patterns/2016/06/17/inspire.html"> INSPIRE extension pattern</a>, which means that whatever model we design, our model is not allowed to make compatibility-breaking changes.</p>
+    <p>Two weeks later, I've assembled my team. I've got three domain experts from nature conservation, Chris, who is an integration expert and Thorbjörn, who is an ETL expert. It was really hard to get some of them on board - everybody is tied up in their daily projects, and some were not exactly keen on INSPIRE. In our first meeting, we analyse relevant documents and take a look at the <a href="/patterns/index.html#modelPatterns">model patterns</a>. We quickly decide that we will use the <a href="/patterns/inspire.html"> INSPIRE extension pattern</a>, which means that whatever model we design, our model is not allowed to make compatibility-breaking changes.</p>
   </blockquote>
 
-  <p>After you've <a href="/extension-methodology.html#organisation">set up your team and got organised</a>, your team's first step is to perform an analysis on the requirements for the extended data model. These requirements come from various source, such as legal texts or implementation rules. We will use the following example text:</p>
+  <p>After you've <a href="/extension-methodology.html#organisation">set up your team and got organised</a>, your team's first step is to perform an analysis on the requirements for the extended data model. These requirements come from various sources, such as legal texts or implementation rules. The following text example describes CDDA:</p>
 
   <blockquote>
-    In the Building Permit System, each Application is submitted by a natural person, who can act on behalf of one or more legal persons or other natural persons. The Building Permit Application (BPA) has to refer to all directly and indirectly affected Parcels, as well as to existing build structures, such as Buildings or Bridges. For each affected Parcel, the BPA  has to describe how that Parcel will be affected, e.g. by shadow, glare, as access way for construction equipment, or through the construction itself. The BPA also has to reference to any relevant restriction zones and development plans. The BPA shall furthermore contain a 3D LOD2 Geometry of the exterior of the planned Building. The BPA has to contain information on the intended uses of the structure. In case of a residential or office building, the BPA also needs to state the planned energy efficiency level, the type of heating and cooling planned, as well as planned regenerative energy generation measures.
+    <p>The Common Database on Designated Areas (CDDA) is more commonly known as Nationally designated areas. The inventory began in 1995 under the CORINE programme of the European Commission. It is now one of the agreed Eionet priority data flows maintained by EEA with support from the European Topic Centre on Biological Diversity. It is a result of an annual data flow through Eionet countries. The EEA publishes the data set and makes it available to the World Database of Protected Areas (WDPA). The CDDA data can also be queried online in the European Nature Information System (EUNIS).</p>
+    <p>The Database is divided into a national area and an international area. The national area is for member states of the EU or EEA about the European Environment Information and Observation Network or EIONET. Data cleansing for the national area of non-EEA members and the international area is carried out by UNEP-WCMC systems. The data bank follows the system of the International Union for Conservation of Nature and Natural Resources (IUCN) and the standards of the United Nations in order to ensure compatibility with similar data banks worldwide, especially the World Database on Protected Areas (WDPA).</p>
   </blockquote>
 
-  <p>TODO Extract Requirements</p>
+  <p>The EEA also provides an <a href="http://www.eea.europa.eu/data-and-maps/data/nationally-designated-areas-national-cdda-8/" target="_blank">Excel tables</a>  that describes the data model in detail. From these tables, we learn that the final data model will need to contain information on the following properties of designated areas:</p>
 
-  <h3>Finding your scope and comparing to existing specifications</h3>
+  <ul>
+    <li><strong>Designations</strong> need to be described by providing an <a href="http://unstats.un.org/unsd/methods/m49/m49alpha.htm" target="_blank">ISO ALPHA-3</a> code of the reporting country, the ISO ALPHA-3 code of the country where the data originate from, a national designation type code, the title of the designation in the original language and in English, a reference to the legal text covering the designation as well as a Reference to the Official Journal where the law was published. Furthermore, the Designation need to have the address of the administrative authority responsible for the designation, the total number of sites and the total area in hectares covered for this designation. Finally, there should be space for remarks concerning the designation.</li>
+    <li><strong>Designated Sites</strong> have a Unique record identifier for nationally designated areas, a national site code, an <a href="http://unstats.un.org/unsd/methods/m49/m49alpha.htm" target="_blank">ISO ALPHA-3</a> code of the reporting country, the ISO ALPHA-3 code of the country where the data originate from, a National designation type code, a name of the site in local language and the surface area of site in hectares. They are also described through a IUCN management category, the year of establishment (when the site was first time designated), and the year and code of the last legal change. The location is indicated by geographical latitude (x, y) in decimal degrees format. Finally, each record also contains information on licensing and remarks on the site record.</li>
+  </ul>
 
-  <p>TODO</p>
+  <p>The table describes additional potential classes for our model, such as Designation Boundaries, Site Boundaries and a National Overview.</p>
+
+  <h2><a href="#comparison" id="comparison" name="comparison"></a>Finding your scope and comparing to existing specifications</h2>
+
+  <p>In a first step, we need to identify which INSPIRE data specifications are a good match for our extension project. We use the <a href="http://inspire-regadmin.jrc.ec.europa.eu/dataspecification/" target="_blank">Interactive Data Specifications Find your Scope tool</a> for this purpose. We start with a <em>Direct search</em>, where we enter &laquo;Designation&raquo;:</p>
+
+  <div style="margin: 20px">
+    <img src="/images/tutorial-find-your-scope.png" title="Find your scope - Designation" style="width: 100%; min-width: 400px;">
+  </div>
+
+  <p>We get a couple of direct hits, among them the theme &laquo;Protected Sites&raquo; and the spatial object type <code>Protected Site</code>. Since we're going to deal with protected sites, let's look at that in detail. We click on the name, and learn that this type has several relevant properties such as <code>legalFoundationDate</code> and <code>legalFoundationDocument</code>, both of which are required in the CDDA definition:</p>
+
+  <div style="margin: 20px">
+    <img src="/images/tutorial-find-your-scope-protected-site.png" title="Find your scope - Protected Site properties" style="width: 100%; min-width: 400px;">
+  </div>
+
+  <p>Next, we do a complete comparison of the requirements of our CDDA model extension with the INSPIRE Protected Sites model. This comparison results in the following coverage table:</p>
+
+  <table class="table table-responsive table-striped">
+    <tr>
+      <th>Requirement</th>
+      <th>Covered</th>
+      <th>Not covered</th>
+    </tr>
+    <tr>
+      <td>IE-01 Designation Type</td>
+      <td>The required Type Designation Type can be matched to the to the INSPIRE data type <code>DesignationType</code>. We can use <code>designationScheme</code> to indicate the CDDA/IUCN designation, and use <code>designation</code> for the name of the designation.</td>
+      <td>All other properties - such as country codes, a citation for the responsible authority and statistical summaries - need to be added.</td>
+    </tr>
+    <tr>
+      <td>IE-02 Designated Areas Type</td>
+      <td>The required type <code>Designated Area</code> can be matched to the INSPIRE spatial object type <code>Protected Site</code>. We can use the <code>legalFoundationDate</code> and <code>legalFoundationDocument</code> properties to indicate when a new site was formed, and what the legal foundation was for its formation. We use <code>siteName</code> to cover the naming requirements in multiple languages.</td>
+      <td>There are several properties that CDDA requires which the <code>ProtectedSites</code> object type does not cover. These include remarks and data dissemination rules, the ISO country codes, the IUCN category, the major ecosystem type, an indication of the marine area, the national ID, the type of protected area, a representative point geometry, a resolution code and information on availability of additional spatial data.</td>
+    </tr>
+  </table>
 
   <h2><a href="#extension" id="extension" name="extension"></a>Extension Design (Modelling)</h2>
 
   <blockquote>
-    <p>We now know exactly what we need to add to the INSPIRE data specification, but we don't yet know how we should do it. I organise a two-day meeting with the others of my working group in a somewhat remote location, in the hopes of getting everyone's full attention. After the usual agenda setting and introductions, we directly start working. First of all, we prioritize requirements. We vote to identify the 10 most important ones. We start with the most important requirement. For each requirement, everybody on the team gets three minutes to decide how he or she would design a model for that requirement, using any tools they prefer. Most of us simply draw on the ample whiteboards we have in the room. Everybody then presents their design, and the others give feedback about aspects they like or dislike. During all the time, I note done the likes and dislikes, and consolidate them into a single conceptual model using my UML modelling software After an intense day, we've gone through 14 requirements. While the others are off to enjoy a well-deserved beer on the patio, I finalize the integrated draft model.</p>
+    <p>We now know exactly what we need to add to the INSPIRE data specification, but we don't yet know how we should do it. I organise a two-day meeting with the others of my working group in a somewhat remote location, in the hopes of getting everyone's full attention. After the usual agenda setting and introductions, we directly start working. First of all, we prioritize requirements and then start with the most important requirement. For each requirement, everybody on the team gets three minutes to decide how he or she would design a model for that requirement, using any tools they prefer. Most of us simply draw on the ample whiteboards we have in the room. Everybody then presents their design, and the others give feedback about aspects they like or dislike. During all the time, I note done the likes and dislikes, and consolidate them into a single conceptual model using a UML modelling software. After an intense day, we've gone through all requirements. While the others are off to enjoy a well-deserved beer on the patio, I finalize the integrated draft model.</p>
   </blockquote>
 
-  <p>TODO</p>
+  <p>One of the key challenges we have to resolve is to pick the right extension pattern. We discuss two main extension patterns - <a href="/patterns/inheritance.html">Inheritance</a> and <a href="/patterns/association.html">Association</a>. The main difference is that when we use <code>inheritance</code>, we will have a single object that complies to the requirements of the INSPIRE, while when we use <code>Association</code>, we will have two objects, where the <code>DesignatedArea</code> object will reference the ProtectedSite object. This is what the UML model for the Inheritance approach looks like:</p>
 
-  <h3></h3>
+  <div style="margin: 20px">
+    <img src="/images/tutorial-uml-inheritance.png" title="UML Diagram for Inheritance-based Extension" style="width: 100%; min-width: 400px;">
+  </div>
+
+  <p>This is what the comparable UML model for the Association approach looks like:</p>
+
+  <div style="margin: 20px">
+    <img src="/images/tutorial-uml-association.png" title="UML Diagram for Association-based Extension" style="width: 100%; min-width: 400px;">
+  </div>
+
+  <p>In the end, we decide to use the association approach, so that the core INSPIRE <code>ProtectedSite</code> object can also be used independent of all the CDDA-related properties.</p>
+
+  <p>To create the association-based UML model in Enterprise Architect, proceed as follows:</p>
+
+  <ol class="workflow">
+    <li>Download the INSPIRE UML model as a EA file from the <a href="http://inspire.ec.europa.eu/index.cfm/pageid/2/list/datamodels" target="_blank">INSPIRE site</a>.</li>
+    <li>Start Enterprise Architect and open the INSPIRE UML model. Since you loaded the existing INSPIRE model, you will also automatically use the &laquo;UML Profile for INSPIRE&raquo;.</li>
+    <li>Save the model to a new name to represent your extension. In this example, use <code>CDDA</code>.</li>
+    <li>In the Project Browser, click on &laquo;Add Model&raquo; to create a new Model. In the Model Wizard, click on &laquo;Geospatial&raquo; and then select &laquo;GML Application Schema&raquo;. Call the new model <code>CDDA Designated Area</code>.
+      <div style="margin: 20px">
+        <img src="/images/tutorial-uml-model-creation.png" title="UML Model creation for a GML Application Schema" style="width: 50%; min-width: 400px; margin-left: 25%; margin-right: 25%">
+      </div>
+    </li>
+    <li>In the Project Browser, click on &laquo;Add Package&raquo; to create a new Package in the Model you just created. Call the package <code>CDDA Designated Area</code>.</li>
+    <li>In the Project Browser, right-click on the new package and click on &laquo;Properties&raquo;. In this window, set the stereotype property to <code>applicationSchema</code>. This helps Shapechange later on to identify for which packages it needs to generate GML application schemas for.
+      <div style="margin: 20px">
+        <img src="/images/tutorial-uml-package-stereotype.png" title="UML Package Stereotype for a GML Application Schema" style="width: 90%; min-width: 400px; margin-left: 5%; margin-right: 5%">
+      </div>
+      Furthermore, go to the &laquo;UML Profile for INSPIRE&raquo; tab and set the values of the properties <code>targetNamespace</code>, <code>version</code>, <code>xmlns</code> and <code>xsdDocument</code>.
+    </li>
+    <li>In the Project Browser, right-click on the new package and click on &laquo;Add Diagram...&raquo;. Select &laquo;UML Structural&raquo; and then select &laquo;Class Diagram&raquo;. Give the diagram a name, such as <code>CDDA Designated Area</code>, and then open the diagram.</li>
+  </ol>
+
+  <p>Now, you have a canvas on which to model your extension. First, let's pull in the types from the INSPIRE model that we want to use in our extension:</p>
+
+  <ol class="workflow">
+    <li>In the Project Browser, expand the &laquo;INSPIRE Consolidated UML Model&raquo;</li>
+    <li>Then, go to &laquo;Themes&raquo;, &laquo;Annex I&raquo;, &laquo;Protected Sites&raquo;, &laquo;Protected Sites Simple&raquo;.</li>
+    <li>Select the feature type <code>ProtectedSite</code>, and drag and drop it into your new diagram.</li>
+    <li>Select the data type <code>DesignationType</code>, and drag and drop it into your new diagram.</li>
+  </ol>
+
+  <p>The next step is to add your own extension by creating a new type. Proceed as follows:</p>
+
+  <ol class="workflow">
+    <li>From the Toolbox, drag a Class into your drawing. Call it <code>DesignatedArea</code>.</li>
+    <li>Set the stereotype of the new class to <code>featureType</code>.</li>
+    <li>Make sure the values for the &laquo;UML profile for INSPIRE&raquo; are set as follows:
+      <div style="margin: 20px">
+        <img src="/images/tutorial-uml-class-profiletags.png" title="UML Class INSPIRE profile tags settings" style="width: 90%; min-width: 400px; margin-left: 5%; margin-right: 5%">
+      </div>
+    </li>
+    <li>Confirm with &laquo;OK&raquo;.</li>
+  </ol>
+
+  <p>Your new <code>DesignatedArea</code> now needs to be associated with the <code>ProtectedSite</code> class:</p>
+
+  <ol class="workflow">
+    <li>In the diagram, select the new <code>DesignatedArea</code> class. On the top right hand side of the class, an arrow appear. Click and press on that arrow and drag its tip over to the <code>ProtectedSite</code> class.</li>
+    <li>A popup appears. Pick &laquo;Association&raquo;.</li>
+    <li>Double-click on the newly created association to edit its properties. Go to the Role(s) category and configure the target role as follows:
+      <div style="margin: 20px">
+        <img src="/images/tutorial-uml-association-properties.png" title="UML association properties" style="width: 90%; min-width: 400px; margin-left: 5%; margin-right: 5%">
+      </div>
+    </li>
+    <li>Confirm with &laquo;OK&raquo;.</li>
+  </ol>
+
+  <p>Now, we can add all the missing properties, one by one. Repeat the following process for all missing properties:</p>
+
+  <ol class="workflow">
+    <li>Right-click on the <code>DesignatedArea</code> class. Go to &laquo;Features &amp; Properties&raquo; and click on &laquo;Attributes...&raquo;.</li>
+    <li>Click on &laquo;New Attribute&raquo; and enter the name of the Attribute, such as <code>remark</code>.</li>
+    <li>Click on the &laquo;Type&raquo; column, and pick &laquo;Select Type...&raquo;.</li>
+    <li>Go to the Search category, and type in <code>CharacterString</code>. You will see several results:
+      <div style="margin: 20px">
+        <img src="/images/tutorial-uml-select-type.png" title="Select an attribute type" style="width: 70%; min-width: 400px; margin-left: 15%; margin-right: 15%">
+      </div>
+      Pick <code>CharacterString</code>. Instead of just typing something or picking one of the inbuilt primitive types, you should always first search whether a possible type you can use exists already in the INSPIRE and ISO models, like in this case. Re-using these types for properties helps tremendously with ensuring a compatible encoding.
+    </li>
+    <li>Change the value in the &laquo;Scope&raquo; column to <code>Public</code>.</li>
+    <li>Make sure that you set the Multiplicity to the required value, e.g. <code>[1..*]</code>.
+      <div style="margin: 20px">
+        <img src="/images/tutorial-uml-attribute-cardinality.png" title="Define the cardinality of an attribute" style="width: 90%; min-width: 400px; margin-left: 5%; margin-right: 5%">
+      </div>
+    </li>
+    <li>Confirm with &laquo;Close&raquo;.</li>
+  </ol>
+
+  <p>In some cases, there won't be an appropriate type to use for a property. You will have to create it yourself. In the CDDA model, it is particularity common that we need to add or <a href="/patterns/codelist-extension.html">extend codelists</a>. The following process describes how to add a new code list and needs to be repeated for each such code list type:</p>
+
+  <ol class="workflow">
+    <li>From the Toolbox, drag a Class into your drawing. Call it <code>CddaResolutionCodeValue</code>.</li>
+    <li>Set the stereotype of the new class to <code>codeList</code>.</li>
+    <li>Make sure the values for the &laquo;UML profile for INSPIRE&raquo; are set as follows:
+      <div style="margin: 20px">
+        <img src="/images/tutorial-uml-codelist-new.png" title="New Codelist in UML" style="width: 90%; min-width: 400px; margin-left: 5%; margin-right: 5%">
+      </div>
+    </li>
+    <li>Confirm with &laquo;OK&raquo;.</li>
+    <li>To add individual coded values to the codelist, go to &laquo;Features &amp; Properties&raquo; and click on &laquo;Attributes...&raquo;. Create coded values in the same way you created attributes:
+      <div style="margin: 20px">
+        <img src="/images/tutorial-uml-codelist-values.png" title="New Codelist values in UML" style="width: 90%; min-width: 400px; margin-left: 5%; margin-right: 5%">
+      </div>
+    </li>
+    <li>Confirm creation of coded values with &laquo;Close&raquo;.</li>
+    <li>Now that you have created the new Codelist type, you can use it as an attribute type in the <code>DesignatedArea</code> class.</li>
+  </ol>
+
+  <p>To extend a code list in UML, go through these steps:</p>
+
+  <ol class="workflow">
+    <li>In the Project Browser, navigate to the &laquo;Protected Sites Simple&raquo; schema, select <code>DesignationSchemeValue</code> and drag it into the diagram.</li>
+    <li>From the Toolbox, drag a Class into your drawing. Call it <code>DesignationSchemeValue</code> as well, so that is can substitute the original code list later on.</li>
+    <li>Set the stereotype of the new class <code>DesignationSchemeValue</code> to <code>codeList</code>. Also, make sure that the required values for the &laquo;UML profile for INSPIRE&raquo; are set:
+      <div style="margin: 20px">
+        <img src="/images/tutorial-uml-codelist-extension.png" title="New Codelist extension in UML" style="width: 90%; min-width: 400px; margin-left: 5%; margin-right: 5%">
+      </div>
+    </li>
+    <li>Click on the new class <code>DesignationSchemeValue</code>, then click and drag the arrow that appears on the top right of the class. Drop it on the original INSPIRE  <code>DesignationSchemeValue</code> codelist, and pick <code>Generalization</code> from the pop-up menu.</li>
+    <li>Confirm with &laquo;OK&raquo;.</li>
+    <li>Add additional coded values to the codelist. Go to &laquo;Features &amp; Properties&raquo; and click on &laquo;Attributes...&raquo;. Create coded values in the same way you created attributes.</li>
+    <li>Confirm creation of coded values with &laquo;Close&raquo;. Your new codelist should now look like this in the UML diagram:
+      <div style="margin: 20px">
+        <img src="/images/tutorial-uml-codelist-extension-diagram.png" title="New Codelist extension in UML diagram" style="width: 50%; min-width: 400px; margin-left: 25%; margin-right: 25%">
+      </div>
+    </li>
+    <li>Now that you have created the new Codelist type, you can use it as an attribute type in the <code>DesignatedArea</code> class.</li>
+  </ol>
+
+  <p>When you have repeated these steps for all required properties, we get the following model:</p>
+
+  <div style="margin: 20px">
+    <img src="/images/tutorial-uml-association.png" title="UML Diagram for Association-based Extension" style="width: 100%; min-width: 400px;">
+  </div>
 
   <h2><a href="#validation" id="validation" name="validation"></a>Validation</h2>
 
   <blockquote>
-    <p>After the first day of the workshop, we've already drafted a first, rough model that covers the most important requirements. Before we hammer out all the details, I ask Chris, our integration expert, and Thorbjörn, the ETL expert, to quickly create a first prototype, so that we can learn what our data will look like. This is what they did:</p>
+    <p>After the first day of the workshop, we've already drafted a first, rough model that covers most requirements. Before we hammer out all the details, I ask Chris, our integration expert, and Thorbjörn, the ETL expert, to quickly create a first prototype, so that we can learn what our data will look like. This is what they did:</p>
   </blockquote>
 
   <h3>Vertical Mapping</h3>
 
-  <p>Our goal is now to see whether we can use the conceptual model we've designed to store and serve BPAs effectively. We thus create two logical models based on the conceptual model:</p>
+  <p>Our goal is now to see whether we can use the conceptual model we've designed to store and serve Designated Areas effectively. We thus create two logical models based on the conceptual model:</p>
 
   <ol>
     <li>The GML Application Schema, which we need to provide Download Services</li>
     <li>A PostgreSQL Database Schema, which we need to provide persistent storage for the BPAs</li>
   </ol>
 
-  <p>We will use Shapechange to create these two logical schemas.</p>
+  <p>We will use Shapechange to create these two logical schemas. We first generate the GML Application Schema. Proceed as follows:</p>
 
-  <ol>
-
+  <ol class="workflow">
+    <li>TODO</li>
   </ol>
-
-  <p>TODO</p>
 
   <h3>Data Integration</h3>
 
@@ -93,5 +263,15 @@ title:  An End-to-End-Tutorial - INSPIRE data specification extensions
   <h2><a href="#publication" id="publication" name="publication"></a>Publication</h2>
 
   <p>TODO</p>
+
+  <h2>Coda</h2>
+
+  <p>Of course it's not the final end yet. You will continue to improve the INSPIRE extension in short and long iterations, and we will also improve this tutorial more and more. Some ideas for the next months:</p>
+
+  <ul>
+    <li>You would like to see a different tool added? Let us know!</li>
+    <li>You would like to generate services and models online without desktop or server tools? Let us know!</li>
+    <li>You would like to see more patterns in the tutorial? Let us know!</li>
+  </ul>
 
 </section>

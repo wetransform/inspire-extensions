@@ -1,0 +1,12 @@
+<ShapeChangeConfiguration xsi:schemaLocation="http://www.interactive-instruments.de/ShapeChange/Configuration/1.1 http://shapechange.net/resources/schema/ShapeChangeConfiguration.xsd">
+    <input>
+        <parameter name="inputModelType" value="EA7"/>
+        <parameter name="inputFile" value="examples/ie-tutorial-cdda-example.eap"/>
+        <parameter name="appSchemaName" value="INSPIRE Extensions CDDA"/>
+        <parameter name="appSchemaNamespaceRegex" value="^http://dd.eionet.europa.eu/.*"/>
+        <parameter name="checkingConstraints" value="disabled"/>
+        <parameter name="representTaggedValues" value="vocabulary,obligation,extensibility,extendableByMS"/>
+        <xi:include href="http://shapechange.net/resources/config/StandardAliases.xml"/>
+    </input>
+    ...
+</ShapeChangeConfiguration>

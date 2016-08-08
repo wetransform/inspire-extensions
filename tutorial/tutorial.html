@@ -1,6 +1,7 @@
 ---
 layout: default
 slug:   tutorial
+category: tutorial
 title:  An End-to-End-Tutorial - INSPIRE data specification extensions
 
 ---
@@ -251,13 +252,45 @@ title:  An End-to-End-Tutorial - INSPIRE data specification extensions
 
   <ol>
     <li>The GML Application Schema, which we need to provide Download Services</li>
-    <li>A PostgreSQL Database Schema, which we need to provide persistent storage for the BPAs</li>
+    <li>A PostgreSQL Database Schema, which we need to provide persistent storage for the Designated Areas</li>
   </ol>
 
-  <p>We will use Shapechange to create these two logical schemas. We first generate the GML Application Schema. Proceed as follows:</p>
+  <p>We will use <a href="http://shapechange.net/get-started/" target="_blank">Shapechange</a> to create these two logical schemas. Make sure that Shapechange works correctly as per the instructions, and that the Enterprise Architect integration also works by following the steps in the Shapechange manual. We first generate the GML Application Schema. To do so, we need to create a configuration file for Shapechange first. Proceed as follows:</p>
 
   <ol class="workflow">
-    <li>TODO</li>
+    <li>Open a programmer's text editor, such as <a href="https://notepad-plus-plus.org/" target="_blank">Notepad++</a>.</li>
+    <li>In the editor, open the <a href="http://shapechange.net/resources/example/inspire_annex_ii_iii_ir.xml" target="_blank">example INSPIRE GML configuration</a>  provided with Shapechange. The first lines of that configuration files look like this:
+      <pre data-line="4,5,6" class="line-numbers" data-src="/tutorial/examples/shapechange-config-fragment.xml"><code></code></pre>
+    </li>
+    <li>In line 4, set the value of the parameter <code>inputFile</code> to the path where your EAP model file resides. Make sure to use a Unix path (e.g. using single forward slashes).</li>
+    <li>In line 5, set the name of your model as you would like to call it.</li>
+    <li>The parameter <code>appSchemaNamespaceRegex</code> in line 6 allows you to limit for which namespaces Shapechange will generate XSDs. Set this to the namespace you used when creating the model, e.g. <code>^http://dd.eionet.europa.eu/.*</code></li>
+    <li>You should also review the rest of the configuration. You might want to adjust the output path (<code>outputDirectory</code>), and you might need additional <code>xsdMapEntries</code>. These entries allow you to tell Shapechange which UML types (classes) map to which GML elements.</li>
+  </ol>
+
+  <p>To execute Shapechange and generate the GML schema, we will create a little shell script so that we will not wonder the next time we need to generate a schema how we did it. Complete these steps:</p>
+
+  <ol class="workflow">
+    <li>Open a programmer's text editor, such as Notepad++.</li>
+    <li>If you're on Windows, open the <code>test.bat</code> script that came with Shapechange, otherwise open the <code>test.sh</code> file. In that file, you can see a call to execute Shapechange using Java:
+      <pre class="line-numbers"><code class="language-bash">#!/bin/sh
+java -jar ShapeChange-2.1.0.jar -Dfile.encoding=UTF-8 -c http://shapechange.net/resources/test/testXMI.xml</code></pre>
+    </li>
+    <li>Change that file so that the path points to the configuration file we've created previously.</li>
+    <li>Save the modified file under a new name in the same folder, e.g. <code>inspire-extension-cdda.sh</code></li>
+    <li>Open up a console window and navigate to your installation directory of Shapechange.</li>
+    <li>Run the script you've created previously: <code>./inspire-extension-cdda.sh</code></li>
+    <li>Assuming there were no errors in the configuration file, you now have an output folder with a log file and with the resulting GML Application Schema!</li>
+  </ol>
+
+  <p>Second, we generate a database schema for PostgreSQL. We do so by adding an additional transformation target to the existing Shapechange configuration:</p>
+
+  <ol class="workflow">
+    <li>In the programmer's text editor, open the configuration file we've created earlier. The later lines of that configuration file contain the definition of multiple output targets. We're going to add one for the generation of SQL, so that the file looks like this:
+      <pre data-line="15,17" class="line-numbers" data-src="/tutorial/examples/shapechange-config-fragment-sql.xml"><code></code></pre>
+    </li>
+    <li>Make sure you adjust the output directory (Line 15). Also, set the Identifier of the spatial reference system you'd like to use to the correct value (Line 17).</li>
+    <li>Save the file and re-run Shapechange as per the instructions above.</li>
   </ol>
 
   <h3>Data Integration</h3>
@@ -281,7 +314,7 @@ title:  An End-to-End-Tutorial - INSPIRE data specification extensions
 
   <h2>Coda</h2>
 
-  <p>Of course it's not the final end yet. You will continue to improve the INSPIRE extension in short and long iterations, and we will also improve this tutorial more and more. Some ideas for the next months:</p>
+  <p>Of course it's not the end yet. You will continue to improve the INSPIRE extension in short and long iterations, and we will also improve this tutorial more and more. Some ideas for the next months:</p>
 
   <ul>
     <li>You would like to see a different tool added? Let us know!</li>

@@ -1,0 +1,23 @@
+<ShapeChangeConfiguration xsi:schemaLocation="http://www.interactive-instruments.de/ShapeChange/Configuration/1.1 http://shapechange.net/resources/schema/ShapeChangeConfiguration.xsd">
+    <input>
+        ...
+    </input>
+    ...
+    <targets>
+        <TargetXmlSchema class="de.interactive_instruments.ShapeChange.Target.XmlSchema.XmlSchema" mode="enabled">
+            ...
+        </TargetXmlSchema>
+        <Target class="de.interactive_instruments.ShapeChange.Target.Codelists.CodelistDictionaries" mode="enabled">
+            ...
+        </Target>
+        <Target class="de.interactive_instruments.ShapeChange.Target.SQL.SqlDdl" inputs="step2" mode="enabled">
+            <targetParameter name="defaultEncodingRule" value="sql"/>
+            <targetParameter name="outputDirectory" value="testResults/sql/ddl"/>
+            <targetParameter name="size" value="-1"/>
+            <targetParameter name="srid" value="31467"/>
+            <targetParameter name="createReferences" value="true"/>
+            <targetParameter name="createDocumentation" value="true"/>
+            <xi:include href="http://shapechange.net/resources/config/StandardSqlMapEntries-PostgreSQL.xml"/>
+        </Target>
+    </targets>
+</ShapeChangeConfiguration>

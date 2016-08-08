@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="{{ "/bower_components/chartist/dist/chartist.css" | prepend: site.baseurl }}">
   <link rel="stylesheet" href="{{ "/stylesheets/chart-overrides.css" | prepend: site.baseurl }}">
 
-  {% if page.category == "patterns" %}
+  {% if page.category == "patterns" or page.category == "tutorial" %}
   <link rel="stylesheet" href="{{ "/bower_components/prism/themes/prism-coy.css" | prepend: site.baseurl }}">
   <link rel="stylesheet" href="{{ "/bower_components/prism/plugins/line-highlight/prism-line-highlight.css" | prepend: site.baseurl }}">
   <link rel="stylesheet" href="{{ "/bower_components/prism/plugins/line-numbers/prism-line-numbers.css" | prepend: site.baseurl }}">
@@ -24,8 +24,8 @@
   <script src='{{ "/bower_components/jquery/dist/jquery.min.js" | prepend: site.baseurl }}' charset="UTF-8"></script>
   {% if page.slug == "survey" %}
   <script src='{{ "/bower_components/chartist/dist/chartist.min.js" | prepend: site.baseurl }}'></script>
-  {% endif %}
   <script src="/javascripts/chartist-plugin-legend.js"></script>
+  {% endif %}
 
   <!--[if lt IE 9]>
   <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>

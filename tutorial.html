@@ -19,6 +19,13 @@ title:  An End-to-End-Tutorial - INSPIRE data specification extensions
 
   <p>You also need a test data set to play around with in later stages of the project. We're going to use an SQLite CDDA data set that we can <a href="http://www.eea.europa.eu/data-and-maps/data/nationally-designated-areas-national-cdda-10#tab-gis-data" target="_blank">download from the European Environmental Agency</a> .</p>
 
+  <table class="alert-warning important-info">
+    <tr>
+      <td style="width:3em"><div class="important-info-icon"><span class="glyphicon glyphicon-exclamation-sign" style="font-size:2em"></span></div></td>
+      <td>We use an existing INSPIRE extension for CDDA for the purpose of this example. If you need to deliver CDDA data, please use the official extension, and not a custom variant you might build using this tutorial.</td>
+    </tr>
+  </table>
+
   <h2><a href="#analysis" id="analysis" name="analysis"></a>Analysis</h2>
 
   <blockquote>
@@ -34,7 +41,7 @@ title:  An End-to-End-Tutorial - INSPIRE data specification extensions
 
   <blockquote>
     <p>The Common Database on Designated Areas (CDDA) is more commonly known as Nationally designated areas. The inventory began in 1995 under the CORINE programme of the European Commission. It is now one of the agreed Eionet priority data flows maintained by EEA with support from the European Topic Centre on Biological Diversity. It is a result of an annual data flow through Eionet countries. The EEA publishes the data set and makes it available to the World Database of Protected Areas (WDPA). The CDDA data can also be queried online in the European Nature Information System (EUNIS).</p>
-    <p>The Database is divided into a national area and an international area. The national area is for member states of the EU or EEA about the European Environment Information and Observation Network or EIONET. Data cleansing for the national area of non-EEA members and the international area is carried out by UNEP-WCMC systems. The data bank follows the system of the International Union for Conservation of Nature and Natural Resources (IUCN) and the standards of the United Nations in order to ensure compatibility with similar data banks worldwide, especially the World Database on Protected Areas (WDPA).</p>
+    <p>The database is divided into a national area and an international area. The national area is for member states of the EU or EEA about the European Environment Information and Observation Network or EIONET. Data cleansing for the national area of non-EEA members and the international area is carried out by UNEP-WCMC systems. The database follows the system of the International Union for Conservation of Nature and Natural Resources (IUCN) and the standards of the United Nations in order to ensure compatibility with similar data banks worldwide, especially the World Database on Protected Areas (WDPA).</p>
   </blockquote>
 
   <p>The EEA also provides an <a href="http://www.eea.europa.eu/data-and-maps/data/nationally-designated-areas-national-cdda-8/" target="_blank">Excel tables</a>  that describes the data model in detail. From these tables, we learn that the final data model will need to contain information on the following properties of designated areas:</p>
@@ -83,7 +90,7 @@ title:  An End-to-End-Tutorial - INSPIRE data specification extensions
   <h2><a href="#extension" id="extension" name="extension"></a>Extension Design (Modelling)</h2>
 
   <blockquote>
-    <p>We now know exactly what we need to add to the INSPIRE data specification, but we don't yet know how we should do it. I organise a two-day meeting with the others of my working group in a somewhat remote location, in the hopes of getting everyone's full attention. After the usual agenda setting and introductions, we directly start working. First of all, we prioritize requirements and then start with the most important requirement. For each requirement, everybody on the team gets three minutes to decide how he or she would design a model for that requirement, using any tools they prefer. Most of us simply draw on the ample whiteboards we have in the room. Everybody then presents their design, and the others give feedback about aspects they like or dislike. During all the time, I note done the likes and dislikes, and consolidate them into a single conceptual model using a UML modelling software. After an intense day, we've gone through all requirements. While the others are off to enjoy a well-deserved beer on the patio, I finalize the integrated draft model.</p>
+    <p>We now know exactly what we need to add to the INSPIRE data specification, but we don't yet know how we should do it. I organise a two-day meeting with the others of my working group in a somewhat remote location, in the hopes of getting everyone's full attention. After the usual agenda setting and introductions, we directly start working. First of all, we prioritize requirements and then start with the most important requirement. For each requirement, everybody on the team gets three minutes to decide how he or she would design a model for that requirement, using any tools they prefer. Most of us simply draw on the ample whiteboards we have in the room. Everybody then presents their design, and the others give feedback about aspects they like or dislike. During all the time, I note down the likes and dislikes, and consolidate them into a single conceptual model using a UML modelling software. After an intense day, we've gone through all requirements. While the others are off to enjoy a well-deserved beer on the patio, I finalize the integrated draft model.</p>
   </blockquote>
 
   <p>One of the key challenges we have to resolve is to pick the right extension pattern. We discuss two main extension patterns - <a href="/patterns/inheritance.html">Inheritance</a> and <a href="/patterns/association.html">Association</a>. The main difference is that when we use <code>inheritance</code>, we will have a single object that complies to the requirements of the INSPIRE, while when we use <code>Association</code>, we will have two objects, where the <code>DesignatedArea</code> object will reference the ProtectedSite object. This is what the UML model for the Inheritance approach looks like:</p>
@@ -99,6 +106,8 @@ title:  An End-to-End-Tutorial - INSPIRE data specification extensions
   </div>
 
   <p>In the end, we decide to use the association approach, so that the core INSPIRE <code>ProtectedSite</code> object can also be used independent of all the CDDA-related properties.</p>
+
+  <h3>Set up the Extension Model</h3>
 
   <p>To create the association-based UML model in Enterprise Architect, proceed as follows:</p>
 
@@ -129,6 +138,8 @@ title:  An End-to-End-Tutorial - INSPIRE data specification extensions
     <li>Select the feature type <code>ProtectedSite</code>, and drag and drop it into your new diagram.</li>
     <li>Select the data type <code>DesignationType</code>, and drag and drop it into your new diagram.</li>
   </ol>
+
+  <h3>Add a new Type and new properties</h3>
 
   <p>The next step is to add your own extension by creating a new type. Proceed as follows:</p>
 
@@ -177,6 +188,8 @@ title:  An End-to-End-Tutorial - INSPIRE data specification extensions
     <li>Confirm with &laquo;Close&raquo;.</li>
   </ol>
 
+  <h3>Add a new codelist</h3>
+
   <p>In some cases, there won't be an appropriate type to use for a property. You will have to create it yourself. In the CDDA model, it is particularity common that we need to add or <a href="/patterns/codelist-extension.html">extend codelists</a>. The following process describes how to add a new code list and needs to be repeated for each such code list type:</p>
 
   <ol class="workflow">
@@ -194,8 +207,10 @@ title:  An End-to-End-Tutorial - INSPIRE data specification extensions
       </div>
     </li>
     <li>Confirm creation of coded values with &laquo;Close&raquo;.</li>
-    <li>Now that you have created the new Codelist type, you can use it as an attribute type in the <code>DesignatedArea</code> class.</li>
+    <li>Now that you have created the new codelist type, you can use it as an attribute type in the <code>DesignatedArea</code> class.</li>
   </ol>
+
+  <h3>Extend an existing codelist</h3>
 
   <p>To extend a code list in UML, go through these steps:</p>
 
@@ -221,7 +236,7 @@ title:  An End-to-End-Tutorial - INSPIRE data specification extensions
   <p>When you have repeated these steps for all required properties, we get the following model:</p>
 
   <div style="margin: 20px">
-    <img src="/images/tutorial-uml-association.png" title="UML Diagram for Association-based Extension" style="width: 100%; min-width: 400px;">
+    <img src="/images/tutorial-uml-final-diagram.png" title="UML Diagram for Association-based Extension with Codelists" style="width: 100%; min-width: 400px;">
   </div>
 
   <h2><a href="#validation" id="validation" name="validation"></a>Validation</h2>

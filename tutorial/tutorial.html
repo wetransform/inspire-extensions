@@ -297,20 +297,152 @@ java -jar ShapeChange-2.1.0.jar -Dfile.encoding=UTF-8 -c http://shapechange.net/
 
   <p>After creating the target schemas, it's now time for us to see what real data using these schemas looks like. Since the end product we need to create is INSPIRE GML, we will start with data integration into the GML Application Schema. We will use <a href="https://www.wetransform.to/products/halestudio/" target="_blank">hale studio 2.9.4+</a>  for that purpose.</p>
 
-  <h3>Performance Metrics</h3>
-
-  <p>TODO</p>
+  <p>In hale studio, we define a transformation by mapping elements of a source schema to elements of the target schema. The sum of these mappings is called an <strong>Alignment</strong>. The source schema is the logical model of our existing data. In this case, we use a <a href="http://www.eea.europa.eu/data-and-maps/data/nationally-designated-areas-national-cdda-10#tab-gis-data" target="_blank">SQlite CDDA database (450MB)</a> as source data. The target schema is the GML Application Schema we've just generated.  Let's start hale studio and set up the transformation project first:</p>
 
   <ol class="workflow">
-    <li>Model Coverage</li>
-    <li>Source Data Coverage</li>
-    <li>Instance complexity</li>
-    <li>Schema complexity</li>
+    <li>In hale, click on File &rarr; Import &rarr; Source Schema, and click &laquo;Browse&raquo; to pick the SQLite file you've downloaded.</li>
+    <li>Next, click on File &rarr; Import &rarr; Target Schema, and click &laquo;Browse&raquo; to pick the GML Application Schema file you've generated before. Click &laquo;Finish&raquo;.</li>
+    <li>Now, add the imported type <code>ProtectedSite</code> to the mappable types, so that it is visible as part of the target schema. In the main tool bar, go to the icon <img src="/images/tutorial-integration-02b-icon-mappable-types.png" class="img-rounded" /> (title: Edit mapping relevant target types). IN the dialog that appears, enter <code>ProtectedSite</code> in the search bar and pick the type from the field below. After you've added <code>ProtectedSite</code>, your project should look like this:
+      <div style="margin: 20px">
+        <img src="/images/tutorial-integration-01-schemas.png" title="hale studio with loaded schemas" style="width: 100%; min-width: 400px;">
+      </div>
+    </li>
+    <li>In hale, you can use a data set to do live transformation and validation while you author the alignment. To enable this feature, activate &laquo;instance sampling&raquo; by clicking the left of the two icons in the red box:
+      <div style="margin: 20px">
+        <img src="/images/tutorial-integration-02-sampling.png" title="Enable instance sampling" style="width: 333px; margin-left: auto; margin-right: auto">
+      </div>
+      You can click on the right icon to configure the sampling, e.g. to indicate with how many feature you'd like to work.
+    </li>
+    <li>Next, we need to load the actual source data to work with. Go to File &rarr; Import &rarr; Source Data, and click &laquo;Browse&raquo; to pick the SQLite file you've downloaded. <em>Note that if you click the List icon left of the file input field, you can chose from the most recent files you've worked with - your SQLite DB will also be among them.</em></li>
   </ol>
+
+  <p>Now, it is time to set up the alignment itself. In hale, we have two different levels of transformation functions:</p>
+
+  <ol>
+    <li>Type-level functions: These are used on entire objects, e.g. a <code>CadastralParcel</code>.</li>
+    <li>Property-level functions: These are used on individual properties of objects, e.g. an <code>id</code> of a <code>CadastralParcel</code>.</li>
+  </ol>
+
+  <p>We start by defining the type-level functions first:</p>
+
+  <ol class="workflow">
+    <li>On the left-hand source side, select <code>CDDA_v13_sites</code>, on the right-hand target side, select <code>ProtectedSite</code>.</li>
+    <li>Click on the double-arrow icon <img src="/images/tutorial-integration-02c-icon-select-function.png" class="img-rounded" /> in the middle between the source and the target schema. Hale studio now suggests a number of applicable functions. Pick &laquo;Retype&raquo; and then click &laquo;Finish&raquo;. &laquo;Retype&raquo; is a simple function that creates one target object for each source object. hale studio now runs the transformation and validates the output. Your project should look like this:
+      <div style="margin: 20px">
+        <img src="/images/tutorial-integration-03-first-retype.png" title="hale studio with loaded schemas, data and transformed data" style="width: 100%; min-width: 400px;">
+      </div>
+      Do you see all the numbers next to the elements of the source schema and the <code>ProtectedSite</code> type in the target schema? This is how the application tells you for which parts of the source and target schema features data is currently loaded and transformed.
+    </li>
+    <li>On the left-hand source side, select <code>CDDA_v13_sites</code>, on the right-hand target side, select <code>DesignatedArea.</code>.</li>
+    <li>Click on the double-arrow icon <img src="/images/tutorial-integration-02c-icon-select-function.png" class="img-rounded" /> in the middle between the source and the target schema and pick &laquo;Retype&raquo;, then click &laquo;Finish&raquo;. Again, the transformation is executed.</li>
+    <li>Now it's time to take a look at the validation results that the software generated. In the &laquo;Report List&raquo; view, click on the top-most report called &laquo;Instance validation&raquo;. In the &laquo;Properties View&raquo;, you'll see a summary of the validation. To get more details, click on &laquo;Warnings&raquo; to see the following information:
+      <div style="margin: 20px">
+        <img src="/images/tutorial-integration-04-validation.png" title="hale studio validation of transformed data" style="width: 100%; min-width: 400px;">
+      </div>
+    </li>
+  </ol>
+
+  <p>These warnings indicate that the <code>ProtectedSite</code> and <code>DesignatedArea</code> objects we've now created miss several required properties. To resolve all these warning, we need to create these required properties correctly. We do so by using property-level transformation functions:</p>
+
+  <ol class="workflow">
+    <li>On the left-hand source side, select the property <code>SITE_AREA</code> in the type <code>CDDA_v13_sites</code>, on the right-hand target side, select the property <code>area</code> in the type <code>DesignatedArea</code>.</li>
+    <li>Click on the double-arrow icon <img src="/images/tutorial-integration-02c-icon-select-function.png" class="img-rounded" /> and pick &laquo;Rename&raquo;, then click &laquo;Finish&raquo;. &laquo;Rename&raquo; is an all-purpose transformation function that copies the value from the source property to the target property, and applies any required conversions, e.g. from <code>Number</code> to <code>String</code>.</li>
+    <li>Take a look at the validation report details again. You will now find that while the message related to <code>area</code> is gone, there is a new message for <code>uom</code> (Unit of Measurement), an attribute of the <code>area</code> property.</li>
+    <li>On the right-hand target side, select the attribute <code>uom</code> of the property <code>area</code> in the type <code>DesignatedArea</code>.</li>
+    <li>Click on the double-arrow icon <img src="/images/tutorial-integration-02c-icon-select-function.png" class="img-rounded" /> and pick &laquo;Assign&raquo;. Assign is a function with which you can write a constant value to a target property. Click &laquo;Next&raquo;, then enter <code>har</code> (code for hectares) into the text input field:
+      <div style="margin: 20px">
+        <img src="/images/tutorial-integration-05-assign.png" title="hale studio assign a constant value" style="width: 60%; min-width: 400px; margin-left: 20%; margin-right: 20%">
+      </div>
+      Click &laquo;Finish&raquo;, and see the transformation and validation execute.</li>
+    <li>On the left-hand source side, select the properties <code>LAT</code> and <code>LON</code> in the type <code>CDDA_v13_sites</code>, on the right-hand target side, select the sub-property <code>Point</code> of <code>representativePoint</code> in the type <code>DesignatedArea</code>.</li>
+    <li>Click on <img src="/images/tutorial-integration-02c-icon-select-function.png" class="img-rounded" /> and pick &laquo;Ordinates to Point&raquo;. This function takes two numeric values and creates a <code>Point</code> geometry from them.
+      <div style="margin: 20px">
+        <img src="/images/tutorial-integration-06-ordinates-to-point.png" title="hale studio transform ordinates to Point geometry" style="width: 70%; min-width: 400px; margin-left: 15%; margin-right: 15%">
+      </div>
+      On the first configuration page, make sure that you set the Source for <code>X</code> to <code>LON</code> and the source for <code>Y</code> to <code>LAT</code>. Also, set the source for <code>z</code> to <code>none</code>, then click &laquo;Finish&raquo;:
+      <div style="margin: 20px">
+        <img src="/images/tutorial-integration-06b-ordinates-to-point.png" title="hale studio transform ordinates to Point geometry" style="width: 60%; min-width: 400px; margin-left: 20%; margin-right: 20%">
+      </div>
+    <li>Perform the same steps of choosing the source and target schema elements and to connect them with a transformation function for the following properties. If the function is accompanies by text in round brackets (...), use these values as parameters:
+      <ul>
+        <li><code>SITE_CODE</code> &larr; Rename &rarr; <code>cddaId</code></li>
+        <li><code>SITE_CODE</code> &larr; Formatted String (DesignatedArea_{SITE_CODE}) &rarr; <code>id</code></li>
+        <li><code>CDDA_COORDINATES_CODE</code> &larr; Rename &rarr; <code>coordinatesCode.href</code></li>
+        <li><code>CDDA_DISSEMINATION_CODE</code> &larr; Rename &rarr; <code>dataDissemination.href</code></li>
+        <li><code>CDDA_RESOLUTION_CODE</code> &larr; Rename &rarr; <code>resolutionCode.href</code></li>
+        <li><code>PARENT_ISO</code> &larr; Rename &rarr; <code>isoCountryCode.href</code></li>
+        <li><code>ISO3</code> &larr; Rename &rarr; <code>isoEntityCode.href</code></li>
+        <li><code>IUCNCAT</code> &larr; Rename &rarr; <code>iucnCat.href</code></li>
+        <li><code>MAJOR_ECOSYSTEM_TYPE</code> &larr; Rename &rarr; <code>majorEcosystemType.href</code></li>
+        <li><code>MARINE_AREA_PERC</code> &larr; Rename &rarr; <code>marineAreaPercentage</code></li>
+        <li><code>SITE_NAME</code> &larr; Rename &rarr; <code>siteName.GeographicalName.spelling.SpellingOfName.text</code></li>
+        <li><code>LAST_LEG_CHNG_YEAR</code> &larr; Date Extraction (yyyy) &rarr; <code>legalFoundationDate</code></li>
+        <li><code>LAST_LEG_CHNG_CODE</code> &larr; Rename &rarr; <code>legalFoundationDocument.CI_Citation.title.CharacterString.CharacterString</code></li>
+        <li><code>LAST_LEG_CHNG_YEAR</code> &larr; Rename &rarr; <code>legalFoundationDocument.CI_Citation.date.href</code></li>
+        <li><code>NOTES</code> &larr; Rename &rarr; <code>remark</code></li>
+      </ul>
+      When all validation constraints are fulfilled, you've completed the mapping successfully!
+    </li>
+    <li>Now, create property mappings for the <code>ProtectedSite</code> type as well. The full mapping table for that is available <a href="https://taskman.eionet.europa.eu/issues/69412">here</a>.</li>
+  </ol>
+
+  <p>Now that we've created complete <code>ProtectedSite</code> and <code>DesignatedArea</code> features, we still need to link them. For that purpose, we need to add one more mapping that create a reference from a <code>DesignatedArea</code> to its respective <code>ProtectedSite</code> object:</p>
+
+  <table class="alert-warning important-info">
+    <tr>
+      <td style="width:3em"><div class="important-info-icon"><span class="glyphicon glyphicon-exclamation-sign" style="font-size:2em"></span></div></td>
+      <td>Note: We generate the <code>ProtectedSite</code> objects in this project as well, but in a real-world implementation, you should reference external, already existing <code>ProtectedSite</code> objects. A reference to an external object depends on a stable, permanent identifier that is resolvable (usually by means of a central registry), and is something that is out of scope for this tutorial.</td>
+    </tr>
+  </table>
+
+  <ol class="workflow">
+    <li>On the left-hand source side, select the property <code>SITE_CODE</code> in the type <code>CDDA_v13_sites</code>, on the right-hand target side, pick the attribute <code>href</code> of the property <code>siteDescribed</code> the type <code>DesignatedArea</code>.</li>
+    <li>Click on <img src="/images/tutorial-integration-02c-icon-select-function.png" class="img-rounded" /> and pick &laquo;Formatted String&raquo;. This function takes any number of input variables and writes out a composite, formatted string. We'll configure it like this:
+      <div style="margin: 20px">
+        <img src="/images/tutorial-integration-07-create-reference.png" title="hale studio transform create internal reference" style="width: 60%; min-width: 400px; margin-left: 20%; margin-right: 20%">
+      </div>
+      The anchor (#) allows us to point to another object in the same document by its <code>id</code>.
+    </li>
+    <li>Now, your project should look like this:
+      <div style="margin: 20px">
+        <img src="/images/tutorial-integration-08-whole-project.png" title="hale studio transform whole project" style="width: 100%; min-width: 400px;">
+      </div>
+    </li>
+  </ol>
+
+  <p>To export the whole data as INSPIRE GML, proceed as follows:</p>
+
+  <ol class="workflow">
+    <li>In the Menu, go to Transformation &rarr; Transform External Data... and then pick the downloaded SQLIte file from the list of recent files again (or browse to identify it). Click &laquo;Next&raquo;.</li>
+    <li>Pick &laquo;GML WFS 2.0 FeatureCollection&raquo; and click &laquo;Next&raquo;.</li>
+    <li>Pick which file you want to save the result to, and enable validation. Click &laquo;Next&raquo;.</li>
+    <li>Configure your CRS options, and click &laquo;Next&raquo;:
+      <div style="margin: 20px">
+        <img src="/images/tutorial-integration-09-exort.png" title="hale studio export" style="width: 60%; min-width: 400px; margin-left: 20%; margin-right: 20%">
+      </div>
+    </li>
+    <li>Bypass the Feed options and leave the default GML options as they are. Click &laquo;Finish&raquo; and let the transformation run!</li>
+  </ol>
+
+  <h3>Performance Metrics</h3>
+
+  <p>Now it's time to check how well the model extension we've designed matches our existing data:</p>
+
+  <ol class="workflow">
+    <li><strong>Model Coverage:</strong> Have we actually used all parts of our target model or are there parts where we don't have data? As we can see, there are some properties such as <code>eionetInstitute</code> we didn't initially populate, so we can either investiagte where to get matching source data or whether we can remove that property from the model.</li>
+    <li><strong>Source Data Coverage:</strong> Have we been able to map all objects and all properties from the source model to the target model? Looks pretty good, only two fields of the source SQLite table are unmatched: <code>DESIG_ABBR</code> and <code>NUTS</code> don't seem to have a place in the CDDA INSPIRE extension. Again we need to decide: Should the next iteration of the model include properties for these values, or should we leave them out?</li>
+    <li><strong>Instance complexity:</strong> How big are the individual instances? do they have a complex net of references? In this case, the instances are relatively simple in structure, with just one reference:
+      <pre data-line="41" class="line-numbers" data-src="/tutorial/examples/single-designated-area.xml"><code></code></pre>
+      Note that in line 42, we reference the <code>ProtectedSite</code> object we've also created.
+    </li>
+    <li><strong>Schema complexity:</strong> Is the schema overly complex, e.g. in terms of nesting depth? We have a few places such as <code>legalFoundationDocument</code> that have a high nesting depth. Some tools will benefit from simplification here.</li>
+  </ol>
+
+  <p>Happy with the outcome? OK, so let's see if we can publish this transformed data set to build a Download Service.</p>
 
   <h2><a href="#publication" id="publication" name="publication"></a>Publication</h2>
 
-  <p>TODO</p>
+  <p>Coming soon. TODO.</p>
 
   <h2>Coda</h2>
 

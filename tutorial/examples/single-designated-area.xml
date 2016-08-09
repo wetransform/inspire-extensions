@@ -1,0 +1,51 @@
+<wfs:member>
+    <cdda:DesignatedArea gml:id="DesignatedArea_555562020">
+        <ps:geometry>
+            <gml:Point gml:id="_e6b46ea4-52fb-45e8-aeb2-06324dd3a8c0" srsDimension="2">
+                <gml:pos>-7.655134677886963 54.51955032348633</gml:pos>
+            </gml:Point>
+        </ps:geometry>
+        <ps:inspireID>
+            <base:Identifier>
+                <base:localId>555562020</base:localId>
+                <base:namespace>GBR.GBR</base:namespace>
+            </base:Identifier>
+        </ps:inspireID>
+        <ps:legalFoundationDate xsi:nil="true"/>
+        <ps:legalFoundationDocument xsi:nil="true"/>
+        <ps:siteDesignation xsi:nil="true"/>
+        <ps:siteName>
+            <gn:GeographicalName>
+                <gn:language xsi:nil="true"/>
+                <gn:nativeness xsi:nil="true"/>
+                <gn:nameStatus xsi:nil="true"/>
+                <gn:sourceOfName xsi:nil="true"/>
+                <gn:pronunciation xsi:nil="true"/>
+                <gn:spelling>
+                    <gn:SpellingOfName>
+                        <gn:text>Crockanaver</gn:text>
+                        <gn:script xsi:nil="true"/>
+                    </gn:SpellingOfName>
+                </gn:spelling>
+            </gn:GeographicalName>
+        </ps:siteName>
+        <ps:siteProtectionClassification xsi:nil="true"/>
+        <cdda:cddaId>555562020</cdda:cddaId>
+        <cdda:nationalId>NASSI388</cdda:nationalId>
+        <cdda:protectedAreaType xlink:href="http://inspire.ec.europa.eu/codelist/IUCNDesignationValue/ProtectedLandscapeOrSeascape"></cdda:protectedAreaType>
+        <cdda:area uom="har">1.5044000148773191</cdda:area>
+        <cdda:majorEcosystemType/>
+        <cdda:iucnCat xlink:href="IV"></cdda:iucnCat>
+        <cdda:isoCountryCode xlink:href="GBR"></cdda:isoCountryCode>
+        <cdda:isoEntityCode xlink:href="GBR"></cdda:isoEntityCode>
+        <cdda:coordinatesCode xlink:href="02"></cdda:coordinatesCode>
+        <cdda:siteDescribed xlink:href="#ProtectedSite_555562020"></cdda:siteDescribed>
+        <cdda:dataDissemination xlink:href="01"></cdda:dataDissemination>
+        <cdda:resolutionCode xlink:href="05"></cdda:resolutionCode>
+        <cdda:representativePoint>
+            <gml:Point gml:id="_442011e5-2925-4861-b180-1b4961705a3e" srsDimension="2">
+                <gml:pos>-7.655134677886963 54.51955032348633</gml:pos>
+            </gml:Point>
+        </cdda:representativePoint>
+    </cdda:DesignatedArea>
+</wfs:member>

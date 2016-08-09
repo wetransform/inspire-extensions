@@ -432,7 +432,7 @@ java -jar ShapeChange-2.1.0.jar -Dfile.encoding=UTF-8 -c http://shapechange.net/
     <li><strong>Model Coverage:</strong> Have we actually used all parts of our target model or are there parts where we don't have data? As we can see, there are some properties such as <code>eionetInstitute</code> we didn't initially populate, so we can either investiagte where to get matching source data or whether we can remove that property from the model.</li>
     <li><strong>Source Data Coverage:</strong> Have we been able to map all objects and all properties from the source model to the target model? Looks pretty good, only two fields of the source SQLite table are unmatched: <code>DESIG_ABBR</code> and <code>NUTS</code> don't seem to have a place in the CDDA INSPIRE extension. Again we need to decide: Should the next iteration of the model include properties for these values, or should we leave them out?</li>
     <li><strong>Instance complexity:</strong> How big are the individual instances? do they have a complex net of references? In this case, the instances are relatively simple in structure, with just one reference:
-      <pre data-line="41" class="line-numbers" data-src="/tutorial/examples/single-designated-area.xml"><code></code></pre>
+      <pre data-line="42" class="line-numbers" data-src="/tutorial/examples/single-designated-area.xml"><code></code></pre>
       Note that in line 42, we reference the <code>ProtectedSite</code> object we've also created.
     </li>
     <li><strong>Schema complexity:</strong> Is the schema overly complex, e.g. in terms of nesting depth? We have a few places such as <code>legalFoundationDocument</code> that have a high nesting depth. Some tools will benefit from simplification here.</li>

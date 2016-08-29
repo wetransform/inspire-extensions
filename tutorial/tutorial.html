@@ -23,7 +23,7 @@ title:  An End-to-End-Tutorial - INSPIRE data specification extensions
   <table class="alert-warning important-info">
     <tr>
       <td style="width:3em"><div class="important-info-icon"><span class="glyphicon glyphicon-exclamation-sign" style="font-size:2em"></span></div></td>
-      <td>We use an existing INSPIRE extension for CDDA for the purpose of this example. If you need to deliver CDDA data, please use the official extension, and not a custom variant you might build using this tutorial.</td>
+      <td>In this tutorial, we build a custom variant of the existing CDDA INSPIRE extension. If you need to deliver CDDA data, please use the <a href="https://svn.eionet.europa.eu/repositories/INSPIREDataModels/cdda-data-model/Cdda_V3.0-view/CddaReporting/index.htm?goto=1:1:7" target="_blank">official extension</a>, and not a custom variant we might build using this tutorial.</td>
     </tr>
   </table>
 
@@ -297,7 +297,7 @@ java -jar ShapeChange-2.1.0.jar -Dfile.encoding=UTF-8 -c http://shapechange.net/
 
   <p>After creating the target schemas, it's now time for us to see what real data using these schemas looks like. Since the end product we need to create is INSPIRE GML, we will start with data integration into the GML Application Schema. We will use <a href="https://www.wetransform.to/products/halestudio/" target="_blank">hale studio 2.9.4+</a>  for that purpose.</p>
 
-  <p>In hale studio, we define a transformation by mapping elements of a source schema to elements of the target schema. The sum of these mappings is called an <strong>Alignment</strong>. The source schema is the logical model of our existing data. In this case, we use a <a href="http://www.eea.europa.eu/data-and-maps/data/nationally-designated-areas-national-cdda-10#tab-gis-data" target="_blank">SQlite CDDA database (450MB)</a> as source data. The target schema is the GML Application Schema we've just generated.  Let's start hale studio and set up the transformation project first:</p>
+  <p>In hale studio, we define a transformation by mapping elements of a source schema to elements of the target schema. The sum of these mappings is called an <strong>Alignment</strong>. The source schema is the logical model of our existing data. In this case, we use a <a href="http://www.eea.europa.eu/data-and-maps/data/nationally-designated-areas-national-cdda-10#tab-gis-data" target="_blank">SQlite CDDA database (450MB)</a> as source data. The target schema is the GML Application Schema we've just generated. Let's start hale studio and set up the transformation project first:</p>
 
   <ol class="workflow">
     <li>In hale, click on File &rarr; Import &rarr; Source Schema, and click &laquo;Browse&raquo; to pick the SQLite file you've downloaded.</li>
@@ -319,8 +319,8 @@ java -jar ShapeChange-2.1.0.jar -Dfile.encoding=UTF-8 -c http://shapechange.net/
   <p>Now, it is time to set up the alignment itself. In hale, we have two different levels of transformation functions:</p>
 
   <ol>
-    <li>Type-level functions: These are used on entire objects, e.g. a <code>CadastralParcel</code>.</li>
-    <li>Property-level functions: These are used on individual properties of objects, e.g. an <code>id</code> of a <code>CadastralParcel</code>.</li>
+    <li>Type-level functions: These are used on entire objects, e.g. a <code>ProtectedSite</code>.</li>
+    <li>Property-level functions: These are used on individual properties of objects, e.g. an <code>id</code> of a <code>ProtectedSite</code>.</li>
   </ol>
 
   <p>We start by defining the type-level functions first:</p>

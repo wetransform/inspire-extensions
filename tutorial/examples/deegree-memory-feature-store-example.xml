@@ -1,0 +1,7 @@
+<MemoryFeatureStore configVersion="3.0.0"
+                    xmlns="http://www.deegree.org/datasource/feature/memory"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xsi:schemaLocation="http://www.deegree.org/datasource/feature/memory http://schemas.deegree.org/datasource/feature/memory/3.0.0/memory.xsd">
+    <!-- Replace the URL to the Protected Sites schema below with a reference to your CDDA reporting schema. -->
+    <GMLSchema version="GML_33">http://inspire.ec.europa.eu/schemas/ps/4.0/ProtectedSites.xsd</GMLSchema>
+</MemoryFeatureStore>

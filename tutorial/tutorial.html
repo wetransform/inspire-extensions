@@ -424,7 +424,7 @@ java -jar ShapeChange-2.1.0.jar -Dfile.encoding=UTF-8 -c http://shapechange.net/
     <li>Bypass the Feed options and leave the default GML options as they are. Click &laquo;Finish&raquo; and let the transformation run!</li>
   </ol>
 
-  <h3>Performance Metrics</h3>
+  <h3>Analysis Metrics</h3>
 
   <p>Now it's time to check how well the model extension we've designed matches our existing data:</p>
 
@@ -442,7 +442,61 @@ java -jar ShapeChange-2.1.0.jar -Dfile.encoding=UTF-8 -c http://shapechange.net/
 
   <h2><a href="#publication" id="publication" name="publication"></a>Publication</h2>
 
-  <p>Coming soon. TODO.</p>
+  <p>To publish the resulting INSPIRE GML file we've created, we will use a very simple solution - a <a href="http://download.deegree.org/documentation/3.2.0/html/featurestores.html#memory-feature-store" target="_blank">deegree Memory Feature Store</a>. This simple approach only works with relatively small data sets, but is by far the fastest way at the time of this writing to get from a complex GML file to a Web Feature Service 2.0 (INSPIRE Direct Access Download Service) and a Web Map Service 1.3.0 (INSPIRE View Service).</p>
+
+  <table class="alert-warning important-info">
+    <tr>
+      <td style="width:3em"><div class="important-info-icon"><span class="glyphicon glyphicon-exclamation-sign" style="font-size:2em"></span></div></td>
+      <td>Are you familiar with <a href="https://www.docker.com/" target="_blank">docker</a> and have already set it up on your machine? Get the <a href="https://github.com/tfr42/deegree-docker" target="_blank">deegree3 docker image</a> and run it according to the instructions on the Github repository. It comes with everything you'll need, even advanced setups with a PostGreSQL database backend.</td>
+    </tr>
+  </table>
+
+  <p>First, we'll set up deegree's Workspace and an Memory Feature Store.</p>
+
+  <ol class="workflow">
+    <li>Start deegree.</li>
+    <li>If you run it locally with default settings, your default browser will be started and will go go to <code></code> the services console. If the automatic launch didn't work, access the console by typing <code>http://localhost:8080</code> in the location bar of your browser. You should now see the console:
+      <div style="margin: 20px">
+        <img src="/images/deegree-console-start.png" title="deegree console start" style="width: 80%; min-width: 400px; margin-left: 10%; margin-right: 10%">
+      </div>
+    </li>
+    <li>Click the workspaces link on the left and click the <strong>Import</strong> link labeled <code>deegree-workspace-inspire</code>. This will set up an in-memory feature store as well as create a default configuration for a View and a Download Service. After deegree has finished the download, the new workspace will be listed in section &laquo;Available workspaces&raquo;.</li>
+    <li>As the <code>deegree-workspace-inspire</code> is pre-configured only for standard INSPIRE Annex I themes, we need to add some configuration for our CDDA schema. Create the Feature Store configuration file in an editor by customizing this example:
+      <pre class="line-numbers" data-src="/tutorial/examples/deegree-memory-feature-store-example.xml">
+      <code class="language-xml">
+      </code>
+      </pre>
+    </li>
+    <li>Now, go to &laquo;data stores/features&raquo; and enter a name (e.g. <code>inspire_cdda</code>), select <code>Memory</code> from the dropdown, and click &laquo;Create New&raquo;.</li>
+    <li>The new feature store is now added to the list. Click &laquo;Edit&raquo;and paste your configuration file in. Save the edits and return to &laquo;General/Workspaces&raquo;.</li>
+    <li>Activate the downloaded workspace by clicking <strong>Start</strong>. This initializes the workspace and may take a while. When the workspace appears next to &laquo;Active workspace&raquo;, your deegree service is now running.</li>
+  </ol>
+
+  <p>After we've set up the workspace and feature store configuration, we need to write the data we've previously transformed to the feature store. We will do so via deegree's Transactional Web Feature Service (WFS-T) capability, directly from hale studio:</p>
+
+  <ol class="workflow">
+    <li>In hale, open the transformation project we've created previously.</li>
+    <li>Go to &laquo;File&raquo;, then to &laquo;Export&raquo; and &laquo;Transformed Data&raquo;. Pick &laquo;WFS-T (Partitioned Upload)&raquo; as the export format.
+      <div style="margin: 20px">
+        <img src="/images/hale-wfst.png" title="hale studio WFS-T connection" style="width: 60%; min-width: 400px; margin-left: 20%; margin-right: 20%">
+      </div>
+    </li>
+    <li>In the next screen, click the button &laquo;...&raquo; to the right of the text entry field labelled &laquo;Transaction URL&raquo;. Enter the GetCapabilities URL of your Web Feature Service. Assuming default settings, it will be very similar to <code>http://localhost:8080/deegree-webservices-3.3.18/services/CDDA?service=WFS&version=2.0.0&request=GetCapabilities</code>. hale will automatically derive the Transaction URL from the capabilities.</li>
+    <li>Select WFS Version 2.0.0, and click &laquo;Next&raquo;</li>
+    <li>Now, we set the GML writer options. You will get the most reliable results when you explicitly convert and declare the CRS, and since GML mandates counterclockwise polygon ring orientation, be sure to have these settings:
+      <div style="margin: 20px">
+        <img src="/images/hale-wfst-writeroptions.png" title="hale studio WFS-T Encoder Settings" style="width: 60%; min-width: 400px; margin-left: 20%; margin-right: 20%">
+      </div>
+    </li>
+    <li>Click &laquo;Next&raquo; again, and set the partitioning number. When all your features are small (no big geometries), you can use the default of <code>15.000</code>, otherwise use a lower number, e.g. <code>1.000</code>. The settings on the following pages can be left as-is, if you didn't change any of deegree's default settings. Click &laquo;Finish&raquo; and let the transformation and insertion run.</li>
+    <li>When the transactions have finished, go back to the deegree service console. Here, go to &laquo;Home&raquo; and click the link &laquo;see layers&raquo; next to <code>deegree-workspace-inspire</code>. YOu should a map like this:
+      <div style="margin: 20px">
+        <img src="/images/deegree-output.png" title="deegree Open layers map view after WFS-T Insertion" style="width: 100%; min-width: 400px;">
+      </div>
+    </li>
+  </ol>
+
+  <p>It works? We're done with the first iteration!</p>
 
   <h2>Coda</h2>
 

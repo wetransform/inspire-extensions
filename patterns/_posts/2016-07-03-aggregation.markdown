@@ -17,9 +17,9 @@ permalink:         /:categories/:title.html
 In aggregation, a whole data structure is made of parts belonging to one or more classes, such as a student belonging to multiple classes in their course of studies. Similar to composition, aggregation is a form of object combination. In software engineering, we often make a distinction between composition and aggregation:
 
 1. In aggregation, the lifecycle of the contained object is independent of the lifecycle of the containing object. The contained object ("containee") can thus exist independently and be shared by more than one containing object.
-2. 1. In [composition](/patterns/composition.html), the lifecycle of the contained object is bound to the lifecycle of the containing object. There is exactly one object that owns the contained objects.
+2. In [composition](/patterns/composition.html), the lifecycle of the contained object is bound to the lifecycle of the containing object. There is exactly one object that owns the contained objects.
 
-In aggregation, the container is incomplete when it's missing the containee. A car without wheels isn't complete, but the wheel can be mounted on a different car. Note that the encoding for the [Association](/patterns/2016/06/03/association.html) pattern is the same as for aggregation. 
+In aggregation, the container is incomplete when it's missing the containee. A car without wheels isn't complete, but the wheel can be mounted on a different car. Note that the encoding for the [Association](/patterns/2016/06/03/association.html) pattern is the same as for aggregation.
 
 ## Structure
 
@@ -96,5 +96,3 @@ This pattern can be implemented on object-oriented platforms without special con
 ### Consumer Side
 
 Many GIS applications support nested composition structures to some degree. As an example, ArcGIS geodatabases support *Relationship classes* and client-sied *Relates*, which you can use to define both aggregation and composition associations between different classes. However, it's not possible to use nested properties for styling or in many analytic tools. For this purpose, you have to use client-side *Joins*.
-
-
